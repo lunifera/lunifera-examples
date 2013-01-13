@@ -4,9 +4,8 @@
     <groupId>org.lunifera.examples</groupId>
     <artifactId>org.lunifera.examples</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <relativePath>../../</relativePath>
   </parent>
-  <artifactId>org.lunifera.examples.p2.repo.juno</artifactId>
-  <packaging>eclipse-repository</packaging>
-  <name>P2 Repository for Examples</name>
-  <description>P2 Repository for Examples</description>
+  <artifactId>org.lunifera.examples.runtime.gyrex.vaadin</artifactId>
+  <packaging>eclipse-plugin</packaging>
 </project>

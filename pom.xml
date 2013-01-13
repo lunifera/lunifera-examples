@@ -6,26 +6,33 @@
 		<maven>3.0</maven>
 	</prerequisites>
 
+	<parent>
+		<groupId>org.lunifera</groupId>
+		<artifactId>org.lunifera</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
 	<groupId>org.lunifera.examples</groupId>
 	<artifactId>org.lunifera.examples</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	<name>Lunifera :: Examples : Parent POM</name>
+	<name>Lunifera :: OSGi bundles for web : Parent POM</name>
 
 	<properties>
 		<next-release>0.0.2-SNAPSHOT</next-release>
-		<tycho-version>0.16.0-SNAPSHOT</tycho-version>
-
-		<eclipse-p2>http://download.eclipse.org/releases/juno</eclipse-p2>
+		<tycho-version>0.16.0</tycho-version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<orbit-p2>http://download.eclipse.org/tools/orbit/downloads/drops/R20120526062928/repository/</orbit-p2>
-		<xtext-p2>http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/</xtext-p2>
-		<bpmn2-p2>https://hudson.eclipse.org/hudson/job/bpmn2-nightly/ws/org.eclipse.bpmn2.site/target/site/</bpmn2-p2>
-		<gemini-jpa-p2>https://hudson.eclipse.org/hudson/job/gemini-jpa/lastSuccessfulBuild/artifact/org.eclipse.gemini.jpa.updatesite/target/repository/</gemini-jpa-p2>
-		<m2e-buildhelper-p2>http://repository.tesla.io:8081/nexus/content/sites/m2e.extras/m2eclipse-buildhelper/0.15.0/N/0.15.0.201207090124/</m2e-buildhelper-p2>
-		<m2e-tycho-p2>http://repository.tesla.io:8081/nexus/content/sites/m2e.extras/m2eclipse-tycho/0.6.0/N/0.6.0.201207302152/</m2e-tycho-p2>
+		<vaadin-version>7.0.0.beta11</vaadin-version>
+		<shiro-version>1.2.1</shiro-version>
+		<vaadin-icepush-version>0.5.4</vaadin-icepush-version>
+		<icepush-version>3.0.1</icepush-version>
+		<icepush-gwt-version>1.0.0</icepush-gwt-version>
 	</properties>
+
+	<organization>
+		<name>Lunifera.org</name>
+		<url>www.lunifera.org</url>
+	</organization>
 
 	<developers>
 		<developer>
@@ -40,125 +47,349 @@
 			<email>florian.pirchner@gmail.com</email>
 			<timezone>+2</timezone>
 		</developer>
-		<developer>
-			<id>haglo</id>
-			<name>Hans-George Glöckler</name>
-			<email>hans-georg.gloeckler@uni-ulm.de</email>
-			<timezone>+2</timezone>
-		</developer>
-        <developer>
-			<id>rhandsch</id>
-			<name>Robert Handschmann</name>
-			<email>robert.handschmann@gmail.com</email>
-			<timezone>+2</timezone>
-		</developer>
 	</developers>
+
+	<profiles>
+		<profile>
+			<id>prepare-for-next-release</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<build>
+				<defaultGoal>org.eclipse.tycho:tycho-versions-plugin:set-version</defaultGoal>
+				<plugins>
+					<plugin>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>tycho-versions-plugin</artifactId>
+						<version>${tycho-version}</version>
+						<executions>
+							<execution>
+								<id>change-next-release</id>
+								<goals>
+									<goal>set-version</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<newVersion>${next-release}</newVersion>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>runtime-web--build-widgetsets</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<build>
+				<defaultGoal>verify</defaultGoal>
+				<plugins>
+					<plugin>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>target-platform-configuration</artifactId>
+						<version>${tycho-version}</version>
+						<configuration>
+							<!-- <resolver>p2</resolver> -->
+							<!-- <pomDependencies>consider</pomDependencies> -->
+							<ignoreTychoRepositories>true</ignoreTychoRepositories>
+							<target>
+								<artifact>
+									<groupId>org.lunifera.examples</groupId>
+									<artifactId>org.lunifera.examples.runtime.web.target.kepler</artifactId>
+									<version>${project.version}</version>
+								</artifact>
+							</target>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+			<modules>
+				<module>runtime-web/org.lunifera.examples.runtime.web.target.kepler</module>
+
+				<module>runtime-web/org.lunifera.examples.runtime.web.ecp.uimodel.presentation.vaadin.widgetset</module>
+				<module>runtime-web/org.lunifera.examples.runtime.web.vaadin.standalone.widgetset</module>
+			</modules>
+		</profile>
+		<profile>
+			<id>runtime-web--p2-juno</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<build>
+				<defaultGoal>verify</defaultGoal>
+				<plugins>
+					<plugin>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>target-platform-configuration</artifactId>
+						<version>${tycho-version}</version>
+						<configuration>
+							<!-- <resolver>p2</resolver> -->
+							<!-- <pomDependencies>consider</pomDependencies> -->
+							<ignoreTychoRepositories>true</ignoreTychoRepositories>
+							<target>
+								<artifact>
+									<groupId>org.lunifera.examples</groupId>
+									<artifactId>org.lunifera.examples.runtime.web.target.juno</artifactId>
+									<version>${project.version}</version>
+								</artifact>
+							</target>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+			<modules>
+				<module>runtime-web/org.lunifera.examples.runtime.web.target.juno</module>
+
+				<!-- exclusive for P2 -->
+				<module>runtime-web/org.lunifera.examples.runtime.web.p2</module>
+
+				<!-- P2 features -->
+				<module>runtime-web/org.lunifera.examples.runtime.web.feature.vaadin.standalone</module>
+				<module>runtime-web/org.lunifera.examples.runtime.web.feature.ecp.uimodel.presentation.vaadin</module>
+				<!-- end P2 features -->
+
+				<!-- P2 bundles -->
+				<module>runtime-web/org.lunifera.examples.runtime.web.ecp.uimodel.presentation.vaadin</module>
+				<module>runtime-web/org.lunifera.examples.runtime.web.ecp.uimodel.presentation.vaadin.widgetset</module>
+
+				<module>runtime-web/org.lunifera.examples.runtime.web.vaadin.standalone</module>
+				<module>runtime-web/org.lunifera.examples.runtime.web.vaadin.standalone.widgetset</module>
+
+				<!-- end P2 bundles -->
+			</modules>
+		</profile>
+		<profile>
+			<id>runtime-web--p2-kepler</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<build>
+				<defaultGoal>verify</defaultGoal>
+				<plugins>
+					<plugin>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>target-platform-configuration</artifactId>
+						<version>${tycho-version}</version>
+						<configuration>
+							<!-- <resolver>p2</resolver> -->
+							<!-- <pomDependencies>consider</pomDependencies> -->
+							<ignoreTychoRepositories>true</ignoreTychoRepositories>
+							<target>
+								<artifact>
+									<groupId>org.lunifera.examples</groupId>
+									<artifactId>org.lunifera.examples.runtime.web.target.kepler</artifactId>
+									<version>${project.version}</version>
+								</artifact>
+							</target>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+			<modules>
+				<module>runtime-web/org.lunifera.examples.runtime.web.target.kepler</module>
+
+				<!-- exclusive for P2 -->
+				<module>runtime-web/org.lunifera.examples.runtime.web.p2</module>
+
+				<!-- P2 features -->
+				<module>runtime-web/org.lunifera.examples.runtime.web.feature.vaadin.standalone</module>
+				<module>runtime-web/org.lunifera.examples.runtime.web.feature.ecp.uimodel.presentation.vaadin</module>
+				<!-- end P2 features -->
+
+				<!-- P2 bundles -->
+				<module>runtime-web/org.lunifera.examples.runtime.web.ecp.uimodel.presentation.vaadin</module>
+				<module>runtime-web/org.lunifera.examples.runtime.web.ecp.uimodel.presentation.vaadin.widgetset</module>
+
+				<module>runtime-web/org.lunifera.examples.runtime.web.vaadin.standalone</module>
+				<module>runtime-web/org.lunifera.examples.runtime.web.vaadin.standalone.widgetset</module>
+
+				<!-- end P2 bundles -->
+			</modules>
+		</profile>
+		
+		<profile>
+			<id>runtime-gyrex--build-widgetsets</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<build>
+				<defaultGoal>verify</defaultGoal>
+				<plugins>
+					<plugin>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>target-platform-configuration</artifactId>
+						<version>${tycho-version}</version>
+						<configuration>
+							<!-- <resolver>p2</resolver> -->
+							<!-- <pomDependencies>consider</pomDependencies> -->
+							<ignoreTychoRepositories>true</ignoreTychoRepositories>
+							<target>
+								<artifact>
+									<groupId>org.lunifera.examples</groupId>
+									<artifactId>org.lunifera.examples.gyrex.target.kepler</artifactId>
+									<version>${project.version}</version>
+								</artifact>
+							</target>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+			<modules>
+				<module>runtime-gyrex/org.lunifera.examples.runtime.gyrex.target.kepler</module>
+				<module>runtime-gyrex/org.lunifera.examples.runtime.gyrex.vaadin.widgetset</module>
+			</modules>
+		</profile>
+		<profile>
+			<id>runtime-gyrex--p2-juno</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<build>
+				<defaultGoal>verify</defaultGoal>
+				<plugins>
+					<plugin>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>target-platform-configuration</artifactId>
+						<version>${tycho-version}</version>
+						<configuration>
+							<!-- <resolver>p2</resolver> -->
+							<!-- <pomDependencies>consider</pomDependencies> -->
+							<ignoreTychoRepositories>true</ignoreTychoRepositories>
+							<target>
+								<artifact>
+									<groupId>org.lunifera.examples</groupId>
+									<artifactId>org.lunifera.examples.runtime.gyrex.target.juno</artifactId>
+									<version>${project.version}</version>
+								</artifact>
+							</target>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+			<modules>
+				<module>runtime-gyrex/org.lunifera.examples.runtime.gyrex.target.juno</module>
+
+				<!-- exclusive for P2 -->
+				<module>runtime-gyrex/org.lunifera.examples.runtime.gyrex.p2</module>
+
+				<!-- P2 features -->
+				<module>runtime-gyrex/org.lunifera.examples.runtime.gyrex.feature.vaadin</module>
+				<!-- end P2 features -->
+
+				<!-- P2 bundles -->
+				<module>runtime-gyrex/org.lunifera.examples.runtime.gyrex.vaadin</module>
+				<module>runtime-gyrex/org.lunifera.examples.runtime.gyrex.vaadin.widgetset</module>
+
+				<!-- end P2 bundles -->
+			</modules>
+		</profile>
+		<profile>
+			<id>runtime-gyrex--p2-kepler</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<build>
+				<defaultGoal>verify</defaultGoal>
+				<plugins>
+					<plugin>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>target-platform-configuration</artifactId>
+						<version>${tycho-version}</version>
+						<configuration>
+							<!-- <resolver>p2</resolver> -->
+							<!-- <pomDependencies>consider</pomDependencies> -->
+							<ignoreTychoRepositories>true</ignoreTychoRepositories>
+							<target>
+								<artifact>
+									<groupId>org.lunifera.examples</groupId>
+									<artifactId>org.lunifera.examples.runtime.gyrex.target.kepler</artifactId>
+									<version>${project.version}</version>
+								</artifact>
+							</target>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+			<modules>
+				<module>runtime-gyrex/org.lunifera.examples.runtime.gyrex.target.kepler</module>
+
+				<!-- exclusive for P2 -->
+				<module>runtime-gyrex/org.lunifera.examples.runtime.gyrex.p2</module>
+
+				<!-- P2 features -->
+				<module>runtime-gyrex/org.lunifera.examples.runtime.gyrex.feature.vaadin</module>
+				<!-- end P2 features -->
+
+				<!-- P2 bundles -->
+				<module>runtime-gyrex/org.lunifera.examples.runtime.gyrex.vaadin</module>
+				<module>runtime-gyrex/org.lunifera.examples.runtime.gyrex.vaadin.widgetset</module>
+
+				<!-- end P2 bundles -->
+			</modules>
+		</profile>
+
+		<!-- This profile is used to gather code coverage for Sonar -->
+		<profile>
+			<id>codeCoverage</id>
+			<properties>
+				<!-- Properties to enable jacoco code coverage analysis -->
+				<sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
+				<sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
+				<sonar.jacoco.reportPath>../org.demo.camp.nantes.parent/target/jacoco.exec</sonar.jacoco.reportPath>
+			</properties>
+
+			<build>
+				<plugins>
+					<!-- Enabling use of jacoco -->
+					<plugin>
+						<groupId>org.jacoco</groupId>
+						<artifactId>jacoco-maven-plugin</artifactId>
+						<version>0.5.8.201207111220</version>
+						<executions>
+							<execution>
+								<goals>
+									<goal>prepare-agent</goal>
+								</goals>
+								<configuration>
+									<!-- Where to put jacoco coverage report -->
+									<destFile>${sonar.jacoco.reportPath}</destFile>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 
 	<repositories>
 		<repository>
-			<id>BPMN2</id>
-			<url>${bpmn2-p2}</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-			<layout>p2</layout>
+			<id>vaadin-addons</id>
+			<url>http://maven.vaadin.com/vaadin-addons</url>
 		</repository>
 		<repository>
-			<id>gemini-jpa</id>
-			<url>${gemini-jpa-p2}</url>
+			<id>vaadin-snapshots</id>
+			<url>http://oss.sonatype.org/content/repositories/vaadin-snapshots/</url>
 			<releases>
-				<enabled>true</enabled>
+				<enabled>false</enabled>
 			</releases>
 			<snapshots>
 				<enabled>true</enabled>
 			</snapshots>
-			<layout>p2</layout>
-		</repository>
-		<repository>
-			<id>m2e-buildhelper</id>
-			<url>${m2e-buildhelper-p2}</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-			<layout>p2</layout>
-		</repository>
-		<repository>
-			<id>m2e-tycho</id>
-			<url>${m2e-tycho-p2}</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-			<layout>p2</layout>
-		</repository>
-		<repository>
-			<id>Orbit</id>
-			<url>${orbit-p2}</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-			<layout>p2</layout>
-		</repository>
-		<repository>
-			<id>Xtext</id>
-			<url>${xtext-p2}</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-			<layout>p2</layout>
-		</repository>
-		<repository>
-			<id>Eclipse</id>
-			<url>${eclipse-p2}</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-			<layout>p2</layout>
 		</repository>
 	</repositories>
 
 	<pluginRepositories>
 		<pluginRepository>
-			<id>fornax</id>
-			<url>http://www.fornax-platform.org/m2/repository</url>
+			<id>vaadin-snapshots</id>
+			<url>http://oss.sonatype.org/content/repositories/vaadin-snapshots/</url>
 			<releases>
-				<enabled>true</enabled>
+				<enabled>false</enabled>
 			</releases>
 			<snapshots>
-				<enabled>false</enabled>
+				<enabled>true</enabled>
 			</snapshots>
-		</pluginRepository>
-		<!-- <pluginRepository> -->
-		<!-- <id>fornax-snapshots</id> -->
-		<!-- <url>http://www.fornax-platform.org/archiva/repository/snapshots/</url> -->
-		<!-- <snapshots> -->
-		<!-- <enabled>true</enabled> -->
-		<!-- </snapshots> -->
-		<!-- </pluginRepository> -->
-		<pluginRepository>
-			<id>tycho-snapshots</id>
-			<url>https://oss.sonatype.org/content/groups/public/</url>
-		</pluginRepository>
-		<pluginRepository>
-			<id>xtend</id>
-			<url>http://build.eclipse.org/common/xtend/maven</url>
 		</pluginRepository>
 	</pluginRepositories>
 
@@ -185,6 +416,11 @@
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>target-platform-configuration</artifactId>
 			</plugin>
+
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-source-plugin</artifactId>
+			</plugin>
 		</plugins>
 
 		<pluginManagement>
@@ -207,15 +443,7 @@
 						<target>1.6</target>
 					</configuration>
 				</plugin>
-				<plugin>
-					<groupId>org.eclipse.tycho</groupId>
-					<artifactId>target-platform-configuration</artifactId>
-					<version>${tycho-version}</version>
-					<configuration>
-						<resolver>p2</resolver>
-						<pomDependencies>consider</pomDependencies>
-					</configuration>
-				</plugin>
+
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-resources-plugin</artifactId>
@@ -223,6 +451,19 @@
 					<configuration>
 						<encoding>UTF-8</encoding>
 					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-source-plugin</artifactId>
+					<version>${tycho-version}</version>
+					<executions>
+						<execution>
+							<id>plugin-source</id>
+							<goals>
+								<goal>plugin-source</goal>
+							</goals>
+						</execution>
+					</executions>
 				</plugin>
 				<plugin>
 					<groupId>org.eclipse.tycho</groupId>
@@ -268,12 +509,4 @@
 			</plugins>
 		</pluginManagement>
 	</build>
-	<organization>
-		<name>Lunifera.org</name>
-		<url>www.lunifera.org</url>
-	</organization>
-    <modules>
-		<module>org.lunifera.examples.p2.repo.juno</module>
-		<module>org.lunifera.examples.p2.target.juno</module>
-	</modules>
 </project>

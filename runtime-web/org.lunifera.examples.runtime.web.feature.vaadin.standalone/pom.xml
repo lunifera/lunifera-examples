@@ -4,9 +4,8 @@
     <groupId>org.lunifera.examples</groupId>
     <artifactId>org.lunifera.examples</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <relativePath>../../</relativePath>
   </parent>
-  <artifactId>org.lunifera.examples.p2.target.juno</artifactId>
-  <packaging>pom</packaging>
-  <name>Target for lunifera Examples</name>
-  <description>Target for lunifera Examples</description>
+  <artifactId>org.lunifera.examples.runtime.web.feature.vaadin.standalone</artifactId>
+  <packaging>eclipse-feature</packaging>
 </project>
