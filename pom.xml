@@ -227,7 +227,7 @@
 							<target>
 								<artifact>
 									<groupId>org.lunifera.examples</groupId>
-									<artifactId>org.lunifera.examples.gyrex.target.kepler</artifactId>
+									<artifactId>org.lunifera.examples.runtime.gyrex.target.kepler</artifactId>
 									<version>${project.version}</version>
 								</artifact>
 							</target>
