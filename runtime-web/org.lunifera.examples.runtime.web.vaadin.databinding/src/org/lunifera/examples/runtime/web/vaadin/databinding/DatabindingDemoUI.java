@@ -15,7 +15,8 @@ package org.lunifera.examples.runtime.web.vaadin.databinding;
 import org.eclipse.core.databinding.DataBindingContext;
 import org.eclipse.core.databinding.UpdateValueStrategy;
 import org.eclipse.core.databinding.conversion.IConverter;
-import org.lunifera.runtime.web.vaadin.databinding.IVaadinObservableValue;
+import org.lunifera.runtime.web.vaadin.databinding.IVaadinComponentObservableValue;
+import org.lunifera.runtime.web.vaadin.databinding.IVaadinModelObservableValue;
 import org.lunifera.runtime.web.vaadin.databinding.VaadinObservables;
 import org.lunifera.web.vaadin.common.OSGiUI;
 
@@ -72,9 +73,9 @@ public class DatabindingDemoUI extends OSGiUI {
 		layout.addComponent(textField1, 0, 0);
 		layout.addComponent(textField2, 1, 0);
 
-		IVaadinObservableValue observable1 = VaadinObservables
+		IVaadinModelObservableValue observable1 = VaadinObservables
 				.observeValue(textField1);
-		IVaadinObservableValue observable2 = VaadinObservables
+		IVaadinModelObservableValue observable2 = VaadinObservables
 				.observeValue(textField2);
 
 		dbc.bindValue(observable2, observable1);
@@ -114,16 +115,16 @@ public class DatabindingDemoUI extends OSGiUI {
 		layout.addComponent(requiredError, 1, 2);
 		layout.addComponent(input, 2, 2);
 
-		IVaadinObservableValue value_requiredObservable = VaadinObservables
+		IVaadinModelObservableValue value_requiredObservable = VaadinObservables
 				.observeValue(required);
-		IVaadinObservableValue value_errorString = VaadinObservables
+		IVaadinModelObservableValue value_errorString = VaadinObservables
 				.observeValue(requiredError);
-		IVaadinObservableValue readonly_errorString = VaadinObservables
+		IVaadinModelObservableValue readonly_errorString = VaadinObservables
 				.observeReadonly(requiredError);
 
-		IVaadinObservableValue required_Input = VaadinObservables
+		IVaadinComponentObservableValue required_Input = VaadinObservables
 				.observeRequired(input);
-		IVaadinObservableValue errorMessage_Input = VaadinObservables
+		IVaadinComponentObservableValue errorMessage_Input = VaadinObservables
 				.observeRequiredError(input);
 
 		dbc.bindValue(value_requiredObservable, required_Input);
