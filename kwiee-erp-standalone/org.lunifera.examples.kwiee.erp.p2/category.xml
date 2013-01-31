@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature id="org.lunifera.examples.kwiee.erp.module.core.feature" version="0.0.0">
+      <category name="lunifera-examples-kwiee"/>
+   </feature>
+   <feature id="org.lunifera.examples.kwiee.erp.module.financial.accounting.feature" version="0.0.0">
+      <category name="lunifera-examples-kwiee"/>
+   </feature>
+   <feature id="org.lunifera.examples.kwiee.erp.server.application.equinox.feature" version="0.0.0">
+      <category name="lunifera-examples-kwiee"/>
+   </feature>
+   <feature id="org.lunifera.examples.kwiee.erp.utils.feature" version="0.0.0">
+      <category name="lunifera-examples-kwiee"/>
+   </feature>
+   <category-def name="lunifera-examples-kwiee" label="Lunifera Examples - Kwiee ERP"/>
+</site>

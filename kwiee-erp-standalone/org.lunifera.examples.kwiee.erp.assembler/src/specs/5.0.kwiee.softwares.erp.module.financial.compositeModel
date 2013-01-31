@@ -1,0 +1,40 @@
+/*
+ * Describes a conceptual composition model used to plan a ERP installation.
+ */
+id com.kwiee.erp
+
+import org.lunifera.component.template.library.core.base.compositiontypes.*
+
+modelingType org.lunifera.component.template.library.software.bpm.compositiontypes.BusinessProcessModeling
+
+authors ( org.lunifera.workers.cvgaviao )
+ownership Kwiee
+
+	/* 
+	 * A conceptual node representing where the company's identity information come from.
+	 */
+	unit IdentityInformationService {
+	/* 
+ 	* each system needs only one that will present info based on logged user
+ 	*/
+	}
+
+	unit PersonalTaskList
+
+	unit GroupTaskList
+
+	unit GenericTaskForm
+
+	unit TaskCreationDialog
+
+	unit TaskDetailsDialog
+
+	unit TaskInputData
+
+	unit TaskOutputData
+
+	unit TaskHelp
+
+	unit ModuleBusinessProcessProject
+
+

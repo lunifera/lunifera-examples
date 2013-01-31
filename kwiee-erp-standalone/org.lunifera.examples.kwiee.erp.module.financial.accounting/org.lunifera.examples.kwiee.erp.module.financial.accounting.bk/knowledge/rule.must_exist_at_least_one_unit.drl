@@ -1,0 +1,29 @@
+#created on: Sep 16, 2011
+package org.lunifera.examples.kwiee.erp.module.financial.accounting.bk
+
+#list any import classes here.
+
+
+
+#declare any global variables here
+
+
+
+
+rule "Must exist an Organization as owner of System"
+
+    when
+        #conditions
+    then
+        #actions
+
+end
+
+rule "Organization should have at least one Unit"
+    #include attributes such as "salience" here...
+    when
+        #conditions
+    then
+        #actions
+
+end

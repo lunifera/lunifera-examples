@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.lunifera.examples.kwiee.erp.module.core.domain;singleton:=true
+Bundle-Version: 0.0.1.qualifier
+Bundle-ClassPath: .
+Bundle-Vendor: %providerName
+Bundle-Localization: OSGI-INF/l10n/bundle
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: 
+ org.eclipse.xtext;bundle-version="2.4.0";resolution:=optional
+Bundle-ActivationPolicy: lazy
+Import-Package: javax.persistence;version="2.0.0"
+Fragment-Host: org.lunifera.examples.kwiee.erp.module.core.persistence
+Export-Package: org.lunifera.examples.kwiee.erp.module.core.domain

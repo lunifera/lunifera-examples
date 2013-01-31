@@ -1,0 +1,125 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="688" measuredH="522" mockupW="638" mockupH="481">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::TitleWindow" x="50" y="41" w="638" h="481" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bottomheight>25</bottomheight>
+        <dragger>false</dragger>
+        <maximizeRestore>false</maximizeRestore>
+        <text>Task%20Detail</text>
+        <topheight>26</topheight>
+        <verticalScrollbar>true</verticalScrollbar>
+      </controlProperties>
+    </control>
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::TextInput" x="172" y="84" w="-1" h="-1" measuredW="79" measuredH="27" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::Label" x="72" y="84" w="-1" h="-1" measuredW="50" measuredH="21" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Task%20ID</text>
+      </controlProperties>
+    </control>
+    <control controlID="3" controlTypeID="com.balsamiq.mockups::Label" x="72" y="121" w="-1" h="-1" measuredW="71" measuredH="21" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Task%20Name</text>
+      </controlProperties>
+    </control>
+    <control controlID="4" controlTypeID="com.balsamiq.mockups::Label" x="72" y="159" w="-1" h="-1" measuredW="60" measuredH="21" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Due%20Task</text>
+      </controlProperties>
+    </control>
+    <control controlID="5" controlTypeID="com.balsamiq.mockups::Label" x="72" y="196" w="-1" h="-1" measuredW="61" measuredH="21" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Assign%20To</text>
+      </controlProperties>
+    </control>
+    <control controlID="6" controlTypeID="com.balsamiq.mockups::Label" x="72" y="234" w="-1" h="-1" measuredW="47" measuredH="21" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Priority</text>
+      </controlProperties>
+    </control>
+    <control controlID="7" controlTypeID="com.balsamiq.mockups::Label" x="72" y="271" w="-1" h="-1" measuredW="69" measuredH="21" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Description</text>
+      </controlProperties>
+    </control>
+    <control controlID="8" controlTypeID="com.balsamiq.mockups::TextInput" x="172" y="121" w="473" h="-1" measuredW="79" measuredH="27" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="13" controlTypeID="com.balsamiq.mockups::Component" x="172" y="154" w="123" h="30" measuredW="123" measuredH="30" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <override controlID="0" x="2" y="0" w="89" h="30"/>
+        <override controlID="1" x="99" y="3" w="24" h="24"/>
+        <override controlID="2" x="0" y="4" w="87" h="23"/>
+        <override controlID="-1"/>
+        <src>$ACCOUNT/assets/Date%20Pickers.bmml#Date%20Picker%20(resizeable)</src>
+      </controlProperties>
+    </control>
+    <control controlID="16" controlTypeID="com.balsamiq.mockups::ComboBox" x="172" y="230" w="-1" h="-1" measuredW="94" measuredH="23" zOrder="11" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>ComboBox</text>
+      </controlProperties>
+    </control>
+    <control controlID="17" controlTypeID="com.balsamiq.mockups::TextArea" x="172" y="271" w="473" h="140" measuredW="200" measuredH="140" zOrder="12" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="19" controlTypeID="com.balsamiq.mockups::Button" x="387" y="451" w="-1" h="-1" measuredW="70" measuredH="27" zOrder="13" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>SimpleArrowIcon%7Cxsmall</icon>
+        <text>Next</text>
+      </controlProperties>
+    </control>
+    <control controlID="20" controlTypeID="com.balsamiq.mockups::Button" x="574" y="451" w="-1" h="-1" measuredW="74" measuredH="27" zOrder="14" locked="false" isInGroup="-1">
+      <controlProperties>
+        <href>personal_task_list%26bm%3Bpersonal_task_list.bmml%26bm%3Bpersonal_task_list.bmml%26bm%3Bpersonal_task_list.bmml</href>
+        <icon>CheckMarkIcon%7Cxsmall</icon>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22524%2C410%2C598%2C437%22%20href%3D%22personal_task_list.bmml%22%20alt%3D%22personal_task_list%22%20id%3D%2220%22/%3E</map>
+        <text>Finish</text>
+      </controlProperties>
+    </control>
+    <control controlID="21" controlTypeID="com.balsamiq.mockups::Button" x="474" y="451" w="-1" h="-1" measuredW="83" measuredH="27" zOrder="15" locked="false" isInGroup="-1">
+      <controlProperties>
+        <href>personal_task_list%26bm%3Bpersonal_task_list.bmml%26bm%3Bpersonal_task_list.bmml%26bm%3Bpersonal_task_list.bmml</href>
+        <icon>CircledXIcon%7Cxsmall</icon>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22424%2C410%2C507%2C437%22%20href%3D%22personal_task_list.bmml%22%20alt%3D%22personal_task_list%22%20id%3D%2221%22/%3E</map>
+        <text>Cancel</text>
+      </controlProperties>
+    </control>
+    <control controlID="22" controlTypeID="com.balsamiq.mockups::Button" x="298" y="451" w="-1" h="-1" measuredW="72" measuredH="27" zOrder="16" locked="false" isInGroup="-1">
+      <controlProperties>
+        <href>task_creation%26bm%3Btask_creation.bmml%26bm%3Btask_creation.bmml%26bm%3Btask_creation.bmml</href>
+        <icon>SimpleArrowIcon%7Cxsmall</icon>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22248%2C410%2C320%2C437%22%20href%3D%22task_creation.bmml%22%20alt%3D%22task_creation%22%20id%3D%2222%22/%3E</map>
+        <rotation>180</rotation>
+        <text>Back</text>
+      </controlProperties>
+    </control>
+    <control controlID="23" controlTypeID="__group__" x="172" y="194" w="232" h="28" measuredW="232" measuredH="28" zOrder="10" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::TextInput" x="0" y="1" w="193" h="-1" measuredW="79" measuredH="27" zOrder="0" locked="false" isInGroup="23">
+          <controlProperties>
+            <text/>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::ColorPicker" x="206" y="0" w="-1" h="-1" measuredW="26" measuredH="28" zOrder="1" locked="false" isInGroup="23">
+          <controlProperties>
+            <color>15658734</color>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="24" controlTypeID="com.balsamiq.mockups::Icon" x="72" y="444" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="17" locked="false" isInGroup="-1">
+      <controlProperties>
+        <href>task_help%26bm%3Btask_help.bmml%26bm%3Btask_help.bmml%26bm%3Btask_help.bmml</href>
+        <icon>Help2Icon%7Csmall</icon>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%2222%2C403%2C46%2C427%22%20href%3D%22task_help.bmml%22%20alt%3D%22task_help%22%20id%3D%2224%22/%3E</map>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

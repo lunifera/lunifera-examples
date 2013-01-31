@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: org.lunifera.examples.kwiee.erp.module.core.persistence;singleton:=true
+Bundle-Version: 0.0.1.qualifier
+Bundle-Localization: OSGI-INF/l10n/bundle
+Bundle-Name: %pluginName
+Bundle-Vendor: %providerName
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Service-Component: OSGI-INF/*.xml
+Import-Package: javax.persistence;jpa="2.0";version="2.0",
+ javax.persistence.criteria;jpa="2.0";version="2.0",
+ javax.persistence.metamodel;jpa="2.0";version="2.0",
+ org.lunifera.examples.kwiee.erp.utils.components,
+ org.osgi.framework;version="1.7.0",
+ org.osgi.service.jpa
+Eclipse-ExtensibleAPI: true
+Meta-Persistence: 

@@ -1,0 +1,13 @@
+id org.lunifera.tests.model
+		
+		/*
+		 * some system
+		 */
+		unit System1 {
+			child unit IU {
+				
+			}
+			child unit PO {
+				
+			}
+		}

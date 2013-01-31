@@ -1,0 +1,14 @@
+Qual o seu entendimento da relação entre erquisitos e histórias de usuário ?
+
+há várias alternativas, como:
+
+- um requisito equivale a uma história de usuário épica e criasse várias histórias e cenários menores para definir melhor a solução
+
+- 
+
+Qual o seu entendimento da relação entre requisitos / histórias de usuário e tickets de execução de tarefas ?
+
+
+Requisito pode ser entendido como uma descrição do que precisa ser feito, enquanto as histórias retratam como elas devem experimentadas no ponto de vista do usuário.
+
+-- 

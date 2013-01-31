@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Kwiee ERP : Core : Integration Tests
+Bundle-SymbolicName: org.lunifera.examples.kwiee.erp.module.core.integration-tests
+Bundle-Version: 0.0.1.qualifier
+Bundle-Vendor: Lunifera.org
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6 
+Eclipse-ExtensibleAPI: true
+Require-Bundle: org.junit;bundle-version="4.10.0"

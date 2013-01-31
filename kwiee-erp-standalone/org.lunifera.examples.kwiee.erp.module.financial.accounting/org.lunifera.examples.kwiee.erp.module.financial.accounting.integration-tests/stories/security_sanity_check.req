@@ -1,0 +1,18 @@
+. Processo de abertura do bar
+
+Como a maioria dos módulos de segurança não fazem parte do escopo do sistema, é necessário uma maneira de obter informações sobre se o estabelecimento foi ou não aberto.
+
+é possível que um módulo de segurança possua um serviço que fica verificando de tempos em tempos os dispositivos gerenciáveis por computador do estabelecimento (esses periodos podem ter inrtevalos diferente dependendo do horário/perfil) afim de obter essas informações automaticamente.
+
+
+
+Iniciar dia de trabalho de uma Organização 
+
+Iniciar dia de trabalho de uma Unidade Organizacional 
+
+- 
+
+Encerrar dia de trabalho de uma Organização
+
+Encerrar dia de trabalho de uma Unidade Organizacional
+

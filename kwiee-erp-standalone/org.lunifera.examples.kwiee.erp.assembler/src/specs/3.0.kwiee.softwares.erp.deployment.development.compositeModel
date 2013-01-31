@@ -1,0 +1,49 @@
+id com.kwiee.softwares.erp.deployment.development
+
+modelingType org.lunifera.component.template.library.software.compositiontypes.SoftwareDeployment
+
+import org.lunifera.component.template.library.software.linktypes.*
+
+authors (org.lunifera.workers.cvgaviao)
+ownership Kwiee
+
+/*
+	 * represents a real relational database management instance. 
+	 */
+unit DatabaseServer 
+
+/*
+	 * represents a OSGi web application execution server unit.  
+	 */
+unit OSGiWebApplicationServer of org.lunifera.component.template.library.software.web.unittypes.OSGiWebApplicationServerRuntime
+
+
+/*
+	 * represents a real web application instance. 
+	 */
+unit ErpCoreWebApplication of VaadinApplication
+
+/*
+	 * represents a business processes human tasks management application used to plan a software installation. 
+	 */
+unit HumanTaskServerApplication
+
+/*
+	 * represents a conceptual business processes management instance used to plan a software installation. 
+	 */
+unit BusinessProcessExecutionServer
+
+/*
+	 * represents a conceptual LDAP identity management instance used to plan a software installation. 
+	 */
+unit LDAP_server {}
+
+unit VersionControlServer
+
+unit ActiveDirectory // BProcess
+
+link DeploymentOfVaadinApplicationIntoOSGiHttpServer of DeployApplication {
+	from com.kwiee.softwares.erp.applications.web.vaadin.KwieeERP
+	to OSGiWebApplicationServer
+
+}

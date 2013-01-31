@@ -1,0 +1,38 @@
+/*
+ * This conceptual model describes the software components that will used to deliver the ERP for Kwiee company.
+ */
+id com.kwiee.erp
+
+import org.lunifera.component.template.library.core.unittypes.*
+import org.lunifera.component.template.library.software.unittypes.*
+import org.lunifera.component.template.library.software.eclipse.unittypes.*
+
+modelingType org.lunifera.component.template.library.software.compositiontypes.SoftwareModeling
+
+//unit Ki of EclipseRCP
+//
+//	unit module.web.HumanResources of Module
+//
+//	unit module.Financial of Module
+//
+//	unit module.Sales of Module
+//
+//	unit module.Production of Module
+group Features {  
+ 
+	unit KK
+	
+	unit StockManagement of Feature {}
+	
+	
+	
+//	group Financial {
+//
+//		unit Accounting of Feature
+//
+//		unit PaymentControl of Feature
+//		
+//		unit ReceivingControl of Feature 
+//	}
+
+	} 

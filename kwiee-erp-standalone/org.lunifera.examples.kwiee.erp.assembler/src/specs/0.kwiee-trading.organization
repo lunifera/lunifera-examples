@@ -1,0 +1,120 @@
+
+
+/*
+ * Specification of a company/organization that are involved in the software solution being developed.
+ */
+
+code Kwiee
+name "Kwiee Trading"
+description "The most efficient trade company in the world."
+
+/**
+ * The units that are part of the main organization.
+ */
+
+Units
+{
+
+	unit id IT
+
+	unit id Accounting
+	{
+		parent Financial
+		description "Accounting sector."
+	}
+
+	unit id Receivables
+	{
+		parent Financial
+		description "Receivables sector."
+	}
+
+	unit id Payables
+	{
+		parent Financial
+		description "Payables sector."
+	}
+
+
+	unit id Financial
+	{
+		name "Financial Department"
+		description "Department responsible for the company financial procedures."
+	}
+}
+
+/**
+* The people that is in any form related to the company and have some importance in the software solution.
+*/
+
+People
+{
+
+	person id jonhD
+	{
+		first name "John"
+		last name "Done"
+		email "peterp@kwiee.com"
+	}
+
+	person id debbyT
+	{
+		first name "Deborah"
+		last name "Tender"
+		email "peterp@kwiee.com"
+	}
+
+	person id peterP
+	{
+		first name "Peter"
+		last name "Parking"
+		email "peterp@kwiee.com"
+	}
+}
+
+/**
+	 * The roles played by the people involved in the business processes of the company.
+	 * Roles a related to people through the Worker.
+	 */
+
+Business Roles
+{
+
+	role id financial.Worker
+	{
+		name "Financial Worker"
+		description "Any employee or partner that works on the financial department."
+	}
+
+	role id financial.Manager
+	{
+		name "Financial Worker"
+		description "Any employee or partner that works on the financial department."
+	}
+}
+
+/*
+ * The partnership made by the company with other organizations that probably will participate of processes and use part of the systems. 
+ */
+
+Workers
+{
+
+	worker person kwiee.people.peterP
+	{
+		allocatedOn kwiee.units.Payables
+		playRoles (kwiee.roles.financial.Worker)
+	}
+}
+
+Partnerships
+{
+
+	partnership company org.lunifera
+	{
+	//responsible  
+
+		agreement "one text"
+	}
+}
+ 

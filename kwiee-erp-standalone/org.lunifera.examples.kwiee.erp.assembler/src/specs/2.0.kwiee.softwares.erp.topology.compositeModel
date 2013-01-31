@@ -1,0 +1,83 @@
+/*
+ * This model aims to represent a high level plan for a ERP system.
+ * In this case, the ERP system is composed of different applications aimed to run at different environments.
+ */
+id com.kwiee.softwares
+
+import org.lunifera.component.template.library.core.compositiontypes.*
+import org.lunifera.component.template.library.core.linktypes.*
+import org.lunifera.component.template.library.software.compositiontypes.SoftwareTopology
+import org.lunifera.component.template.library.software.linktypes.*
+import org.lunifera.component.template.library.software.unittypes.*
+import org.lunifera.component.template.library.software.eclipse.unittypes.*
+
+modelingType SoftwareTopology
+authors (org.lunifera.workers.cvgaviao)
+ownership Kwiee
+
+/*
+ * The big super ERP system developed by Kwiee 
+ */
+unit ERP of MultiApplicationSystem {
+
+/*
+	 * All applications that will be part of the Kwiee's ERP system.
+	 */
+	group Applications {
+
+		group mobile.IOS {
+
+			/*
+			 * An application for the Sales team aimed to run into an Apple IOS mobile operational system.
+			 */
+			unit SalesTeamDashboard of org.lunifera.component.template.library.software.mobile.ios.unittypes.Application {}
+
+			/*
+			 * An application for the Kwiee customers and aimed to run into an Apple IOS mobile operational system.
+			 */
+			unit CustomerDashboard of org.lunifera.component.template.library.software.mobile.ios.unittypes.Application {}
+		}
+
+		group mobile.Android {
+
+			/*
+			 * An application for the Kwiee's Sales Team aimed to run into an Android mobile operational system.
+			 */
+			unit SalesTeamDashboard of org.lunifera.component.template.library.software.mobile.android.unittypes.Application {}
+
+			/*
+			 * An application for the Kwiee's customers and aimed to run into an Android mobile operational system.
+			 */
+			unit CustomerDashboard of org.lunifera.component.template.library.software.mobile.android.unittypes.Application {}
+		}
+
+		/*
+		 * This group was create to separate the application that will be created for web and using Vaadin as framework.
+		 */
+		group web.Vaadin {
+
+			/*
+			 * The main web application of Kwiee ERP. <br>
+			 * This ERP will be composed of lot of modules and these modules of lot of features.
+			 * One same feature can be shared my different modules.
+			 */
+			unit KwieeERP of org.lunifera.component.template.library.software.web.unittypes.VaadinApplication {}
+		}
+
+		/*
+		 * This group was create to separate the application that will be created for web and using Vaadin as framework.
+		 */
+		group web.Wicket {
+
+			unit CustomerPortal of org.lunifera.component.template.library.software.web.unittypes.WicketApplication {}
+		}
+	}
+
+}
+
+unit TradingMonitor of SingleApplicationSystem {
+
+	unit TradingMonitorApplication of EquinoxApplication
+}
+
+

@@ -1,0 +1,58 @@
+/*
+ * Describes the hardwares that the Kwiee company will use to deploy its systems at development phase.
+ */
+id com.kwiee.hardwares
+
+import org.lunifera.component.template.library.hardware.compositiontypes.*
+import org.lunifera.component.template.library.hardware.unittypes.*
+
+modelingType HardwareTopology
+
+authors (org.lunifera.workers.cvgaviao)
+ownership Kwiee
+
+/*
+	 * Server that will be used at development for deploying application and other things.
+	 * It is not conceptual. This means the something will be generated for it and mandatory attributes must be fulfilled.
+	 */
+unit DevelopmentServerMachine of ServerMachine {
+
+		override org.lunifera.component.template.library.hardware.capabilitytypes.networking.attrspecs.IP with ("")
+		
+}
+
+/*
+	 * This represents the machine that will host the main development database server.
+	 * It is not conceptual. This means the something will be generated for it and mandatory attributes must be fulfilled.
+	 */
+unit DevelopmentDatabaseServerMachine of ServerMachine
+
+/*
+	 * This conceptual unit instance represents the server hosted by CloudBees company. <br>
+	 * Kwiee uses it the host some applications on the cloud for run integration testings.<br>
+	 * It is conceptual because any artifact will be generated to automated activities related to Cloudbees (yet)
+	 */
+unit KwieeCloudBees of CloudMachine {
+	conceptual
+}
+
+/*
+	 * This conceptual unit instance represents a customer Android based mobile device. <br>
+	 * Kwiee's customers will receive in the future a free application that they will use to interact with Kwiee consultants and known about they related projects.
+	 */
+unit CustomerAndroidDevice of GenericAndroidDevice {
+	conceptual
+}
+
+/*
+	 * This conceptual unit instance represents a customer IOS based mobile device. <br>
+	 * Kwiee's customers will receive in the future a free application that they will use to interact with Kwiee consultants and known about they related projects.<br>
+	 * <p>ps.When times come will be necessary to split this unit in two, IPad and IPhone, due the proportion size and other differences between two devices.
+	 */
+unit CustomerIosDevice of GenericIosDevice {
+	conceptual
+}
+
+
+
+

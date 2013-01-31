@@ -1,0 +1,3 @@
+http.port=8080
+org.eclipse.equinox.http.jetty.http.port=8080
+org.osgi.service.http.port=8080

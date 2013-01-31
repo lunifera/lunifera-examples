@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-Vendor: %providerName
+Bundle-Localization: OSGI-INF/l10n/bundle
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-SymbolicName: org.lunifera.examples.kwiee.erp.module.financial.accounting.bk;singleton:=true
+Bundle-Version: 0.0.1.qualifier
+Import-Package: org.osgi.framework, org.lunifera.examples.kwiee.erp.utils.components,
+ org.osgi.framework.wiring, javax.persistence,
+ org.osgi.service.component,
+ org.osgi.service.event,
+ org.osgi.service.log
+Bundle-ActivationPolicy: lazy
+Service-Component: OSGI-INF/*.xml
+Export-Package: org.lunifera.examples.kwiee.erp.module.financial.accounting.bk.api

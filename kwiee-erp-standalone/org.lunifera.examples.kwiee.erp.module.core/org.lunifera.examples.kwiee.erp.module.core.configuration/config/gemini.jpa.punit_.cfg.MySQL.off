@@ -1,0 +1,4 @@
+url=jdbc:mysql://127.0.0.1:3306/kwiee-erp
+user=admin
+password=admin
+DataSourceFactory_Kwiee.target=(&(osgi.jdbc.driver.class=com.mysql.jdbc.Driver)(osgi.jdbc.driver.version=5.1.18)) 

@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: org.lunifera.examples.kwiee.erp.module.financial.accounting.integration-tests
+Bundle-Name: %pluginName
+Bundle-Vendor: %providerName
+Bundle-Localization: OSGI-INF/l10n/bundle
+Bundle-Version: 0.0.1.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6 
+Eclipse-ExtensibleAPI: true

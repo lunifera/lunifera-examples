@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<definitions id="Definition"
+             targetNamespace=""
+             typeLanguage="http://www.java.com/javaTypes"
+             expressionLanguage="http://www.mvel.org/2.0"
+             xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd"
+             xmlns:g="http://www.jboss.org/drools/flow/gpd"
+             xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+             xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+             xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+             xmlns:tns="http://www.jboss.org/drools">
+
+  <process processType="Private" isExecutable="true" id="Process_1" name="Process for Internal" >
+
+    <!-- nodes -->
+    <startEvent id="StartEvent_1" name="Start" />
+    <endEvent id="EndEvent_1" name="End" />
+    <scriptTask id="ScriptTask_1" name="Finalize Process" >
+      <script>System.out.println("Blas")</script>
+    </scriptTask>
+    <intermediateCatchEvent id="IntermediateCatchEvent_1" name="Catch" >
+      <timerEventDefinition>
+        <timeCycle xsi:type="tFormalExpression">1m###5m</timeCycle>
+      </timerEventDefinition>
+    </intermediateCatchEvent>
+    <scriptTask id="_6" name="Notifiy Modules Internal Sanity Check Process" />
+    <subProcess id="_7" name="Sub-Process"  >
+    <!-- nodes -->
+    <startEvent id="_7-1" name="Start" />
+    <scriptTask id="_7-2" name="check CRM Implementation" />
+    <complexGateway id="_7-3" name="Gateway" gatewayDirection="Diverging" />
+    <scriptTask id="_7-4" name="Script" />
+    <businessRuleTask id="_7-5" name="Rule" g:ruleFlowGroup="" >
+    </businessRuleTask>
+    <!-- connections -->
+    <sequenceFlow id="_7-3-_7-2" sourceRef="_7-3" targetRef="_7-2" />
+    <sequenceFlow id="_7-1-_7-3" sourceRef="_7-1" targetRef="_7-3" />
+    </subProcess>
+    <intermediateCatchEvent id="_8" name="Signal" >
+    </intermediateCatchEvent>
+    <endEvent id="_9" name="End" >
+        <terminateEventDefinition/>
+    </endEvent>
+
+    <!-- connections -->
+    <sequenceFlow id="_8-ScriptTask_1" sourceRef="_8" targetRef="ScriptTask_1" />
+    <sequenceFlow id="StartEvent_1-IntermediateCatchEvent_1" sourceRef="StartEvent_1" targetRef="IntermediateCatchEvent_1" />
+    <sequenceFlow id="IntermediateCatchEvent_1-_7" sourceRef="IntermediateCatchEvent_1" targetRef="_7" />
+    <sequenceFlow id="ScriptTask_1-_9" sourceRef="ScriptTask_1" targetRef="_9" />
+
+  </process>
+
+  <bpmndi:BPMNDiagram>
+    <bpmndi:BPMNPlane bpmnElement="Process_1" >
+      <bpmndi:BPMNShape bpmnElement="StartEvent_1" >
+        <dc:Bounds x="27" y="49" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="EndEvent_1" >
+        <dc:Bounds x="964" y="153" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="ScriptTask_1" >
+        <dc:Bounds x="547" y="434" width="132" height="51" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="IntermediateCatchEvent_1" >
+        <dc:Bounds x="163" y="49" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_6" >
+        <dc:Bounds x="648" y="285" width="248" height="94" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_7" >
+        <dc:Bounds x="282" y="5" width="555" height="259" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_7-1" >
+        <dc:Bounds x="317" y="35" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_7-2" >
+        <dc:Bounds x="557" y="37" width="237" height="54" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_7-3" >
+        <dc:Bounds x="421" y="110" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_7-4" >
+        <dc:Bounds x="596" y="111" width="80" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_7-5" >
+        <dc:Bounds x="548" y="206" width="80" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_8" >
+        <dc:Bounds x="402" y="444" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_9" >
+        <dc:Bounds x="783" y="447" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="_7-3-_7-2" >
+        <di:waypoint x="163" y="129" />
+        <di:waypoint x="393" y="59" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_7-1-_7-3" >
+        <di:waypoint x="59" y="54" />
+        <di:waypoint x="163" y="129" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_8-ScriptTask_1" >
+        <di:waypoint x="426" y="468" />
+        <di:waypoint x="613" y="459" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="StartEvent_1-IntermediateCatchEvent_1" >
+        <di:waypoint x="51" y="73" />
+        <di:waypoint x="187" y="73" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="IntermediateCatchEvent_1-_7" >
+        <di:waypoint x="187" y="73" />
+        <di:waypoint x="559" y="134" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="ScriptTask_1-_9" >
+        <di:waypoint x="613" y="459" />
+        <di:waypoint x="807" y="471" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+
+</definitions>

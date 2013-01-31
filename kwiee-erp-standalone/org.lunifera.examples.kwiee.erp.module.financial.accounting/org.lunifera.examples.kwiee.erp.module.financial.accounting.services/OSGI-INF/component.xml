@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" activate="activate" configuration-policy="optional" deactivate="deactivate" immediate="true" modified="modified" name="org.lunifera.examples.kwiee.erp.module.financial.accounting.services">
+   <implementation class="org.lunifera.examples.kwiee.erp.module.financial.accounting.services.internal.AccountingCoreServiceComponent"/>
+   <reference bind="bindLogService" cardinality="1..1" interface="org.osgi.service.log.LogService" name="LogService_AccServices" policy="dynamic" unbind="unbindLogService"/>
+   <reference bind="bindEventAdmin" cardinality="1..1" interface="org.osgi.service.event.EventAdmin" name="EventAdmin_AccServices" policy="dynamic" unbind="unbindEventAdmin"/>
+   <reference bind="bindEntityManagerFactory" cardinality="1..1"  interface="javax.persistence.EntityManagerFactory" name="EntityManagerFactory_AccServices" policy="dynamic" target="(osgi.unit.name=kwiee.erp.pu)" unbind="unbindEntityManagerFactory"/>
+<service>
+   <provide interface="org.lunifera.examples.kwiee.erp.module.financial.accounting.services.IAccountingCoreService"/>
+</service>
+</scr:component>

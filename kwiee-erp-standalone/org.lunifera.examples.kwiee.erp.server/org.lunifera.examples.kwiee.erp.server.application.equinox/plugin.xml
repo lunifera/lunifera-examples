@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+
+   <extension
+         id="application"
+         point="org.eclipse.core.runtime.applications">
+      <application
+            cardinality="singleton-global"
+            icon="icon/icon_reports_analysis.png"
+            thread="main"
+            visible="true">
+         <run
+               class="org.lunifera.examples.kwiee.erp.server.application.equinox.ServerApplication">
+         </run>
+      </application>
+   </extension>
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="org.lunifera.examples.kwiee.erp.server.application.equinox.application"
+            name="Kwiee ERP Server - Equinox">
+         <property
+               name="appName"
+               value="Kwiee ERP Server - Equinox">
+         </property>
+         <property
+               name="aboutText"
+               value="FEAST - BackOffice - Equinox Server with Remote Communication Support.">
+         </property>
+      </product>
+   </extension>
+
+
+
+</plugin>

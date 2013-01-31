@@ -1,0 +1,31 @@
+/*
+ * Describes the hardwares that the Kwiee company will use to deploy its systems at production phase.
+ */
+id com.kwiee.hardwares
+
+import org.lunifera.component.template.library.hardware.compositiontypes.*
+import org.lunifera.component.template.library.hardware.unittypes.*
+
+modelingType HardwareTopology
+
+authors ( org.lunifera.workers.cvgaviao)
+ownership Kwiee
+
+
+	/*
+	 * This represents the machine that will be used to deploy the company software in production.
+	 */
+	unit ProductionServerMachine of ServerMachine {
+		conceptual // don't have a real one for while...
+	}
+
+	
+	/*
+	 * This represents the machine that will host the main production database server.
+	 * It is not conceptual. This means the something will be generated for it and mandatory attributes must be fulfilled.
+	 */
+	unit ProductionDatabaseServerMachine of ServerMachine
+
+
+
+

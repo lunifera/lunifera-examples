@@ -1,0 +1,216 @@
+<!--#======================================================================= -->
+<!--# Copyright (c) 2012, 2013 Committers of lunifera.org - Lunifera.org. -->
+<!--# All rights reserved. This program and the accompanying materials -->
+<!--# are made available under the terms of the Eclipse Public License v1.0 -->
+<!--# which accompanies this distribution, and is available at -->
+<!--# http://www.eclipse.org/legal/epl-v10.html -->
+<!--# -->
+<!--# Contributors: -->
+<!--# Cristiano Gavião - initial API and implementation -->
+<!--#======================================================================= -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.lunifera.releng</groupId>
+		<artifactId>org.lunifera.releng.parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../org.lunifera.releng.parent/pom.xml</relativePath>
+	</parent>
+
+	<groupId>org.lunifera.examples.kwiee.erp</groupId>
+	<artifactId>org.lunifera.examples.kwiee.erp</artifactId>
+	<packaging>pom</packaging>
+	<name>Lunifera Examples - Kwiee Trading ERP</name>
+
+	<properties>
+		<next-release>0.0.2-SNAPSHOT</next-release>
+		<tycho-version>0.17.0-SNAPSHOT</tycho-version>
+		<tychoExtrasVersion>0.17.0-SNAPSHOT</tychoExtrasVersion>
+		<lunifera.build.eclipse.platform.p2.url>http://download.eclipse.org/releases/kepler</lunifera.build.eclipse.platform.p2.url>
+	</properties>
+
+
+	<repositories>
+		<repository>
+			<id>xtend</id>
+			<url>http://build.eclipse.org/common/xtend/maven/</url>
+		</repository>
+		<repository>
+			<id>eclipse.p2</id>
+			<url>${lunifera.build.eclipse.platform.p2.url}</url>
+			<layout>p2</layout>
+		</repository>
+		<repository>
+			<id>Lunifera</id>
+			<url>http://lunifera.github.com/p2/kepler/latest</url>
+			<layout>p2</layout>
+		</repository>
+	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>tycho-snapshots</id>
+			<url>https://oss.sonatype.org/content/groups/public/</url>
+		</pluginRepository>
+		<pluginRepository>
+			<id>xtend</id>
+			<url>http://build.eclipse.org/common/xtend/maven/</url>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<build>
+		<sourceDirectory>src</sourceDirectory>
+
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+			</plugin>
+
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-compiler-plugin</artifactId>
+			</plugin>
+
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+			</plugin>
+
+		</plugins>
+
+		<pluginManagement>
+			<plugins>
+				<!-- enable tycho build -->
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-maven-plugin</artifactId>
+					<version>${tycho-version}</version>
+					<extensions>true</extensions>
+				</plugin>
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-compiler-plugin</artifactId>
+					<version>${tycho-version}</version>
+					<configuration>
+						<compilerVersion>1.6</compilerVersion>
+						<encoding>UTF-8</encoding>
+						<source>1.6</source>
+						<target>1.6</target>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>target-platform-configuration</artifactId>
+					<version>${tycho-version}</version>
+					<configuration>
+						<resolver>p2</resolver>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-surefire-plugin</artifactId>
+					<version>${tycho-version}</version>
+					<configuration>
+						<includes>
+							<include>**/*Tests.java</include>
+						</includes>
+						<showEclipseLog>true</showEclipseLog>
+						<useUIHarness>false</useUIHarness>
+						<useUIThread>false</useUIThread>
+						<failIfNoTests>false</failIfNoTests>
+						<!-- <appArgLine>-Dfile.encoding=UTF-8</appArgLine> -->
+						<argLine>-Dfile.encoding=UTF-8</argLine>
+						<!-- Kill test JVM if tests take more than 10 minutes (600 seconds) 
+							to finish -->
+						<forkedProcessTimeoutInSeconds>600</forkedProcessTimeoutInSeconds>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.eclipse.xtend</groupId>
+					<artifactId>xtend-maven-plugin</artifactId>
+					<version>2.3.1</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+	<profiles>
+		<profile>
+			<id>lunifera.build.p2</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<modules>
+				<module>org.lunifera.examples.kwiee.erp.target.standalone.kepler</module>
+				<module>org.lunifera.examples.kwiee.erp.p2</module>
+				<module>org.lunifera.examples.kwiee.erp.module.core</module>
+				<module>org.lunifera.examples.kwiee.erp.module.financial.accounting</module>
+				<module>org.lunifera.examples.kwiee.erp.server</module>
+				<module>org.lunifera.examples.kwiee.erp.utils</module>
+			</modules>
+			<build>
+				<defaultGoal>clean verify</defaultGoal>
+			</build>
+		</profile>
+
+		<profile>
+			<id>lunifera.build.product</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<modules>
+				<module>org.lunifera.examples.kwiee.erp.server</module>
+			</modules>
+
+			<repositories>
+				<repository>
+					<id>Latest P2</id>
+					<url>file://${basedir}/../../org.lunifera.examples.kwiee.erp.p2/target/repository</url>
+					<layout>p2</layout>
+				</repository>
+				<repository>
+					<id>Gemini-JPA</id>
+					<url>http://download.eclipse.org/gemini/updates/jpa/1.1.0</url>
+					<layout>p2</layout>
+				</repository>
+				<repository>
+					<id>Gemini-JDBC</id>
+					<url>http://download.eclipse.org/gemini/dbaccess/updates/1.1-RC1</url>
+					<layout>p2</layout>
+				</repository>
+			</repositories>
+			<build>
+				<defaultGoal>clean verify</defaultGoal>
+				<plugins>
+					<plugin>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>target-platform-configuration</artifactId>
+						<configuration>
+							<environments>
+								<environment>
+									<os>win32</os>
+									<ws>win32</ws>
+									<arch>x86</arch>
+								</environment>
+								<environment>
+									<os>win32</os>
+									<ws>win32</ws>
+									<arch>x86_64</arch>
+								</environment>
+								<environment>
+									<os>macosx</os>
+									<ws>cocoa</ws>
+									<arch>x86_64</arch>
+								</environment>
+							</environments>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+</project>
+

@@ -1,0 +1,3 @@
+instructions.configure=\
+addRepository(type:0,location:http${#58}//lunifera.github.com/p2/kepler/latest,name:Lunifera Update Site);\
+addRepository(type:1,location:http${#58}//lunifera.github.com/p2/kepler/latest,name:Lunifera Update Site);
