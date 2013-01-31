@@ -8,10 +8,21 @@ Bundle-Vendor: %providerName
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Import-Package: javax.persistence,
+ org.lunifera.examples.kwiee.erp.module.core.bk,
  org.lunifera.examples.kwiee.erp.module.core.domain,
  org.lunifera.examples.kwiee.erp.module.core.services,
- org.lunifera.examples.kwiee.erp.module.core.bk,
  org.lunifera.examples.kwiee.erp.utils.components,
+ org.lunifera.runtime.web.vaadin.standalone,
+ org.lunifera.runtime.web.vaadin.standalone.common,
+ org.lunifera.runtime.web.vaadin.standalone.webapp,
+ org.lunifera.web.vaadin.common,
+ org.osgi.service.component;version="1.2.0",
  org.osgi.service.event;version="1.3.0",
  org.osgi.service.log;version="1.3.0"
 Service-Component: OSGI-INF/*.xml
+Require-Bundle: com.vaadin.server;bundle-version="7.0.1",
+ com.vaadin.shared;bundle-version="7.0.1",
+ com.vaadin.shared.deps;bundle-version="1.0.2",
+ com.vaadin.themes;bundle-version="7.0.1",
+ org.vaadin.addon.icepush;bundle-version="0.0.1"
+Export-Package: org.lunifera.examples.kwiee.erp.module.core.presentation.web.vaadin.ui.common
