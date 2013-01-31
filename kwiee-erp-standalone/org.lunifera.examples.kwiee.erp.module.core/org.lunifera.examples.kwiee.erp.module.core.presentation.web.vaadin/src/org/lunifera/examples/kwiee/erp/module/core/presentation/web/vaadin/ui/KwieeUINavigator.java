@@ -92,19 +92,23 @@ public class KwieeUINavigator extends OSGiUI {
 		IUIModule module = provider.createModule();
 		registerModule(provider, module);
 
-		Component topComponent = module.getTopComponent();
-		if (topComponent != null) {
-			topFrame.addComponent(topComponent);
-		}
+		synchronized (this) {
+			Component topComponent = module.getTopComponent();
+			if (topComponent != null) {
+				topFrame.addComponent(topComponent);
+			}
 
-		Component mainComponent = module.getMainComponent();
-		if (mainComponent != null) {
-			tabSheet.addTab(module.getMainComponent(), module.getCaption());
-		}
+			Component mainComponent = module.getMainComponent();
+			if (mainComponent != null) {
+				tabSheet.addTab(module.getMainComponent(), module.getCaption());
+			}
 
-		Component bottomComponent = module.getBottomComponent();
-		if (bottomComponent != null) {
-			bottomFrame.addComponent(bottomComponent);
+			Component bottomComponent = module.getBottomComponent();
+			if (bottomComponent != null) {
+				bottomFrame.addComponent(bottomComponent);
+			}
+			
+			pusher.push();
 		}
 	}
 

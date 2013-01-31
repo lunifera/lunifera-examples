@@ -8,4 +8,7 @@
  		<provide interface="org.osgi.service.event.EventHandler"/>
 	</service>
  	<property name="event.topics" value="org/lunifera/examples/kwiee/erp/events/service/READY" />
+ 	<property name="lunifera.web.vaadin.alias" type="String" value="/kwiee"/>
+    <property name="lunifera.web.vaadin.widgetset" type="String" value="org.lunifera.examples.kwiee.erp.module.core.presentation.web.vaadin.widgetset.Widgetset"/>
+    <property name="lunifera.web.vaadin.component" type="String" value="org.lunifera.examples.kwiee.erp.module.core"/>
  </scr:component>

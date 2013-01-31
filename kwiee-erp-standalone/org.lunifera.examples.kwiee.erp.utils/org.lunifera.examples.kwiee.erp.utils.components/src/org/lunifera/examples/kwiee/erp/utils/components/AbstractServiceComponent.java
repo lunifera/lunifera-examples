@@ -45,11 +45,38 @@ public abstract class AbstractServiceComponent {
 		// save bundleContext reference...
 		bundleContext = context.getBundleContext();
 
+		// hook method for subclasses
+		internalActivate(context, properties);
+
 		isReady = true;
 
 		// send a post to notify bundles that BPM knowledge is ready to supply
 		// sessions...
 		postEvent(EventCatalog.TOPIC_SERVICE_READY, getComponentName());
+	}
+
+	/**
+	 * Can be overridden by subclasses for activation.<br>
+	 * Subclasses do not have to call super.
+	 * 
+	 * @param context
+	 * @param properties
+	 */
+	protected void internalActivate(ComponentContext context,
+			Map<String, Object> properties) {
+		// do not put code here!
+	}
+
+	/**
+	 * Can be overridden by subclasses for deactivation.<br>
+	 * Subclasses do not have to call super.
+	 * 
+	 * @param context
+	 * @param properties
+	 */
+	protected void internalDeactivate(ComponentContext context,
+			Map<String, Object> properties) {
+		// do not put code here!
 	}
 
 	protected void bindLogService(LogService logService) {
@@ -62,6 +89,9 @@ public abstract class AbstractServiceComponent {
 		isReady = false;
 		cachedConfigurationData = null;
 		bundleContext = null;
+
+		// a hook method for sub classes
+		internalDeactivate(context, properties);
 
 		getLogService().log(LogService.LOG_INFO,
 				"Deactivating '" + getComponentName() + "'...");
@@ -121,11 +151,12 @@ public abstract class AbstractServiceComponent {
 		postEvent(eventTopic, properties);
 
 	}
+
 	protected void postEvent(String eventTopic, String componentName) {
 		Map<String, Object> properties = new HashMap<String, Object>();
 		properties.put("component", componentName);
 		postEvent(eventTopic, properties);
-		
+
 	}
 
 	protected void postEvent(String eventTopic, Map<String, ?> properties) {

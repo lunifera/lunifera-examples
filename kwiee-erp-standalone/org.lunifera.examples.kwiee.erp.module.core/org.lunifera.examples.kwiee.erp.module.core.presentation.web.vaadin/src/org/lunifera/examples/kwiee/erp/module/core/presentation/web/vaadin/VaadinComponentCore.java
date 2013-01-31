@@ -11,11 +11,14 @@
 package org.lunifera.examples.kwiee.erp.module.core.presentation.web.vaadin;
 
 import java.util.List;
+import java.util.Map;
 
 import org.lunifera.examples.kwiee.erp.module.core.bk.IBusinessKnowledgeServiceCore;
 import org.lunifera.examples.kwiee.erp.module.core.domain.Task;
 import org.lunifera.examples.kwiee.erp.module.core.services.AdministrationService;
 import org.lunifera.examples.kwiee.erp.utils.components.AbstractServiceComponent;
+import org.lunifera.runtime.web.vaadin.standalone.webapp.EmbeddableVaadinWebApplication;
+import org.osgi.service.component.ComponentContext;
 import org.osgi.service.event.Event;
 import org.osgi.service.event.EventHandler;
 
@@ -24,6 +27,24 @@ public class VaadinComponentCore extends AbstractServiceComponent implements
 
 	private IBusinessKnowledgeServiceCore businessKnowledgeServiceCore;
 	private AdministrationService administrationService;
+	private EmbeddableVaadinWebApplication webApplication;
+
+	@Override
+	protected void internalActivate(ComponentContext context,
+			Map<String, Object> properties) {
+		webApplication = new EmbeddableVaadinWebApplication(
+				context.getBundleContext());
+		webApplication.activate(properties);
+	}
+
+	@Override
+	protected void internalDeactivate(ComponentContext context,
+			Map<String, Object> properties) {
+		if (webApplication != null) {
+			webApplication.deactivate(properties);
+			webApplication = null;
+		}
+	}
 
 	public IBusinessKnowledgeServiceCore getBusinessKnowledgeServiceCore() {
 		return businessKnowledgeServiceCore;
@@ -47,30 +68,34 @@ public class VaadinComponentCore extends AbstractServiceComponent implements
 
 	@Override
 	public void handleEvent(Event event) {
-		// When things are ok 
-		
-		if (event.containsProperty("component")){
-			
+		// When things are ok
+
+		if (event.containsProperty("component")) {
+
 			// I get some data from service and print it.
-			List<Task> listTask = getAdministrationService().fetchWithFilter(null, null, null, 0, 0);
+			List<Task> listTask = getAdministrationService().fetchWithFilter(
+					null, null, null, 0, 0);
 			for (Task task : listTask) {
 				System.out.println(task.getSubject());
 			}
-			
+
 			// and start some process
 			getBusinessKnowledgeServiceCore().startSystemSetupProcess();
 		}
-		
+
 	}
 
 	public AdministrationService getAdministrationService() {
 		return administrationService;
 	}
 
-	public void bindAdministrationService(AdministrationService administrationService) {
+	public void bindAdministrationService(
+			AdministrationService administrationService) {
 		this.administrationService = administrationService;
 	}
-	public void unbindAdministrationService(AdministrationService administrationService) {
+
+	public void unbindAdministrationService(
+			AdministrationService administrationService) {
 		this.administrationService = administrationService;
 	}
 }
