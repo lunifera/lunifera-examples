@@ -8,9 +8,16 @@ Bundle-Vendor: %providerName
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Import-Package: org.lunifera.examples.kwiee.erp.module.core.domain,
+ org.lunifera.examples.kwiee.erp.module.core.presentation.web.vaadin.ui.common,
  org.lunifera.examples.kwiee.erp.module.financial.accounting.bk.api,
  org.lunifera.examples.kwiee.erp.module.financial.accounting.domain,
  org.lunifera.examples.kwiee.erp.utils.components,
  org.osgi.service.event;version="1.3.0",
  org.osgi.service.log;version="1.3.0"
-Service-Component: OSGI-INF/*.xml
+Service-Component: OSGI-INF/*.xml,
+ OSGI-INF/uimodule.xml
+Require-Bundle: com.vaadin.server;bundle-version="7.0.1",
+ com.vaadin.shared;bundle-version="7.0.1",
+ com.vaadin.shared.deps;bundle-version="1.0.2",
+ com.vaadin.themes;bundle-version="7.0.1"
+Vaadin-Resources: resources
