@@ -15,7 +15,7 @@ import java.util.Map;
 
 import org.lunifera.examples.kwiee.erp.module.core.domain.Task;
 
-public interface AdministrationService {
+public interface IAdministrationService {
 
 	public List<Task> fetchWithFilter(Map<String, Object> queryFilter,
 			Object[] sortPropertyIds, boolean[] sortStates, int startIndex,

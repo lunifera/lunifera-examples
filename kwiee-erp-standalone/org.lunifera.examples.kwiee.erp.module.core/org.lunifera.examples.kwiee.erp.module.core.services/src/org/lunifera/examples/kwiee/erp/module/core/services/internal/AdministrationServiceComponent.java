@@ -28,13 +28,13 @@ import org.apache.shiro.util.ByteSource;
 import org.lunifera.examples.kwiee.erp.module.core.domain.Employee;
 import org.lunifera.examples.kwiee.erp.module.core.domain.SystemUser;
 import org.lunifera.examples.kwiee.erp.module.core.domain.Task;
-import org.lunifera.examples.kwiee.erp.module.core.services.AdministrationService;
+import org.lunifera.examples.kwiee.erp.module.core.services.IAdministrationService;
 import org.lunifera.examples.kwiee.erp.utils.components.AbstractServiceComponentWithEntityManager;
 import org.osgi.service.component.ComponentContext;
 
 public class AdministrationServiceComponent extends
 		AbstractServiceComponentWithEntityManager implements
-		AdministrationService {
+		IAdministrationService {
 
 	private int calling;
 
@@ -43,8 +43,13 @@ public class AdministrationServiceComponent extends
 			Map<String, Object> properties) {
 		super.activate(context, properties);
 
-		String value = (String) properties.get("createTestData");
-		if (!value.isEmpty() && value.equalsIgnoreCase("true")) {
+		String valueStr = null;
+		Object value = properties.get("createTestData");
+		if(value instanceof Boolean)
+			valueStr = ((Boolean)value).toString();
+		if (value instanceof String)
+			valueStr = (String) value;
+		if (valueStr.equalsIgnoreCase("true")) {
 			createTestData();
 		}
 	}
