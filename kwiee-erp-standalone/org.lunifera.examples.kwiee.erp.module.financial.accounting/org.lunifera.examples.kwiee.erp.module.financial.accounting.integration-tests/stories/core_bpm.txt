@@ -1,8 +1,0 @@
-Story:
-
-O bundle bpm.core deve concentrar a criação e execução de regras e processos de negócios.
-
-outros módulos bpm devem usar este bundle como required e utiliza-lo para executar seus próprios processos particulares.
-
-
-Scenario: Ao ser inicializado o componente bpm.core deve criar o repositorio
