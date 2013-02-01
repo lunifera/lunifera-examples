@@ -47,9 +47,6 @@ public abstract class AbstractServiceComponent {
 
 		isReady = true;
 
-		// send a post to notify bundles that BPM knowledge is ready to supply
-		// sessions...
-		postEvent(EventCatalog.TOPIC_SERVICE_READY, getComponentName());
 	}
 
 	protected void bindLogService(LogService logService) {
@@ -65,9 +62,6 @@ public abstract class AbstractServiceComponent {
 
 		getLogService().log(LogService.LOG_INFO,
 				"Deactivating '" + getComponentName() + "'...");
-
-		// send a post to notify bundles that this component is finalized...
-		postEvent(EventCatalog.TOPIC_SERVICE_FINALIZED, getComponentName());
 	}
 
 	protected BundleContext getBundleContext() {
@@ -81,6 +75,9 @@ public abstract class AbstractServiceComponent {
 	protected abstract String getComponentName();
 
 	protected LogService getLogService() {
+		if (logService == null)
+			throw new RuntimeException(
+					"Log Service was not set properly for the component.");
 		return logService;
 	}
 
@@ -95,9 +92,6 @@ public abstract class AbstractServiceComponent {
 				LogService.LOG_INFO,
 				getComponentName()
 						+ " was modified. Service need to be restarted.");
-		// send a post to notify bundles that this component is being
-		// restarted...
-		postEvent(EventCatalog.TOPIC_SERVICE_RESTARTED, getComponentName());
 	}
 
 	protected void unbindLogService(LogService logService) {
@@ -121,11 +115,12 @@ public abstract class AbstractServiceComponent {
 		postEvent(eventTopic, properties);
 
 	}
+
 	protected void postEvent(String eventTopic, String componentName) {
 		Map<String, Object> properties = new HashMap<String, Object>();
 		properties.put("component", componentName);
 		postEvent(eventTopic, properties);
-		
+
 	}
 
 	protected void postEvent(String eventTopic, Map<String, ?> properties) {
