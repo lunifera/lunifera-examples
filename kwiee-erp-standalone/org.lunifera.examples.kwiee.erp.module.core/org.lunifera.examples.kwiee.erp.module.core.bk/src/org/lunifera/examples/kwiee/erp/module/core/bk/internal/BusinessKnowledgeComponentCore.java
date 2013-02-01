@@ -15,7 +15,9 @@ import java.util.Map;
 
 import org.lunifera.examples.kwiee.erp.module.core.bk.IBusinessKnowledgeServiceCore;
 import org.lunifera.examples.kwiee.erp.utils.components.AbstractServiceComponentWithEntityManager;
+import org.lunifera.examples.kwiee.erp.utils.components.EventCatalog;
 import org.osgi.framework.BundleContext;
+import org.osgi.service.component.ComponentContext;
 import org.osgi.service.log.LogService;
 
 public class BusinessKnowledgeComponentCore extends
@@ -30,9 +32,24 @@ public class BusinessKnowledgeComponentCore extends
 			return;
 		}
 		startProcess(PROCESS_ID_SYSTEM_SANITY_CHECK, null);
+		// send a post to notify bundles that BPM knowledge is ready to supply
+		// sessions...
+		postEvent(EventCatalog.TOPIC_SERVICE_READY, getComponentName());
 
 	}
 
+	@Override
+	protected void modified(ComponentContext context,
+			Map<String, Object> properties) {
+		// TODO Auto-generated method stub
+		super.modified(context, properties);
+		
+		// send a post to notify bundles that this component is being
+		// restarted...
+		postEvent(EventCatalog.TOPIC_SERVICE_RESTARTED, getComponentName());
+
+	}
+	
 	@Override
 	public void startSystemSetupProcess() {
 		if (!isReady()) {
