@@ -4,4 +4,6 @@
 	<inherits name="com.vaadin.DefaultWidgetSet" />
 	
     <inherits name="org.vaadin.artur.icepush.IcepushaddonWidgetset" />
+    
+    <stylesheet src="kwiee/styles.css"/>
 </module>

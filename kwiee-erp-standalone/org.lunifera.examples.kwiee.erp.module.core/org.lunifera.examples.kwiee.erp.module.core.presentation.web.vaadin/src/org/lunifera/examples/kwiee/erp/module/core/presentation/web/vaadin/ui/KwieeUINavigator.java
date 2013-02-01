@@ -27,12 +27,14 @@ import com.vaadin.data.Property;
 import com.vaadin.data.Property.ValueChangeEvent;
 import com.vaadin.data.util.BeanItemContainer;
 import com.vaadin.server.VaadinRequest;
+import com.vaadin.shared.ui.MarginInfo;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.CssLayout;
 import com.vaadin.ui.GridLayout;
+import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.TabSheet;
 import com.vaadin.ui.Table;
 import com.vaadin.ui.VerticalLayout;
@@ -47,10 +49,11 @@ public class KwieeUINavigator extends OSGiUI {
 	private static final long serialVersionUID = 1L;
 
 	private Map<IUIModuleProvider, Set<IUIModule>> mappings = new HashMap<IUIModuleProvider, Set<IUIModule>>();
+	private Set<IUIModule> pendingModules = new HashSet<IUIModule>();
 
 	private ICEPush pusher;
 
-	private CssLayout topFrame;
+	private HorizontalLayout topFrame;
 	private CssLayout bottomFrame;
 	private CssLayout mainFrame;
 	private TabSheet tabSheet;
@@ -58,6 +61,10 @@ public class KwieeUINavigator extends OSGiUI {
 	private Table taskTable;
 
 	private Button refreshTasksButton;
+
+	private CssLayout navFrame;
+
+	private boolean initialized;
 
 	@Override
 	public void init(VaadinRequest request) {
@@ -70,21 +77,40 @@ public class KwieeUINavigator extends OSGiUI {
 		// prepare UI
 		//
 		GridLayout root = new GridLayout(8, 8);
+		root.setStyleName(Reindeer.LAYOUT_BLUE);
+		root.addStyleName("kwiee");
 		root.setSizeFull();
-		root.setMargin(true);
-		root.setSpacing(true);
+		root.setMargin(new MarginInfo(false, true, true, true));
+		root.setSpacing(false);
 		setContent(root);
 
+		root.setRowExpandRatio(0, 0.7f);
+		root.setRowExpandRatio(1, 1.0f);
+		root.setRowExpandRatio(2, 1.0f);
+		root.setRowExpandRatio(3, 1.0f);
+		root.setRowExpandRatio(4, 1.0f);
+		root.setRowExpandRatio(5, 1.0f);
+		root.setRowExpandRatio(6, 1.0f);
+		root.setRowExpandRatio(7, 0.4f);
+
 		// Create top frame
-		topFrame = new CssLayout();
-		topFrame.setWidth("100%");
-		topFrame.setHeight("48px");
-		root.addComponent(topFrame, 0, 0, 0, 7);
+		topFrame = new HorizontalLayout();
+		topFrame.addStyleName("k-topframe");
+		topFrame.setMargin(true);
+		topFrame.setSpacing(true);
+		topFrame.setSizeFull();
+		root.addComponent(topFrame, 1, 0, 7, 0);
+
+		// Create top frame
+		navFrame = new CssLayout();
+		navFrame.addStyleName("k-navframe");
+		navFrame.setSizeFull();
+		root.addComponent(navFrame, 0, 1, 0, 6);
 
 		// Create main frame
 		mainFrame = new CssLayout();
 		mainFrame.setSizeFull();
-		root.addComponent(topFrame, 1, 1, 6, 6);
+		root.addComponent(mainFrame, 1, 1, 7, 6);
 		tabSheet = new TabSheet();
 		tabSheet.setSizeFull();
 		mainFrame.addComponent(tabSheet);
@@ -94,9 +120,20 @@ public class KwieeUINavigator extends OSGiUI {
 
 		// Create bottom frame
 		bottomFrame = new CssLayout();
-		bottomFrame.setWidth("100%");
-		bottomFrame.setHeight("48px");
-		root.addComponent(bottomFrame, 7, 7, 0, 7);
+		bottomFrame.addStyleName("k-bottomframe");
+		bottomFrame.setSizeFull();
+		root.addComponent(bottomFrame, 0, 7, 7, 7);
+
+		initialized = true;
+
+		// attach the pending modules
+		//
+		synchronized (this) {
+			for (IUIModule module : pendingModules) {
+				attachModule(module);
+			}
+			pendingModules.clear();
+		}
 
 	}
 
@@ -116,22 +153,27 @@ public class KwieeUINavigator extends OSGiUI {
 		taskTable.setImmediate(true);
 		taskTable.setBuffered(false);
 		taskTable.setSelectable(true);
-		taskTable.setVisibleColumns(Task.NATURAL_COL_ORDER);
 		taskTable.addValueChangeListener(new Property.ValueChangeListener() {
 			@Override
 			public void valueChange(ValueChangeEvent event) {
 				showTask((Task) event.getProperty().getValue());
 			}
 		});
-		
+
 		refreshTasks();
 
 		// create button -> 28px
+		HorizontalLayout buttonBar = new HorizontalLayout();
+		buttonBar.setSizeFull();
+		buttonBar.setMargin(true);
+		buttonBar.setSpacing(true);
+		buttonBar.setHeight("48px");
+		tableArea.addComponent(buttonBar);
+
 		refreshTasksButton = new Button("Refresh");
-		refreshTasksButton.setHeight("28px");
-		tableArea.addComponent(refreshTasksButton);
-		tableArea.setComponentAlignment(refreshTasksButton,
-				Alignment.BOTTOM_LEFT);
+		buttonBar.addComponent(refreshTasksButton);
+		buttonBar.setComponentAlignment(refreshTasksButton,
+				Alignment.MIDDLE_LEFT);
 		refreshTasksButton.addClickListener(new Button.ClickListener() {
 			@Override
 			public void buttonClick(ClickEvent event) {
@@ -147,10 +189,13 @@ public class KwieeUINavigator extends OSGiUI {
 		List<Task> tasks = null; // TODO
 		BeanItemContainer<Task> container = new BeanItemContainer<Task>(
 				Task.class);
-		for (Task task : tasks) {
-			container.addBean(task);
+		if (tasks != null) {
+			for (Task task : tasks) {
+				container.addBean(task);
+			}
 		}
 		taskTable.setContainerDataSource(container);
+		taskTable.setVisibleColumns(Task.NATURAL_COL_ORDER);
 	}
 
 	/**
@@ -171,23 +216,38 @@ public class KwieeUINavigator extends OSGiUI {
 		IUIModule module = provider.createModule();
 		registerModule(provider, module);
 
+		if (!initialized) {
+			pendingModules.add(module);
+			return;
+		}
+
 		synchronized (this) {
-			Component topComponent = module.getTopComponent();
-			if (topComponent != null) {
-				topFrame.addComponent(topComponent);
-			}
-
-			Component mainComponent = module.getMainComponent();
-			if (mainComponent != null) {
-				tabSheet.addTab(module.getMainComponent(), module.getCaption());
-			}
-
-			Component bottomComponent = module.getBottomComponent();
-			if (bottomComponent != null) {
-				bottomFrame.addComponent(bottomComponent);
-			}
-
+			attachModule(module);
 			pusher.push();
+		}
+	}
+
+	/**
+	 * Attaches the given module to the UI.
+	 * 
+	 * @param module
+	 */
+	protected void attachModule(IUIModule module) {
+		Component topComponent = module.getTopComponent();
+		if (topComponent != null) {
+			topFrame.addComponent(topComponent);
+			topComponent.addStyleName("k-navcomponent");
+			topFrame.setComponentAlignment(topComponent, Alignment.MIDDLE_LEFT);
+		}
+
+		Component mainComponent = module.getMainComponent();
+		if (mainComponent != null) {
+			tabSheet.addTab(module.getMainComponent(), module.getCaption());
+		}
+
+		Component bottomComponent = module.getBottomComponent();
+		if (bottomComponent != null) {
+			bottomFrame.addComponent(bottomComponent);
 		}
 	}
 
