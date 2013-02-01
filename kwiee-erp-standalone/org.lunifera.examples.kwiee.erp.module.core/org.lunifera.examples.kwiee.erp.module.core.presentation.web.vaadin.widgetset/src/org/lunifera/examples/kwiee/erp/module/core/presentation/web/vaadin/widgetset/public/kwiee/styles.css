@@ -1,4 +1,13 @@
 
-.kwiee .topframe {
-	background-color: blue;
+.kwiee .k-topframe {
+}
+
+.kwiee .k-topframe .k-navcomponent :hover {
+	background-color: rgb(148, 187, 206);
+}
+
+.kwiee .k-bottomframe {
+}
+
+.kwiee .k-navframe {
 }
