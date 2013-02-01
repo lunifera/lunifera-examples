@@ -138,6 +138,16 @@
 	</build>
 	<profiles>
 		<profile>
+			<id>lunifera.build.widgetset</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<modules>
+				<module>org.lunifera.examples.kwiee.erp.module.core</module>
+			</modules>
+		</profile>
+
+		<profile>
 			<id>lunifera.build.p2</id>
 			<activation>
 				<activeByDefault>false</activeByDefault>
