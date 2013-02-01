@@ -45,8 +45,35 @@ public abstract class AbstractServiceComponent {
 		// save bundleContext reference...
 		bundleContext = context.getBundleContext();
 
+		// hook method for subclasses
+		internalActivate(context, properties);
+
 		isReady = true;
 
+	}
+
+	/**
+	 * Can be overridden by subclasses for activation.<br>
+	 * Subclasses do not have to call super.
+	 * 
+	 * @param context
+	 * @param properties
+	 */
+	protected void internalActivate(ComponentContext context,
+			Map<String, Object> properties) {
+		// do not put code here!
+	}
+
+	/**
+	 * Can be overridden by subclasses for deactivation.<br>
+	 * Subclasses do not have to call super.
+	 * 
+	 * @param context
+	 * @param properties
+	 */
+	protected void internalDeactivate(ComponentContext context,
+			Map<String, Object> properties) {
+		// do not put code here!
 	}
 
 	protected void bindLogService(LogService logService) {
@@ -59,6 +86,9 @@ public abstract class AbstractServiceComponent {
 		isReady = false;
 		cachedConfigurationData = null;
 		bundleContext = null;
+
+		// a hook method for sub classes
+		internalDeactivate(context, properties);
 
 		getLogService().log(LogService.LOG_INFO,
 				"Deactivating '" + getComponentName() + "'...");

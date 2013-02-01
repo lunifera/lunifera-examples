@@ -12,20 +12,30 @@ package org.lunifera.examples.kwiee.erp.module.core.presentation.web.vaadin.ui;
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.lunifera.examples.kwiee.erp.module.core.domain.Task;
 import org.lunifera.examples.kwiee.erp.module.core.presentation.web.vaadin.ui.common.IUIModule;
 import org.lunifera.examples.kwiee.erp.module.core.presentation.web.vaadin.ui.common.IUIModuleProvider;
 import org.lunifera.web.vaadin.common.OSGiUI;
 import org.vaadin.artur.icepush.ICEPush;
 
 import com.vaadin.annotations.Theme;
+import com.vaadin.data.Property;
+import com.vaadin.data.Property.ValueChangeEvent;
+import com.vaadin.data.util.BeanItemContainer;
 import com.vaadin.server.VaadinRequest;
+import com.vaadin.ui.Alignment;
+import com.vaadin.ui.Button;
+import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.CssLayout;
 import com.vaadin.ui.GridLayout;
 import com.vaadin.ui.TabSheet;
+import com.vaadin.ui.Table;
+import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.themes.Reindeer;
 
 /**
@@ -44,6 +54,10 @@ public class KwieeUINavigator extends OSGiUI {
 	private CssLayout bottomFrame;
 	private CssLayout mainFrame;
 	private TabSheet tabSheet;
+
+	private Table taskTable;
+
+	private Button refreshTasksButton;
 
 	@Override
 	public void init(VaadinRequest request) {
@@ -75,11 +89,76 @@ public class KwieeUINavigator extends OSGiUI {
 		tabSheet.setSizeFull();
 		mainFrame.addComponent(tabSheet);
 
+		// task table
+		createTasksTable();
+
 		// Create bottom frame
 		bottomFrame = new CssLayout();
 		bottomFrame.setWidth("100%");
 		bottomFrame.setHeight("48px");
 		root.addComponent(bottomFrame, 7, 7, 0, 7);
+
+	}
+
+	@SuppressWarnings("serial")
+	protected void createTasksTable() {
+
+		// create layout
+		VerticalLayout tableArea = new VerticalLayout();
+		tableArea.setSizeFull();
+		tabSheet.addTab(tableArea, "Tasks");
+
+		// create table -> expand 1.0
+		taskTable = new Table();
+		tableArea.addComponent(taskTable);
+		tableArea.setExpandRatio(taskTable, 1.0f);
+		taskTable.setSizeFull();
+		taskTable.setImmediate(true);
+		taskTable.setBuffered(false);
+		taskTable.setSelectable(true);
+		taskTable.setVisibleColumns(Task.NATURAL_COL_ORDER);
+		taskTable.addValueChangeListener(new Property.ValueChangeListener() {
+			@Override
+			public void valueChange(ValueChangeEvent event) {
+				showTask((Task) event.getProperty().getValue());
+			}
+		});
+		
+		refreshTasks();
+
+		// create button -> 28px
+		refreshTasksButton = new Button("Refresh");
+		refreshTasksButton.setHeight("28px");
+		tableArea.addComponent(refreshTasksButton);
+		tableArea.setComponentAlignment(refreshTasksButton,
+				Alignment.BOTTOM_LEFT);
+		refreshTasksButton.addClickListener(new Button.ClickListener() {
+			@Override
+			public void buttonClick(ClickEvent event) {
+				refreshTasks();
+			}
+		});
+	}
+
+	/**
+	 * Refreshes all tasks in the task table.
+	 */
+	protected void refreshTasks() {
+		List<Task> tasks = null; // TODO
+		BeanItemContainer<Task> container = new BeanItemContainer<Task>(
+				Task.class);
+		for (Task task : tasks) {
+			container.addBean(task);
+		}
+		taskTable.setContainerDataSource(container);
+	}
+
+	/**
+	 * Show a dialog for the task.
+	 * 
+	 * @param value
+	 */
+	protected void showTask(Task value) {
 
 	}
 
@@ -92,19 +171,23 @@ public class KwieeUINavigator extends OSGiUI {
 		IUIModule module = provider.createModule();
 		registerModule(provider, module);
 
-		Component topComponent = module.getTopComponent();
-		if (topComponent != null) {
-			topFrame.addComponent(topComponent);
-		}
+		synchronized (this) {
+			Component topComponent = module.getTopComponent();
+			if (topComponent != null) {
+				topFrame.addComponent(topComponent);
+			}
 
-		Component mainComponent = module.getMainComponent();
-		if (mainComponent != null) {
-			tabSheet.addTab(module.getMainComponent(), module.getCaption());
-		}
+			Component mainComponent = module.getMainComponent();
+			if (mainComponent != null) {
+				tabSheet.addTab(module.getMainComponent(), module.getCaption());
+			}
 
-		Component bottomComponent = module.getBottomComponent();
-		if (bottomComponent != null) {
-			bottomFrame.addComponent(bottomComponent);
+			Component bottomComponent = module.getBottomComponent();
+			if (bottomComponent != null) {
+				bottomFrame.addComponent(bottomComponent);
+			}
+
+			pusher.push();
 		}
 	}
 

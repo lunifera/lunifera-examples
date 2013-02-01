@@ -11,11 +11,14 @@
 package org.lunifera.examples.kwiee.erp.module.core.presentation.web.vaadin;
 
 import java.util.List;
+import java.util.Map;
 
 import org.lunifera.examples.kwiee.erp.module.core.bk.IBusinessKnowledgeServiceCore;
 import org.lunifera.examples.kwiee.erp.module.core.domain.Task;
 import org.lunifera.examples.kwiee.erp.module.core.services.IAdministrationService;
 import org.lunifera.examples.kwiee.erp.utils.components.AbstractServiceComponent;
+import org.lunifera.runtime.web.vaadin.standalone.webapp.EmbeddableVaadinWebApplication;
+import org.osgi.service.component.ComponentContext;
 import org.osgi.service.event.Event;
 import org.osgi.service.event.EventHandler;
 
@@ -24,6 +27,24 @@ public class VaadinComponentCore extends AbstractServiceComponent implements
 
 	private IBusinessKnowledgeServiceCore businessKnowledgeServiceCore;
 	private IAdministrationService iAdministrationService;
+	private EmbeddableVaadinWebApplication webApplication;
+
+	@Override
+	protected void internalActivate(ComponentContext context,
+			Map<String, Object> properties) {
+		webApplication = new EmbeddableVaadinWebApplication(
+				context.getBundleContext());
+		webApplication.activate(properties);
+	}
+
+	@Override
+	protected void internalDeactivate(ComponentContext context,
+			Map<String, Object> properties) {
+		if (webApplication != null) {
+			webApplication.deactivate(properties);
+			webApplication = null;
+		}
+	}
 
 	public IBusinessKnowledgeServiceCore getBusinessKnowledgeServiceCore() {
 		return businessKnowledgeServiceCore;
