@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" activate="activate" configuration-policy="optional" deactivate="deactivate" immediate="true" modified="modified" name="org.lunifera.examples.kwiee.erp.module.core.services">
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" activate="activate" configuration-policy="optional" deactivate="deactivate" immediate="true" modified="modified" name="org.lunifera.examples.kwiee.erp.module.core.services.internal.AdministrationServiceComponent">
    <implementation class="org.lunifera.examples.kwiee.erp.module.core.services.internal.AdministrationServiceComponent"/>
    <reference bind="bindLogService" cardinality="1..1" interface="org.osgi.service.log.LogService" name="LogService_CoreServices" policy="dynamic" unbind="unbindLogService"/>
    <reference bind="bindEventAdmin" cardinality="1..1" interface="org.osgi.service.event.EventAdmin" name="EventAdmin_CoreServices" policy="dynamic" unbind="unbindEventAdmin"/>
    <reference bind="bindEntityManagerFactory" cardinality="1..1"  interface="javax.persistence.EntityManagerFactory" name="EntityManagerFactory_CoreServices" policy="dynamic" target="(osgi.unit.name=kwiee.erp.pu)" unbind="unbindEntityManagerFactory"/>
 <service>
-   <provide interface="org.lunifera.examples.kwiee.erp.module.core.services.AdministrationService"/>
+   <provide interface="org.lunifera.examples.kwiee.erp.module.core.services.IAdministrationService"/>
 </service>
    <property name="createTestData" type="Boolean" value="false"/>
 </scr:component>
