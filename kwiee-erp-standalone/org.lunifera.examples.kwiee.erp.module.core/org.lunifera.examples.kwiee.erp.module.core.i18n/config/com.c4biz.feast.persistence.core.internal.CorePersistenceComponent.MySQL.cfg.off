@@ -1,4 +1,0 @@
-url=jdbc:mysql://127.0.0.1:3306/Feast
-user=feast_admin
-password=feast
-DataSourceFactory_Feast.target=(&(osgi.jdbc.driver.class=com.mysql.jdbc.Driver)(osgi.jdbc.driver.version=5.1.18)) 

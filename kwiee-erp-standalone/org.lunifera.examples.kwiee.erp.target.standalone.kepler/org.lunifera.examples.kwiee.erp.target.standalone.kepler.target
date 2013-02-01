@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde version="3.8"?>
 
-<target includeMode="feature" name="org.lunifera.examples.kwiee.erp.target.standalone.kepler" sequenceNumber="48">
+<target name="org.lunifera.examples.kwiee.erp.target.standalone.kepler" sequenceNumber="46">
 <locations>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="slicer" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.gemini.jpa.feature.feature.group" version="1.1.0.RELEASE"/>
@@ -12,29 +12,26 @@
 <repository location="https://hudson.eclipse.org/hudson/job/gemini-dbaccess/lastSuccessfulBuild/artifact/gemini.dbaccess.updatesite/target/site/"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.lunifera.dependencies.feature.security.shiro.feature.group" version="1.2.1"/>
-<unit id="org.lunifera.dependencies.feature.assert-utilities.feature.group" version="1.1.0"/>
-<unit id="org.lunifera.dependencies.feature.xtext.headless.feature.group" version="2.4.0.201301300503"/>
-<unit id="org.lunifera.dependencies.feature.vaadin.feature.group" version="7.0.0.201301300503"/>
-<unit id="org.lunifera.runtime.web.feature.vaadin.common.feature.group" version="0.0.1.201301231549"/>
-<unit id="org.lunifera.dsl.feature.organizations.headless.feature.group" version="0.0.1.201301232242"/>
-<unit id="org.lunifera.runtime.feature.logging.equinox.over.slf4j.feature.group" version="0.0.1.201301300537"/>
-<unit id="org.lunifera.runtime.web.feature.vaadin.databinding.feature.group" version="0.0.1.201301231549"/>
-<unit id="org.lunifera.runtime.web.feature.vaadin.standalone.feature.group" version="0.0.1.201301231549"/>
-<unit id="org.lunifera.dependencies.feature.equinox.feature.group" version="3.9.0.201301300503"/>
-<unit id="org.lunifera.runtime.web.feature.vaadin.components.feature.group" version="0.0.1.201301231549"/>
-<unit id="org.lunifera.dsl.feature.entities.headless.feature.group" version="0.0.1.201301232242"/>
-<unit id="org.lunifera.runtime.feature.configuration.manager.feature.group" version="0.0.1.201301300537"/>
-<unit id="org.lunifera.dependencies.feature.vaadin.addon.icepush.feature.group" version="0.5.4"/>
-<repository location="http://lunifera.github.com/p2/kepler/latest"/>
-</location>
-<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.persistence.jpa.feature.group" version="2.5.0.v20121016-ab08992"/>
 <unit id="org.eclipse.core.runtime.feature.feature.group" version="1.1.0.v20120521-2346-7H7OFJJBpeIn_ddTiXpom8fJ0XZ9"/>
 <repository location="http://download.eclipse.org/releases/kepler"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.persistence.jpa.feature.group" version="2.4.1.v20121003-ad44345"/>
-<repository location="http://download.eclipse.org/rt/eclipselink/updates/"/>
+<unit id="org.lunifera.dependencies.feature.security.shiro.feature.group" version="1.2.1"/>
+<unit id="org.lunifera.dependencies.feature.assert-utilities.feature.group" version="1.1.0"/>
+<unit id="org.lunifera.dependencies.feature.xtext.headless.feature.group" version="2.4.0.201301311856"/>
+<unit id="org.lunifera.dependencies.feature.vaadin.feature.group" version="7.0.0.201301311856"/>
+<unit id="org.lunifera.runtime.web.feature.vaadin.common.feature.group" version="0.0.1.201301311849"/>
+<unit id="org.lunifera.dsl.feature.organizations.headless.feature.group" version="0.0.1.201301232242"/>
+<unit id="org.lunifera.runtime.feature.logging.equinox.over.slf4j.feature.group" version="0.0.1.201301300537"/>
+<unit id="org.lunifera.runtime.web.feature.vaadin.databinding.feature.group" version="0.0.1.201301311849"/>
+<unit id="org.lunifera.runtime.web.feature.vaadin.standalone.feature.group" version="0.0.1.201301311849"/>
+<unit id="org.lunifera.dependencies.feature.equinox.feature.group" version="3.9.0.201301311856"/>
+<unit id="org.lunifera.runtime.web.feature.vaadin.components.feature.group" version="0.0.1.201301311849"/>
+<unit id="org.lunifera.dsl.feature.entities.headless.feature.group" version="0.0.1.201301232242"/>
+<unit id="org.lunifera.runtime.feature.configuration.manager.feature.group" version="0.0.1.201301300537"/>
+<unit id="org.lunifera.dependencies.feature.vaadin.addon.icepush.feature.group" version="0.5.4"/>
+<repository location="http://lunifera.github.com/p2/kepler/latest"/>
 </location>
 </locations>
 </target>
