@@ -6,7 +6,10 @@ Bundle-Version: 0.0.1.qualifier
 Require-Bundle: org.lunifera.runtime.web.ecp.uimodel.presentation.vaadin,
  org.lunifera.runtime.web.vaadin.common;bundle-version="0.0.1",
  org.json;bundle-version="1.0.0",
- org.jsoup;bundle-version="1.6.3"
+ org.jsoup;bundle-version="1.6.3",
+ com.vaadin.server;bundle-version="7.0.1",
+ com.vaadin.shared.deps;bundle-version="1.0.2",
+ com.vaadin.themes;bundle-version="7.0.1"
 Bundle-ActivationPolicy: lazy
 Import-Package: org.osgi.service.component;version="1.2.0",
  org.slf4j;version="1.6.4"
