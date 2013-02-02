@@ -10,15 +10,6 @@
 	<artifactId>org.lunifera.examples.kwiee.erp.module.core.presentation.web.vaadin.widgetset</artifactId>
 	<packaging>eclipse-plugin</packaging>
 
-	<properties>
-		<vaadin-version>7.0-SNAPSHOT</vaadin-version>
-		<shiro-version>1.2.1</shiro-version>
-		<vaadin-icepush-version>0.5.4</vaadin-icepush-version>
-<!-- 		<icepush-version>2.0.0-alpha3</icepush-version> -->
-<!-- 		<icepush-gwt-version>2.0.0-alpha3</icepush-gwt-version> -->
-			<icepush-version>3.0.1</icepush-version>
-			<icepush-gwt-version>1.0.0</icepush-gwt-version>
-	</properties>
 	<repositories>
 		<repository>
 			<id>vaadin-addons</id>
@@ -49,99 +40,9 @@
 		</pluginRepository>
 	</pluginRepositories>
 
-	<dependencies>
-		<dependency>
-			<groupId>org.vaadin.addons</groupId>
-			<artifactId>icepush</artifactId>
-			<version>${vaadin-icepush-version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.icefaces</groupId>
-			<artifactId>icepush</artifactId>
-			<version>${icepush-version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.icefaces</groupId>
-			<artifactId>icepush.gwt</artifactId>
-			<version>${icepush-gwt-version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.vaadin</groupId>
-			<artifactId>vaadin-server</artifactId>
-			<scope>provided</scope>
-			<version>${vaadin-version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.vaadin</groupId>
-			<artifactId>vaadin-client</artifactId>
-			<scope>provided</scope>
-			<version>${vaadin-version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.vaadin</groupId>
-			<artifactId>vaadin-client-compiled</artifactId>
-			<scope>provided</scope>
-			<version>${vaadin-version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.vaadin</groupId>
-			<artifactId>vaadin-shared</artifactId>
-			<scope>provided</scope>
-			<version>${vaadin-version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.vaadin</groupId>
-			<artifactId>vaadin-shared-deps</artifactId>
-			<scope>provided</scope>
-			<version>1.0.2</version>
-		</dependency>
-		<dependency>
-			<groupId>com.vaadin</groupId>
-			<artifactId>vaadin-client-compiler</artifactId>
-			<scope>provided</scope>
-			<version>${vaadin-version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.vaadin</groupId>
-			<artifactId>vaadin-themes</artifactId>
-			<version>${vaadin-version}</version>
-		</dependency>
-		<dependency>
-			<groupId>commons-io</groupId>
-			<artifactId>commons-io</artifactId>
-			<version>2.4</version>
-		</dependency>
-		<dependency>
-			<groupId>com.vaadin</groupId>
-			<artifactId>vaadin-testbench</artifactId>
-			<version>3.0.4</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>2.5</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>LATEST</version>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
 
 	<build>
 		<plugins>
-			<!-- <plugin> -->
-			<!-- <groupId>org.apache.maven.plugins</groupId> -->
-			<!-- <artifactId>maven-compiler-plugin</artifactId> -->
-			<!-- <version>2.5</version> -->
-			<!-- <configuration> -->
-			<!-- <source>1.6</source> -->
-			<!-- <target>1.6</target> -->
-			<!-- </configuration> -->
-			<!-- </plugin> -->
 			<plugin>
 				<groupId>com.vaadin</groupId>
 				<artifactId>vaadin-maven-plugin</artifactId>
@@ -186,20 +87,6 @@
 						</fileset>
 					</filesets>
 				</configuration>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-failsafe-plugin</artifactId>
-				<version>2.12</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>integration-test</goal>
-							<goal>verify</goal>
-						</goals>
-					</execution>
-				</executions>
 			</plugin>
 
 		</plugins>

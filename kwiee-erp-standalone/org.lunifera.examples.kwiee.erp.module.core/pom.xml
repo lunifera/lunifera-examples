@@ -48,8 +48,9 @@
 				<!-- <module>org.lunifera.examples.kwiee.erp.module.core.integration-tests</module> -->
 				<module>org.lunifera.examples.kwiee.erp.module.core.presentation.web.vaadin</module>
 				<module>org.lunifera.examples.kwiee.erp.module.core.persistence</module>
-<!-- 				<module>org.lunifera.examples.kwiee.erp.module.core.i18n</module> -->
+				<module>org.lunifera.examples.kwiee.erp.module.core.i18n</module>
 				<module>org.lunifera.examples.kwiee.erp.module.core.services</module>
+				<module>org.lunifera.examples.kwiee.erp.module.core.presentation.web.vaadin.widgetset</module>
 			</modules>
 		</profile>
 
