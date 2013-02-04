@@ -2,4 +2,5 @@
 <scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" factory="org.lunifera.web.vaadin.UI/org.lunifera.examples.kwiee.erp.module.core.presentation.web.vaadin.ui.KwieeUINavigator" name="org.lunifera.examples.kwiee.erp.module.core.presentation.web.vaadin.ui.KwieeUINavigator">
    <implementation class="org.lunifera.examples.kwiee.erp.module.core.presentation.web.vaadin.ui.KwieeUINavigator"/>
    <reference bind="addModule" cardinality="0..n" interface="org.lunifera.examples.kwiee.erp.module.core.presentation.web.vaadin.ui.common.IUIModuleProvider" name="uiModules" policy="dynamic" unbind="removeModule"/>
+   <reference bind="setWebContextRegistry" cardinality="1..1" interface="org.lunifera.runtime.web.common.IWebContextRegistry" name="webContextRegistry" policy="static" target="(lunifera.web.common.context.uikit=vaadin)"/>
 </scr:component>

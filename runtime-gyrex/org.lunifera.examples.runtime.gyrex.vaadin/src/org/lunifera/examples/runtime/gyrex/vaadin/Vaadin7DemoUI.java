@@ -12,7 +12,7 @@
  *******************************************************************************/
 package org.lunifera.examples.runtime.gyrex.vaadin;
 
-import org.lunifera.web.vaadin.common.OSGiUI;
+import org.lunifera.runtime.web.vaadin.common.OSGiUI;
 
 import com.vaadin.annotations.Theme;
 import com.vaadin.server.VaadinRequest;

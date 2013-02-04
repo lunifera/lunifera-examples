@@ -5,7 +5,8 @@ Bundle-SymbolicName: org.lunifera.examples.runtime.web.vaadin.standalone
 Bundle-Version: 0.0.1.qualifier
 Service-Component: OSGI-INF/vaadinWebApp.xml, 
  OSGI-INF/vaadinUI.xml
-Import-Package: org.lunifera.web.vaadin.common,
+Import-Package: org.lunifera.runtime.web.common.context,
+ org.lunifera.runtime.web.vaadin.common,
  org.osgi.service.component;version="1.2.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Require-Bundle: javax.servlet;bundle-version="3.0.0",

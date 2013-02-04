@@ -12,7 +12,7 @@
  *******************************************************************************/
 package org.lunifera.examples.runtime.web.vaadin.standalone;
 
-import org.lunifera.web.vaadin.common.OSGiUI;
+import org.lunifera.runtime.web.vaadin.common.OSGiUI;
 import org.vaadin.artur.icepush.ICEPush;
 
 import com.vaadin.annotations.Theme;

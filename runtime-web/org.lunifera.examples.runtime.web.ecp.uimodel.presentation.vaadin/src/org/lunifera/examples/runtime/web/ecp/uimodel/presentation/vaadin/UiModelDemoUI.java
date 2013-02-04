@@ -12,7 +12,7 @@
  *******************************************************************************/
 package org.lunifera.examples.runtime.web.ecp.uimodel.presentation.vaadin;
 
-import org.lunifera.web.vaadin.common.OSGiUI;
+import org.lunifera.runtime.web.vaadin.common.OSGiUI;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

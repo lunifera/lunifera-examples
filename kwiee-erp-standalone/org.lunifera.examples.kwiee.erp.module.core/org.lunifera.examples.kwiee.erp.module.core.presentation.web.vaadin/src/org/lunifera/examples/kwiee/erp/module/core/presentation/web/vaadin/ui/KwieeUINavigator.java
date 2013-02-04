@@ -19,7 +19,7 @@ import java.util.Set;
 import org.lunifera.examples.kwiee.erp.module.core.domain.Task;
 import org.lunifera.examples.kwiee.erp.module.core.presentation.web.vaadin.ui.common.IUIModule;
 import org.lunifera.examples.kwiee.erp.module.core.presentation.web.vaadin.ui.common.IUIModuleProvider;
-import org.lunifera.web.vaadin.common.OSGiUI;
+import org.lunifera.runtime.web.vaadin.common.OSGiUI;
 import org.vaadin.artur.icepush.ICEPush;
 
 import com.vaadin.annotations.Theme;

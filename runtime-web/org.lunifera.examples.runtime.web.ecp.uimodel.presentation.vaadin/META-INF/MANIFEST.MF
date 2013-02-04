@@ -11,7 +11,8 @@ Require-Bundle: org.lunifera.runtime.web.ecp.uimodel.presentation.vaadin,
  com.vaadin.shared.deps;bundle-version="1.0.2",
  com.vaadin.themes;bundle-version="7.0.1"
 Bundle-ActivationPolicy: lazy
-Import-Package: org.osgi.service.component;version="1.2.0",
+Import-Package: org.lunifera.runtime.web.common.context,
+ org.osgi.service.component;version="1.2.0",
  org.slf4j;version="1.6.4"
 Service-Component: OSGI-INF/vaadin-application.xml, OSGI-INF/vaadinUI.xml
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
