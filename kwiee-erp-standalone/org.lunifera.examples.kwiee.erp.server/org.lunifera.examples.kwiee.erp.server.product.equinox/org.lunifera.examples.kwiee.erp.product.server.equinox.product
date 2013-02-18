@@ -179,7 +179,6 @@ Java and all Java-based trademarks are trademarks of Oracle Corporation in the U
       <feature id="org.lunifera.dsl.feature.entities.headless"/>
       <feature id="org.lunifera.dsl.feature.organizations.headless"/>
       <feature id="org.lunifera.runtime.feature.configuration.manager"/>
-      <feature id="org.lunifera.runtime.web.feature.vaadin.standalone"/>
       <feature id="org.lunifera.runtime.web.feature.vaadin.common"/>
       <feature id="org.lunifera.runtime.web.feature.vaadin.components"/>
       <feature id="org.lunifera.runtime.web.feature.vaadin.databinding"/>
@@ -188,6 +187,10 @@ Java and all Java-based trademarks are trademarks of Oracle Corporation in the U
       <feature id="org.lunifera.examples.kwiee.erp.module.financial.accounting.feature"/>
       <feature id="org.lunifera.examples.kwiee.erp.utils.feature"/>
       <feature id="org.lunifera.runtime.feature.logging.equinox.over.slf4j"/>
+      <feature id="org.lunifera.runtime.web.feature.http" version="0.0.1.qualifier"/>
+      <feature id="org.lunifera.runtime.web.feature.jetty" version="0.0.1.qualifier"/>
+      <feature id="org.lunifera.runtime.web.feature.vaadin.osgi" version="0.0.1.qualifier"/>
+      <feature id="org.lunifera.runtime.feature.common" version="0.0.1.qualifier"/>
    </features>
 
    <configurations>
@@ -207,7 +210,6 @@ Java and all Java-based trademarks are trademarks of Oracle Corporation in the U
       <plugin id="org.lunifera.runtime.component.configuration.manager" autoStart="true" startLevel="2" />
       <plugin id="org.lunifera.runtime.component.logging.equinox.over.slf4j" autoStart="true" startLevel="1" />
       <plugin id="osgi.enterprise" autoStart="true" startLevel="3" />
-      <property name="org.eclipse.equinox.http.jetty.autostart" value="false" />
       <property name="osgi.bundles.defaultStartLevel" value="5" />
    </configurations>
 
