@@ -4,6 +4,7 @@
    <reference bind="bindLogService" cardinality="1..1" interface="org.osgi.service.log.LogService" name="LogService_CoreServices" policy="dynamic" unbind="unbindLogService"/>
    <reference bind="bindEventAdmin" cardinality="1..1" interface="org.osgi.service.event.EventAdmin" name="EventAdmin_CoreServices" policy="dynamic" unbind="unbindEventAdmin"/>
    <reference bind="bindBusinessKnowledgeServiceCore" cardinality="1..1"  interface="org.lunifera.examples.kwiee.erp.module.core.bk.IBusinessKnowledgeServiceCore" name="BusinessKnowledgeService_Core" policy="dynamic" unbind="unbindBusinessKnowledgeServiceCore"/>
+   <reference bind="bindVaadinApplication" cardinality="0..1" interface="org.lunifera.runtime.web.vaadin.osgi.common.IVaadinApplication" name="vaadinApplication" policy="dynamic" target="(lunifera.web.vaadin.name=KwieeDemo-VaadinApplication)" unbind="unbindVaadinApplication"/>
 	<service> 
  		<provide interface="org.osgi.service.event.EventHandler"/>
 	</service>

@@ -17,7 +17,7 @@ import org.lunifera.examples.kwiee.erp.module.core.bk.IBusinessKnowledgeServiceC
 import org.lunifera.examples.kwiee.erp.module.core.domain.Task;
 import org.lunifera.examples.kwiee.erp.module.core.services.IAdministrationService;
 import org.lunifera.examples.kwiee.erp.utils.components.AbstractServiceComponent;
-import org.lunifera.runtime.web.vaadin.standalone.webapp.EmbeddableVaadinWebApplication;
+import org.lunifera.runtime.web.vaadin.osgi.common.IVaadinApplication;
 import org.osgi.service.component.ComponentContext;
 import org.osgi.service.event.Event;
 import org.osgi.service.event.EventHandler;
@@ -27,23 +27,18 @@ public class VaadinComponentCore extends AbstractServiceComponent implements
 
 	private IBusinessKnowledgeServiceCore businessKnowledgeServiceCore;
 	private IAdministrationService iAdministrationService;
-	private EmbeddableVaadinWebApplication webApplication;
+	@SuppressWarnings("unused")
+	private IVaadinApplication vaadinApplication;
 
 	@Override
 	protected void internalActivate(ComponentContext context,
 			Map<String, Object> properties) {
-		webApplication = new EmbeddableVaadinWebApplication(
-				context.getBundleContext());
-		webApplication.activate(properties);
 	}
 
 	@Override
 	protected void internalDeactivate(ComponentContext context,
 			Map<String, Object> properties) {
-		if (webApplication != null) {
-			webApplication.deactivate(properties);
-			webApplication = null;
-		}
+
 	}
 
 	public IBusinessKnowledgeServiceCore getBusinessKnowledgeServiceCore() {
@@ -98,5 +93,29 @@ public class VaadinComponentCore extends AbstractServiceComponent implements
 	public void unbindAdministrationService(
 			IAdministrationService iAdministrationService) {
 		this.iAdministrationService = iAdministrationService;
+	}
+
+	/**
+	 * Called by OSGi-DS.
+	 * 
+	 * @param vaadinApplication
+	 */
+	public void bindVaadinApplication(IVaadinApplication vaadinApplication) {
+		this.vaadinApplication = vaadinApplication;
+		if (!vaadinApplication.isStarted()) {
+			vaadinApplication.start();
+		}
+	}
+
+	/**
+	 * Called by OSGi-DS.
+	 * 
+	 * @param vaadinApplication
+	 */
+	public void unbindVaadinApplication(IVaadinApplication vaadinApplication) {
+		if (vaadinApplication.isStarted()) {
+			vaadinApplication.stop();
+		}
+		this.vaadinApplication = null;
 	}
 }

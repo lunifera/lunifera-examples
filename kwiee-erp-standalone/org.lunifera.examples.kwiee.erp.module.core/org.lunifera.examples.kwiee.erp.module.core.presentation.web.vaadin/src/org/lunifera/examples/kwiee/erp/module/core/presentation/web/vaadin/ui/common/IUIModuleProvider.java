@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.lunifera.examples.kwiee.erp.module.core.presentation.web.vaadin.ui.common;
 
-import com.vaadin.ui.UI;
-
 public interface IUIModuleProvider {
 
 	/**
