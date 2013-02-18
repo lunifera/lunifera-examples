@@ -3,8 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Example
 Bundle-SymbolicName: org.lunifera.examples.runtime.web.vaadin.databinding
 Bundle-Version: 0.0.1.qualifier
-Service-Component: OSGI-INF/vaadinWebApp.xml, 
- OSGI-INF/vaadinUI.xml
+Service-Component: OSGI-INF/*.xml
 Import-Package: org.lunifera.runtime.web.common,
  org.lunifera.runtime.web.vaadin.common,
  org.osgi.service.component;version="1.2.0"
