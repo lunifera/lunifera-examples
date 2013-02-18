@@ -107,7 +107,7 @@
 			<modules>
 				<module>runtime-web/org.lunifera.examples.runtime.web.target.kepler</module>
 
-				<module>runtime-web/org.lunifera.examples.runtime.web.ecp.uimodel.presentation.vaadin.widgetset</module>
+				<module>runtime-web/org.lunifera.examples.runtime.web.ecview.presentation.vaadin.widgetset</module>
 				<module>runtime-web/org.lunifera.examples.runtime.web.vaadin.standalone.widgetset</module>
 				<module>runtime-web/org.lunifera.examples.runtime.web.vaadin.databinding.widgetset</module>
 			</modules>
@@ -148,12 +148,12 @@
 
 				<!-- P2 features -->
 				<module>runtime-web/org.lunifera.examples.runtime.web.feature.vaadin.standalone</module>
-				<module>runtime-web/org.lunifera.examples.runtime.web.feature.ecp.uimodel.presentation.vaadin</module>
+				<module>runtime-web/org.lunifera.examples.runtime.web.feature.ecview.presentation.vaadin</module>
 				<!-- end P2 features -->
 
 				<!-- P2 bundles -->
-				<module>runtime-web/org.lunifera.examples.runtime.web.ecp.uimodel.presentation.vaadin</module>
-				<module>runtime-web/org.lunifera.examples.runtime.web.ecp.uimodel.presentation.vaadin.widgetset</module>
+				<module>runtime-web/org.lunifera.examples.runtime.web.ecview.presentation.vaadin</module>
+				<module>runtime-web/org.lunifera.examples.runtime.web.ecview.presentation.vaadin.widgetset</module>
 
 				<module>runtime-web/org.lunifera.examples.runtime.web.vaadin.standalone</module>
 				<module>runtime-web/org.lunifera.examples.runtime.web.vaadin.standalone.widgetset</module>
