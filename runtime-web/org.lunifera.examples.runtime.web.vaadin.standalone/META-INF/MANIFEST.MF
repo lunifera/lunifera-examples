@@ -3,16 +3,15 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Example
 Bundle-SymbolicName: org.lunifera.examples.runtime.web.vaadin.standalone
 Bundle-Version: 0.0.1.qualifier
-Service-Component: OSGI-INF/vaadinWebApp.xml, 
- OSGI-INF/vaadinUI.xml
-Import-Package: org.lunifera.runtime.web.common.context,
- org.lunifera.runtime.web.vaadin.common,
- org.osgi.service.component;version="1.2.0"
+Service-Component: OSGI-INF/*.xml
+Import-Package: org.osgi.service.component;version="1.2.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Require-Bundle: javax.servlet;bundle-version="3.0.0",
  com.vaadin.shared;bundle-version="7.0.0",
  com.vaadin.server;bundle-version="7.0.0",
- com.vaadin.client-compiled;bundle-version="7.0.0",
  org.json;bundle-version="1.0.0",
- org.vaadin.addon.icepush;bundle-version="0.0.1"
+ org.lunifera.dependencies.bundle.vaadin.addon.icepush;bundle-version="0.5.5",
+ org.lunifera.runtime.web.vaadin.osgi;bundle-version="0.0.1",
+ org.lunifera.runtime.common;bundle-version="0.0.1"
 Bundle-ActivationPolicy: lazy
+Lunifera-Config: config

@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" factory="org.lunifera.web.vaadin.UI/org.lunifera.examples.runtime.web.vaadin.standalone.Vaadin7StandaloneDemoUI" name="org.lunifera.examples.runtime.web.vaadin.standalone.ui">
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" factory="org.lunifera.web.vaadin.UI/org.lunifera.examples.runtime.web.vaadin.standalone.Vaadin7StandaloneDemoUI@StandaloneDemo" immediate="false" name="org.lunifera.examples.runtime.web.vaadin.standalone.ui">
    <implementation class="org.lunifera.examples.runtime.web.vaadin.standalone.Vaadin7StandaloneDemoUI"/>
-   <reference bind="setWebContextRegistry" cardinality="1..1" interface="org.lunifera.runtime.web.common.IWebContextRegistry" name="webContextRegistry" policy="static" target="(lunifera.web.common.context.uikit=vaadin)"/>
 </scr:component>
