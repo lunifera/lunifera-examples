@@ -15,10 +15,10 @@ package org.lunifera.examples.runtime.web.vaadin.databinding;
 import org.eclipse.core.databinding.DataBindingContext;
 import org.eclipse.core.databinding.UpdateValueStrategy;
 import org.eclipse.core.databinding.conversion.IConverter;
-import org.lunifera.runtime.web.vaadin.common.OSGiUI;
 import org.lunifera.runtime.web.vaadin.databinding.IVaadinComponentObservableValue;
 import org.lunifera.runtime.web.vaadin.databinding.IVaadinModelObservableValue;
 import org.lunifera.runtime.web.vaadin.databinding.VaadinObservables;
+import org.lunifera.runtime.web.vaadin.osgi.common.OSGiUI;
 
 import com.vaadin.annotations.Theme;
 import com.vaadin.data.util.ObjectProperty;
