@@ -14,7 +14,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YTable;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextArea;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.util.SimpleExtensionModelFactory;
-import org.lunifera.web.ecp.uimodel.presentation.vaadin.VaadinRenderer;
+import org.lunifera.runtime.web.ecview.presentation.vaadin.VaadinRenderer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
