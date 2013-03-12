@@ -1,0 +1,1 @@
+$wnd.org_lunifera_examples_vaaclipse_demo1_widgetset_Widgetset.runAsyncCallback1('function $load_1(){\n}\n\ndefineSeed(3142, 1, makeCastMap([Q$RunAsyncCallback]));\n_.onSuccess_1 = function onSuccess_2(){\n  $load_1();\n  $setLoaded_0(get_20(), $getName_1(this.this$1));\n}\n;\n$entry(onLoad)(1);\n\n//@ sourceURL=1.js\n')
