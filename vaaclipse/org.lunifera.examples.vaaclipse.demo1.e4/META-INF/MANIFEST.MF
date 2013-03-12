@@ -38,6 +38,5 @@ Bundle-Localization: plugin
 Export-Package: css,
  img
 Bundle-ClassPath: .,
- lib/commons-io-2.2.jar,
  lib/gson-2.2.jar,
  lib/vaadin-charts-1.0.0.jar
