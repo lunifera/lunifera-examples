@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/org.lunifera.examples.runtime.web.feature.vaadin.standalone_0.0.1.qualifier.jar" id="org.lunifera.examples.runtime.web.feature.vaadin.standalone" version="0.0.1.qualifier">
-      <category name="lunifera-runtime-web-example-features"/>
+   <feature id="org.lunifera.examples.vaaclipse.feature.demo1" version="0.0.0">
+      <category name="lunifera-runtime-web-vaaclipse-example-features"/>
    </feature>
-   <category-def name="lunifera-runtime-web-example-features" label="Lunifera Runtime Web Example Features"/>
+   <feature id="org.lunifera.examples.vaaclipse.feature.demo1.source" version="0.0.0">
+      <category name="lunifera-runtime-web-vaaclipse-example-features"/>
+   </feature>
+   <category-def name="lunifera-runtime-web-vaaclipse-example-features" label="Lunifera Runtime Web Vaaclipse Example Features"/>
 </site>

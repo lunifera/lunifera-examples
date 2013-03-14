@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target name="org.semanticsoft.vaaclipse.target.juno" sequenceNumber="33">
+<?pde version="3.8"?><target name="org.semanticsoft.vaaclipse.target.juno" sequenceNumber="34">
 <locations>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.sdk.ide" version="4.2.2.M20130204-1200"/>
@@ -8,8 +8,8 @@
 <repository location="http://download.eclipse.org/releases/juno"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.semanticsoft.vaaclipse.feature.runtime.core.source.feature.group" version="0.0.1.201303111526"/>
-<unit id="org.semanticsoft.vaaclipse.feature.runtime.core.feature.group" version="0.0.1.201303111526"/>
+<unit id="org.semanticsoft.vaaclipse.feature.runtime.core.source.feature.group" version="0.0.1.201303132103"/>
+<unit id="org.semanticsoft.vaaclipse.feature.runtime.core.feature.group" version="0.0.1.201303132103"/>
 <repository location="http://lun.lunifera.org/downloads/p2/vaaclipse/nightly/"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
@@ -17,6 +17,13 @@
 <unit id="org.lunifera.dependencies.feature.vaadin.feature.group" version="7.0.0.201303061944"/>
 <unit id="org.lunifera.dependencies.feature.security.shiro.feature.group" version="1.2.1"/>
 <repository location="http://lunifera.github.com/p2/kepler/latest"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="ch.qos.logback.classic" version="1.0.0.v20111214-2030"/>
+<unit id="ch.qos.logback.classic.source" version="1.0.0.v20111214-2030"/>
+<unit id="ch.qos.logback.core" version="1.0.0.v20111214-2030"/>
+<unit id="ch.qos.logback.core.source" version="1.0.0.v20111214-2030"/>
+<repository location="http://download.eclipse.org/tools/orbit/downloads/drops/S20120726065500/repository/"/>
 </location>
 </locations>
 </target>

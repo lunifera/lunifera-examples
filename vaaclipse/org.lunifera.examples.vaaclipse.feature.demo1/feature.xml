@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="org.lunifera.examples.runtime.web.feature.vaadin.standalone"
+      id="org.lunifera.examples.vaaclipse.feature.demo1"
       label="%featureName"
       version="0.0.1.qualifier"
       provider-name="%providerName">
@@ -18,14 +18,14 @@
    </license>
 
    <plugin
-         id="org.lunifera.examples.runtime.web.vaadin.standalone"
+         id="org.lunifera.examples.vaaclipse.demo1.e4"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.lunifera.examples.runtime.web.vaadin.standalone.widgetset"
+         id="org.lunifera.examples.vaaclipse.demo1.widgetset"
          download-size="0"
          install-size="0"
          version="0.0.0"

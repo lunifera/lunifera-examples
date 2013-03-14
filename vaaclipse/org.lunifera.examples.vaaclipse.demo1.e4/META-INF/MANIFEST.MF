@@ -40,3 +40,4 @@ Export-Package: css,
 Bundle-ClassPath: .,
  lib/gson-2.2.jar,
  lib/vaadin-charts-1.0.0.jar
+Vaadin-Resources: img/bpm

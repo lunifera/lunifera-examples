@@ -6,8 +6,14 @@
     <children xsi:type="advanced:PerspectiveStack" xmi:id="_Um-MsOokEeGrI5NvCZeHUA" elementId="org.lunifera.examples.vaaclipse.demo1.e4.perspectivestack.0">
       <children xsi:type="advanced:Perspective" xmi:id="_V93uMOokEeGrI5NvCZeHUA" elementId="org.lunifera.examples.vaaclipse.demo1.e4.perspective.0" label="Tasks" iconURI="platform:/plugin/org.lunifera.examples.vaaclipse.demo1.e4/img/persp_tasks.png" tooltip="Shows all tasks views">
         <children xsi:type="basic:PartSashContainer" xmi:id="_SeXUCu8EEd6FC9cDb6iV7g" elementId="org.lunifera.examples.vaaclipse.demo1.e4.partsashcontainer.0" horizontal="true">
-          <children xsi:type="basic:PartStack" xmi:id="_ZSnMoOr5EeGrI5NvCZeHUA" elementId="org.lunifera.examples.vaaclipse.demo1.e4.partstack.0" containerData="25">
-            <children xsi:type="advanced:Placeholder" xmi:id="_NilUIOr5EeGrI5NvCZeHUA" elementId="org.lunifera.examples.vaaclipse.demo1.e4.placeholder.0" ref="_XsHlUIptEeKk6qS4muScMQ"/>
+          <children xsi:type="basic:PartSashContainer" xmi:id="_mh2toIs1EeKsdvqLX0nqXg" elementId="org.lunifera.examples.vaaclipse.demo1.e4.partsashcontainer.4" containerData="25" selectedElement="_ZSnMoOr5EeGrI5NvCZeHUA">
+            <children xsi:type="basic:PartStack" xmi:id="_ZSnMoOr5EeGrI5NvCZeHUA" elementId="org.lunifera.examples.vaaclipse.demo1.e4.partstack.0" containerData="50">
+              <children xsi:type="advanced:Placeholder" xmi:id="_NilUIOr5EeGrI5NvCZeHUA" elementId="org.lunifera.examples.vaaclipse.demo1.e4.placeholder.0" ref="_XsHlUIptEeKk6qS4muScMQ"/>
+            </children>
+            <children xsi:type="basic:PartStack" xmi:id="_ySQ9gIptEeKk6qS4muScMQ" elementId="org.lunifera.examples.vaaclipse.demo1.e4.partstack.3" containerData="50">
+              <children xsi:type="advanced:Placeholder" xmi:id="_ud1TkOsBEeGrI5NvCZeHUA" elementId="org.lunifera.examples.vaaclipse.demo1.e4.placeholder.5" ref="_GWHCMOsAEeGrI5NvCZeHUA"/>
+              <children xsi:type="advanced:Placeholder" xmi:id="_VoFYoOsaEeGrI5NvCZeHUA" elementId="org.lunifera.examples.vaaclipse.demo1.e4.placeholder.4" ref="_MjCfsOsaEeGrI5NvCZeHUA"/>
+            </children>
           </children>
           <children xsi:type="basic:PartSashContainer" xmi:id="_9gdQIOr_EeGrI5NvCZeHUA" elementId="org.lunifera.examples.vaaclipse.demo1.e4.partsashcontainer.1" containerData="75">
             <children xsi:type="basic:PartSashContainer" xmi:id="_CKYooOsAEeGrI5NvCZeHUA" elementId="org.lunifera.examples.vaaclipse.demo1.e4.partsashcontainer.2" containerData="70" horizontal="true">
@@ -15,10 +21,6 @@
               <children xsi:type="basic:PartSashContainer" xmi:id="_l4UlUIptEeKk6qS4muScMQ" elementId="org.lunifera.examples.vaaclipse.demo1.e4.partsashcontainer.3" containerData="50" selectedElement="_xinpQIptEeKk6qS4muScMQ">
                 <children xsi:type="basic:PartStack" xmi:id="_xinpQIptEeKk6qS4muScMQ" elementId="org.lunifera.examples.vaaclipse.demo1.e4.partstack.1" containerData="50">
                   <children xsi:type="advanced:Placeholder" xmi:id="_ig3AsOsAEeGrI5NvCZeHUA" elementId="org.lunifera.examples.vaaclipse.demo1.e4.placeholder.3" ref="_J7teoOr6EeGrI5NvCZeHUA"/>
-                </children>
-                <children xsi:type="basic:PartStack" xmi:id="_ySQ9gIptEeKk6qS4muScMQ" elementId="org.lunifera.examples.vaaclipse.demo1.e4.partstack.3" containerData="50">
-                  <children xsi:type="advanced:Placeholder" xmi:id="_ud1TkOsBEeGrI5NvCZeHUA" elementId="org.lunifera.examples.vaaclipse.demo1.e4.placeholder.5" ref="_GWHCMOsAEeGrI5NvCZeHUA"/>
-                  <children xsi:type="advanced:Placeholder" xmi:id="_VoFYoOsaEeGrI5NvCZeHUA" elementId="org.lunifera.examples.vaaclipse.demo1.e4.placeholder.4" ref="_MjCfsOsaEeGrI5NvCZeHUA"/>
                 </children>
               </children>
             </children>
@@ -112,27 +114,27 @@
     <children xmi:id="_SeXUEO8EEd6FC9cDb6iV7w" elementId="org.eclipse.ui.contexts.window" name="In Windows"/>
     <children xmi:id="_SeXUEO8EEd6FC9cDb6iV7x" elementId="org.eclipse.ui.contexts.dialog" name="In Dialogs"/>
   </rootContext>
-  <descriptors xmi:id="_7msNYPk9EeGeg4kVMj6Vtg" elementId="org.lunifera.examples.vaaclipse.demo1.e4.part.statistics" label="Statistic" iconURI="platform:/plugin/org.lunifera.examples.vaaclipse.demo1.e4/img/statistics.png" tooltip="Shows the statistics" contributionURI="bundleclass://org.lunifera.examples.vaaclipse.demo1.e4/org.lunifera.examples.vaaclipse.demo1.e4.views.StatisticsView">
+  <descriptors xmi:id="_7msNYPk9EeGeg4kVMj6Vtg" elementId="org.lunifera.examples.vaaclipse.demo1.e4.part.statistics" label="Statistic" iconURI="platform:/plugin/org.lunifera.examples.vaaclipse.demo1.e4/img/statistics.png" tooltip="Shows the statistics" closeable="true" contributionURI="bundleclass://org.lunifera.examples.vaaclipse.demo1.e4/org.lunifera.examples.vaaclipse.demo1.e4.views.StatisticsView">
     <tags>View</tags>
     <tags>categoryTag:Statistics</tags>
   </descriptors>
-  <descriptors xmi:id="_VPArYPk-EeGeg4kVMj6Vtg" elementId="org.lunifera.examples.vaaclipse.demo1.e4.part.help" label="Help" iconURI="platform:/plugin/org.lunifera.examples.vaaclipse.demo1.e4/img/help.png" tooltip="Shows help" contributionURI="bundleclass://org.lunifera.examples.vaaclipse.demo1.e4/org.lunifera.examples.vaaclipse.demo1.e4.views.HelpView">
+  <descriptors xmi:id="_VPArYPk-EeGeg4kVMj6Vtg" elementId="org.lunifera.examples.vaaclipse.demo1.e4.part.help" label="Help" iconURI="platform:/plugin/org.lunifera.examples.vaaclipse.demo1.e4/img/help.png" tooltip="Shows help" closeable="true" contributionURI="bundleclass://org.lunifera.examples.vaaclipse.demo1.e4/org.lunifera.examples.vaaclipse.demo1.e4.views.HelpView">
     <tags>View</tags>
     <tags>categoryTag:General</tags>
   </descriptors>
-  <descriptors xmi:id="_lksfjlskdjflafdlkjlsdf" elementId="org.lunifera.examples.vaaclipse.demo1.e4.part.process" label="Process" iconURI="platform:/plugin/org.lunifera.examples.vaaclipse.demo1.e4/img/process.png" tooltip="Shows the process instance" contributionURI="bundleclass://org.lunifera.examples.vaaclipse.demo1.e4/org.lunifera.examples.vaaclipse.demo1.e4.views.ProcessView">
+  <descriptors xmi:id="_lksfjlskdjflafdlkjlsdf" elementId="org.lunifera.examples.vaaclipse.demo1.e4.part.process" label="Process" iconURI="platform:/plugin/org.lunifera.examples.vaaclipse.demo1.e4/img/process.png" tooltip="Shows the process instance" closeable="true" contributionURI="bundleclass://org.lunifera.examples.vaaclipse.demo1.e4/org.lunifera.examples.vaaclipse.demo1.e4.views.ProcessView">
     <tags>View</tags>
     <tags>categoryTag:General</tags>
   </descriptors>
-  <descriptors xmi:id="_3_BwYFdGEeKUIKT1CIcS7g" elementId="org.lunifera.examples.vaaclipse.demo1.e4.part.info" label="Info" iconURI="platform:/plugin/org.lunifera.examples.vaaclipse.demo1.e4/img/information.png" tooltip="Shows info" contributionURI="bundleclass://org.lunifera.examples.vaaclipse.demo1.e4/org.lunifera.examples.vaaclipse.demo1.e4.views.InfoView">
+  <descriptors xmi:id="_3_BwYFdGEeKUIKT1CIcS7g" elementId="org.lunifera.examples.vaaclipse.demo1.e4.part.info" label="Info" iconURI="platform:/plugin/org.lunifera.examples.vaaclipse.demo1.e4/img/information.png" tooltip="Shows info" closeable="true" contributionURI="bundleclass://org.lunifera.examples.vaaclipse.demo1.e4/org.lunifera.examples.vaaclipse.demo1.e4.views.InfoView">
     <tags>View</tags>
     <tags>categoryTag:General</tags>
   </descriptors>
-  <descriptors xmi:id="_dfXAAIpREeKk6qS4muScMQ" elementId="org.lunifera.examples.vaaclipse.demo1.e4.part.tasks" label="Tasks" iconURI="platform:/plugin/org.lunifera.examples.vaaclipse.demo1.e4/img/tasks.png" tooltip="Shows all tasks" contributionURI="bundleclass://org.lunifera.examples.vaaclipse.demo1.e4/org.lunifera.examples.vaaclipse.demo1.e4.editors.TasksEditor">
+  <descriptors xmi:id="_dfXAAIpREeKk6qS4muScMQ" elementId="org.lunifera.examples.vaaclipse.demo1.e4.part.tasks" label="Tasks" iconURI="platform:/plugin/org.lunifera.examples.vaaclipse.demo1.e4/img/tasks.png" tooltip="Shows all tasks" closeable="true" contributionURI="bundleclass://org.lunifera.examples.vaaclipse.demo1.e4/org.lunifera.examples.vaaclipse.demo1.e4.editors.TasksEditor">
     <tags>View</tags>
     <tags>categoryTag:General</tags>
   </descriptors>
-  <descriptors xmi:id="_SGvRMIptEeKk6qS4muScMQ" elementId="org.lunifera.examples.vaaclipse.demo1.e4.part.modules" label="Virtual Filesystem" iconURI="platform:/plugin/org.lunifera.examples.vaaclipse.demo1.e4/img/modules.png" tooltip="Shows the virtual filesystem" contributionURI="bundleclass://org.lunifera.examples.vaaclipse.demo1.e4/org.lunifera.examples.vaaclipse.demo1.e4.views.VirtualFilesystemView">
+  <descriptors xmi:id="_SGvRMIptEeKk6qS4muScMQ" elementId="org.lunifera.examples.vaaclipse.demo1.e4.part.modules" label="Virtual Filesystem" iconURI="platform:/plugin/org.lunifera.examples.vaaclipse.demo1.e4/img/modules.png" tooltip="Shows the virtual filesystem" closeable="true" contributionURI="bundleclass://org.lunifera.examples.vaaclipse.demo1.e4/org.lunifera.examples.vaaclipse.demo1.e4.views.VirtualFilesystemView">
     <tags>View</tags>
     <tags>categoryTag:General</tags>
   </descriptors>

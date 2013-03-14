@@ -35,7 +35,8 @@ public class HelpView {
 		label = new Label("", ContentMode.HTML);
 		label.setSizeFull();
 		parent.addComponent(label);
-
+		parent.setMargin(true);
+		
 		label.setValue(readHTML());
 	}
 

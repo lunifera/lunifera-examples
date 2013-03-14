@@ -59,6 +59,7 @@ public class InfoView {
 		label = new Label("", ContentMode.HTML);
 		label.setSizeFull();
 		parent.addComponent(label);
+		parent.setMargin(true);
 
 		label.setValue("");
 
