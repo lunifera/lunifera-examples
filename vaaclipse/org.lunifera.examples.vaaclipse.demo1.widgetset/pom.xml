@@ -129,11 +129,11 @@
 				<configuration>
 					<extraJvmArgs>-Xmx1024M -Xss1024k</extraJvmArgs>
 					<!-- <runTarget>mobilemail</runTarget> -->
-					<!-- We are doing "inplace" but into subdir VAADIN/widgetsets. This 
+					<!-- We are doing "inplace" but into subdir VAADIN/resources. This 
 						way compatible with Vaadin eclipse plugin. -->
-					<webappDirectory>${basedir}/widgetsets
+					<webappDirectory>${basedir}/resources
 					</webappDirectory>
-					<hostedWebapp>${basedir}/widgetsets
+					<hostedWebapp>${basedir}/resources
 					</hostedWebapp>
 					<noServer>true</noServer>
 					<!-- Remove draftCompile when project is ready -->
@@ -162,7 +162,7 @@
 				<configuration>
 					<filesets>
 						<fileset>
-							<directory>/widgetsets</directory>
+							<directory>/resources</directory>
 						</fileset>
 					</filesets>
 				</configuration>
