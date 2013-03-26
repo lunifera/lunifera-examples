@@ -22,7 +22,7 @@
 		</dependency>
 		<dependency>
 			<groupId>org.icefaces</groupId>
-			<artifactId>icepush.gwt</artifactId>
+			<artifactId>icepush-gwt</artifactId>
 			<version>${icepush-gwt-version}</version>
 		</dependency>
 		<dependency>

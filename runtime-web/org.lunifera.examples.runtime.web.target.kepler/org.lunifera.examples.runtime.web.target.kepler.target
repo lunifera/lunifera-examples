@@ -2,16 +2,16 @@
 <?pde version="3.8"?><target includeMode="feature" name="org.lunifera.p2.target.juno" sequenceNumber="78">
 <locations>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.emf.sdk.feature.group" version="2.9.0.v20130204-1146"/>
+<unit id="org.eclipse.emf.sdk.feature.group" version="2.9.0.v20130318-0639"/>
 <repository location="http://download.eclipse.org/releases/kepler"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.xtext.sdk.feature.group" version="2.4.0.v201212180716"/>
-<unit id="org.eclipse.platform.sdk" version="4.3.0.I20121214-0730"/>
+<unit id="org.eclipse.xtext.sdk.feature.group" version="2.4.0.v201303201134"/>
+<unit id="org.eclipse.platform.sdk" version="4.3.0.I20130314-1330"/>
 <repository location="http://download.eclipse.org/releases/kepler"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.equinox.sdk.feature.group" version="3.9.0.v20130110-153724-7M7iA78g-cCc_P42iP0LlSz-RslA"/>
+<unit id="org.eclipse.equinox.sdk.feature.group" version="3.9.0.v20130314-0217"/>
 <repository location="http://download.eclipse.org/releases/kepler"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
@@ -30,8 +30,8 @@
 <repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20120526062928/repository"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.rcp.feature.group" version="4.3.0.v20130207-134502-7IAVA7Bs3QklTy2lQsXxjwpEdPQ0"/>
-<unit id="org.eclipse.rcp.source.feature.group" version="4.3.0.v20130207-134502-7IAVA7Bs3QklTy2lQsXxjwpEdPQ0"/>
+<unit id="org.eclipse.rcp.feature.group" version="4.3.0.v20130319-1000"/>
+<unit id="org.eclipse.rcp.source.feature.group" version="4.3.0.v20130319-1000"/>
 <repository location="http://download.eclipse.org/eclipse/updates/4.3-I-builds"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
@@ -53,7 +53,7 @@
 <repository location="http://lunifera.github.com/p2/kepler/latest"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.emf.ecp.ecview.feature.core.feature.group" version="0.0.1.201303062102"/>
+<unit id="org.eclipse.emf.ecp.ecview.feature.core.feature.group" version="0.0.1.201303242116"/>
 <repository location="http://lun.lunifera.org/downloads/p2/ecview/nightly/"/>
 </location>
 </locations>
