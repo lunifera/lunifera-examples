@@ -11,5 +11,4 @@ public class WidgetsetUI extends UI {
 		Label label = new Label("Hello Vaadin user");
 		setContent(label);
 	}
-
 }

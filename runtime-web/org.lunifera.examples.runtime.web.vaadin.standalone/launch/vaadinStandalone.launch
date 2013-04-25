@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.pde.ui.EquinoxLauncher">
+<booleanAttribute key="append.args" value="true"/>
+<booleanAttribute key="automaticAdd" value="false"/>
+<booleanAttribute key="automaticValidate" value="false"/>
+<stringAttribute key="bootstrap" value=""/>
+<stringAttribute key="checked" value="[NONE]"/>
+<booleanAttribute key="clearConfig" value="false"/>
+<stringAttribute key="configLocation" value="${workspace_loc}/.metadata/.plugins/org.eclipse.pde.core/standalone"/>
+<booleanAttribute key="default" value="true"/>
+<booleanAttribute key="default_auto_start" value="true"/>
+<intAttribute key="default_start_level" value="4"/>
+<booleanAttribute key="includeOptional" value="false"/>
+<booleanAttribute key="org.eclipse.jdt.launching.ATTR_USE_START_ON_FIRST_THREAD" value="true"/>
+<stringAttribute key="org.eclipse.jdt.launching.JRE_CONTAINER" value="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-os ${target.os} -ws ${target.ws} -arch ${target.arch} -nl ${target.nl} -consoleLog -console"/>
+<stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.eclipse.pde.ui.workbenchClasspathProvider"/>
+<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Dorg.osgi.service.http.sessiontimeout=10&#13;&#10;-Declipse.ignoreApp=true &#10;-Dosgi.noShutdown=true &#10;-Dorg.osgi.service.http.port=8084"/>
+<stringAttribute key="pde.version" value="3.3"/>
+<booleanAttribute key="show_selected_only" value="true"/>
+<stringAttribute key="target_bundles" value="com.springsource.javax.portlet@default:default,com.vaadin.client@default:default,com.vaadin.server@default:default,com.vaadin.shared.deps@default:default,com.vaadin.shared@default:default,com.vaadin.themes@default:default,javax.el@default:default,javax.servlet.jsp@default:default,javax.servlet@default:default,org.apache.commons.lang@default:default,org.apache.commons.logging@default:default,org.apache.felix.gogo.command@default:default,org.apache.felix.gogo.runtime@default:default,org.apache.felix.gogo.shell@default:default,org.apache.log4j@default:default,org.apache.shiro.core@default:default,org.apache.shiro.web@default:default,org.eclipse.core.contenttype@default:default,org.eclipse.core.jobs*3.5.300.v20130221-0103@default:default,org.eclipse.core.runtime@default:true,org.eclipse.equinox.app*1.3.100.v20130225-1702@default:default,org.eclipse.equinox.cm@default:true,org.eclipse.equinox.common*3.6.100.v20120522-1841@2:true,org.eclipse.equinox.console@default:default,org.eclipse.equinox.ds*1.4.100.v20130308-1450@1:true,org.eclipse.equinox.http.servlet@default:default,org.eclipse.equinox.preferences*3.5.0.v20130225-1702@default:default,org.eclipse.equinox.registry*3.5.300.v20130225-1702@default:default,org.eclipse.equinox.util*1.0.400.v20130307-2007@default:default,org.eclipse.jetty.continuation@default:default,org.eclipse.jetty.http@default:default,org.eclipse.jetty.io@default:default,org.eclipse.jetty.security@default:default,org.eclipse.jetty.server@default:default,org.eclipse.jetty.servlet@default:default,org.eclipse.jetty.util@default:default,org.eclipse.osgi*3.9.0.v20130128-202223@-1:true,org.eclipse.osgi.services*3.3.100.v20120522-1822@default:default,org.eclipse.osgi.services*3.3.100.v20130225-1645@default:default,org.eclipse.xtext.logging@default:false,org.json@default:default,org.jsoup@default:default,org.lunifera.dependencies.bundle.vaadin.addon.icepush@default:default,org.lunifera.dependencies.fragment.jdk@default:false,slf4j.api@default:default,slf4j.jcl@default:false,slf4j.log4j12@default:false"/>
+<booleanAttribute key="tracing" value="false"/>
+<booleanAttribute key="useCustomFeatures" value="false"/>
+<booleanAttribute key="useDefaultConfigArea" value="true"/>
+<stringAttribute key="workspace_bundles" value="org.lunifera.examples.runtime.web.vaadin.standalone.widgetset@default:default,org.lunifera.examples.runtime.web.vaadin.standalone@default:default,org.lunifera.runtime.common@default:default,org.lunifera.runtime.component.configuration.manager@default:true,org.lunifera.runtime.web.common@default:default,org.lunifera.runtime.web.http@default:default,org.lunifera.runtime.web.jetty@default:default,org.lunifera.runtime.web.vaadin.common@default:default,org.lunifera.runtime.web.vaadin.osgi@default:default"/>
+</launchConfiguration>
