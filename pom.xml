@@ -7,8 +7,8 @@
 	</prerequisites>
 
 	<parent>
-		<groupId>org.lunifera</groupId>
-		<artifactId>org.lunifera</artifactId>
+		<groupId>org.lunifera.releng</groupId>
+		<artifactId>org.lunifera.releng.parent.tycho.p2</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
@@ -18,15 +18,8 @@
 	<name>Lunifera :: OSGi bundles for web : Parent POM</name>
 
 	<properties>
-		<next-release>0.0.2-SNAPSHOT</next-release>
-		<tycho-version>0.16.0</tycho-version>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<vaadin-version>7.0.0.beta11</vaadin-version>
-		<shiro-version>1.2.1</shiro-version>
-		<vaadin-icepush-version>0.5.4</vaadin-icepush-version>
-		<icepush-version>3.0.1</icepush-version>
-		<icepush-gwt-version>1.0.0</icepush-gwt-version>
+		<lunifera.deployment.p2.name>runtime-web</lunifera.deployment.p2.name>
+		<lunifera.build.p2.project.name>org.lunifera.runtime.web.p2</lunifera.build.p2.project.name>
 	</properties>
 
 	<organization>
@@ -50,33 +43,6 @@
 	</developers>
 
 	<profiles>
-		<profile>
-			<id>prepare-for-next-release</id>
-			<activation>
-				<activeByDefault>false</activeByDefault>
-			</activation>
-			<build>
-				<defaultGoal>org.eclipse.tycho:tycho-versions-plugin:set-version</defaultGoal>
-				<plugins>
-					<plugin>
-						<groupId>org.eclipse.tycho</groupId>
-						<artifactId>tycho-versions-plugin</artifactId>
-						<version>${tycho-version}</version>
-						<executions>
-							<execution>
-								<id>change-next-release</id>
-								<goals>
-									<goal>set-version</goal>
-								</goals>
-							</execution>
-						</executions>
-						<configuration>
-							<newVersion>${next-release}</newVersion>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
 		<profile>
 			<id>runtime-web--build-widgetsets</id>
 			<activation>
@@ -106,13 +72,28 @@
 			</build>
 			<modules>
 				<module>runtime-web/org.lunifera.examples.runtime.web.target.kepler</module>
-
 				<module>runtime-web/org.lunifera.examples.runtime.web.ecview.presentation.vaadin.widgetset</module>
 				<module>runtime-web/org.lunifera.examples.runtime.web.vaadin.standalone.widgetset</module>
 				<module>runtime-web/org.lunifera.examples.runtime.web.vaadin.databinding.widgetset</module>
 			</modules>
 		</profile>
-	
+		<profile>
+			<id>lunifera.build.p2</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<build>
+				<defaultGoal>clean verify</defaultGoal>
+			</build>
+			<modules>
+				<module>org.lunifera.runtime.web.p2</module>
+				<module>org.lunifera.runtime.web.parent</module>
+				
+				<module>runtime-web/org.lunifera.examples.runtime.web.ecview.presentation.vaadin.widgetset</module>
+				<module>runtime-web/org.lunifera.examples.runtime.web.vaadin.standalone.widgetset</module>
+				<module>runtime-web/org.lunifera.examples.runtime.web.vaadin.databinding.widgetset</module>
+			</modules>
+		</profile>
 		<profile>
 			<id>runtime-web--p2-kepler</id>
 			<activation>
@@ -160,11 +141,11 @@
 
 				<module>runtime-web/org.lunifera.examples.runtime.web.vaadin.databinding</module>
 				<module>runtime-web/org.lunifera.examples.runtime.web.vaadin.databinding.widgetset</module>
-				
+
 				<!-- end P2 bundles -->
 			</modules>
 		</profile>
-		
+
 		<profile>
 			<id>runtime-gyrex--build-widgetsets</id>
 			<activation>
@@ -236,7 +217,7 @@
 
 				<!-- P2 bundles -->
 				<module>runtime-gyrex/org.lunifera.examples.runtime.gyrex.vaadin</module>
-				<module>runtime-gyrex/org.lunifera.examples.runtime.gyrex.vaadin.widgetset</module>		
+				<module>runtime-gyrex/org.lunifera.examples.runtime.gyrex.vaadin.widgetset</module>
 
 				<!-- end P2 bundles -->
 			</modules>

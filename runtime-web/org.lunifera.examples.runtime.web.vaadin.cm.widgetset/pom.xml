@@ -7,7 +7,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <relativePath>../</relativePath>
   </parent>
-	<artifactId>org.lunifera.examples.runtime.web.vaadin.databinding.widgetset</artifactId>
+	<artifactId>org.lunifera.examples.runtime.web.vaadin.cm.widgetset</artifactId>
 
 	<dependencies>
 		<dependency>

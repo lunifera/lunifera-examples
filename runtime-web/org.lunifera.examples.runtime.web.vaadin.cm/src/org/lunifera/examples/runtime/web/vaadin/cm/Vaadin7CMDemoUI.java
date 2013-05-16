@@ -10,7 +10,7 @@
  *    Florian Pirchner - initial API and implementation
  *    
  *******************************************************************************/
-package org.lunifera.examples.runtime.web.vaadin.standalone;
+package org.lunifera.examples.runtime.web.vaadin.cm;
 
 import org.lunifera.runtime.web.vaadin.osgi.common.OSGiUI;
 
@@ -26,7 +26,7 @@ import com.vaadin.ui.themes.Reindeer;
  */
 @Push
 @Theme(Reindeer.THEME_NAME)
-public class Vaadin7StandaloneDemoUI extends OSGiUI {
+public class Vaadin7CMDemoUI extends OSGiUI {
 
 	private static final String MSG = "Hi - that's the amazing vaadin 7 demo UI!";
 	private static final long serialVersionUID = 1L;

@@ -6,6 +6,6 @@
     <version>0.0.1-SNAPSHOT</version>
     <relativePath>../</relativePath>
   </parent>
-  <artifactId>org.lunifera.examples.runtime.web.feature.vaadin.standalone</artifactId>
-  <packaging>eclipse-feature</packaging>
+  <artifactId>org.lunifera.examples.runtime.web.vaadin.cm</artifactId>
+  <packaging>eclipse-plugin</packaging>
 </project>
