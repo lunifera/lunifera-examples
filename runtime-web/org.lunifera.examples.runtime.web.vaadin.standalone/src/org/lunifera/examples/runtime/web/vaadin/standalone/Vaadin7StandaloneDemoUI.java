@@ -28,7 +28,7 @@ import com.vaadin.ui.themes.Reindeer;
 @Theme(Reindeer.THEME_NAME)
 public class Vaadin7StandaloneDemoUI extends OSGiUI {
 
-	private static final String MSG = "Hi - that's the amazing vaadin 7 demo UI!";
+	private static final String MSG = "Vaadin is running in an OSGi environment now!";
 	private static final long serialVersionUID = 1L;
 	private Label label;
 
@@ -42,31 +42,5 @@ public class Vaadin7StandaloneDemoUI extends OSGiUI {
 		layout.setSizeFull();
 		layout.setMargin(true);
 		setContent(layout);
-
-		new InitializerThread().start();
-	}
-
-	class InitializerThread extends Thread {
-
-		private int i;
-
-		@Override
-		public void run() {
-			while (true) {
-				try {
-					Thread.sleep(1000);
-				} catch (InterruptedException e) {
-				}
-
-				access(new Runnable() {
-					@Override
-					public void run() {
-						// Here the UI is locked and can be updated
-						label.setValue(MSG + " - Push no: "
-								+ Integer.toString(i++));
-					}
-				});
-			}
-		}
 	}
 }

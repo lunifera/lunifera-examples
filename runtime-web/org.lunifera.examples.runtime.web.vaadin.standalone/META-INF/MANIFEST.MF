@@ -13,10 +13,11 @@ Require-Bundle: javax.servlet;bundle-version="3.0.0",
  org.lunifera.runtime.web.vaadin.osgi;bundle-version="0.0.1",
  org.lunifera.runtime.common;bundle-version="0.0.1",
  org.lunifera.runtime.component.configuration.manager;bundle-version="0.0.1",
- com.vaadin.push;bundle-version="7.1.0",
  org.eclipse.jetty.websocket;bundle-version="8.1.8";resolution:=optional,
  org.eclipse.equinox.http.jetty;bundle-version="3.0.100";resolution:=optional,
  org.eclipse.equinox.ds;bundle-version="1.4.100";resolution:=optional,
- org.eclipse.equinox.http.servlet;bundle-version="1.1.400";resolution:=optional
+ org.eclipse.equinox.http.servlet;resolution:=optional,
+ org.eclipse.equinox.cm;bundle-version="1.0.400",
+ com.vaadin.push;bundle-version="7.1.0"
 Bundle-ActivationPolicy: lazy
-Lunifera-Config: config
+Lunifera-Config: config 
