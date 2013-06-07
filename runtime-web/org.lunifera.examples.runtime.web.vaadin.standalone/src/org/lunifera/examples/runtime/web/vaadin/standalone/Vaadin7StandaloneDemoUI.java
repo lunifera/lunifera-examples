@@ -24,7 +24,6 @@ import com.vaadin.ui.themes.Reindeer;
 /**
  * Specify the class name after the factory name.
  */
-@Push
 @Theme(Reindeer.THEME_NAME)
 public class Vaadin7StandaloneDemoUI extends OSGiUI {
 
