@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="ASCII"?>
+<e4modelextension:VaaclipseApplication xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:e4modelextension="http://www.semanticsoft.org/ExtensionUI/e4modelextension" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xsi:schemaLocation="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced http://www.eclipse.org/ui/2010/UIModel/application#//ui/advanced http://www.eclipse.org/ui/2010/UIModel/application/ui/basic http://www.eclipse.org/ui/2010/UIModel/application#//ui/basic http://www.eclipse.org/ui/2010/UIModel/application/ui/menu http://www.eclipse.org/ui/2010/UIModel/application#//ui/menu" xmi:id="_GRxcMXk5Ed-55voCTyIpVQ" bindingContexts="_SeXUHO8EEd6FC9cDb6iV7y">
+  <children xsi:type="basic:TrimmedWindow" xmi:id="_SeXUAe8EEd6FC9cDb6iV7g" elementId="mainWindow" label="%windowTitle" x="20" y="20" width="700" height="570">
+    <tags>no-decoration#topdecoration.fxml</tags>
+    <tags>mainWindow</tags>
+    <children xsi:type="advanced:PerspectiveStack" xmi:id="_Um-MsOokEeGrI5NvCZeHUA" elementId="org.lunifera.examples.vaaclipse.demo1.e4.perspectivestack.0">
+      <children xsi:type="advanced:Perspective" xmi:id="_V93uMOokEeGrI5NvCZeHUA" elementId="org.lunifera.examples.vaaclipse.demo1.e4.perspective.0" label="Tasks" iconURI="platform:/plugin/org.lunifera.examples.vaaclipse.demo1.e4/img/persp_tasks.png" tooltip="Shows all tasks views">
+        <children xsi:type="basic:PartSashContainer" xmi:id="_SeXUCu8EEd6FC9cDb6iV7g" elementId="org.lunifera.examples.vaaclipse.demo1.e4.partsashcontainer.0" horizontal="true">
+          <children xsi:type="basic:PartSashContainer" xmi:id="_mh2toIs1EeKsdvqLX0nqXg" elementId="org.lunifera.examples.vaaclipse.demo1.e4.partsashcontainer.4" containerData="25" selectedElement="_ZSnMoOr5EeGrI5NvCZeHUA">
+            <children xsi:type="basic:PartStack" xmi:id="_ZSnMoOr5EeGrI5NvCZeHUA" elementId="org.lunifera.examples.vaaclipse.demo1.e4.partstack.0" containerData="50">
+              <children xsi:type="advanced:Placeholder" xmi:id="_NilUIOr5EeGrI5NvCZeHUA" elementId="org.lunifera.examples.vaaclipse.demo1.e4.placeholder.0" ref="_XsHlUIptEeKk6qS4muScMQ"/>
+            </children>
+            <children xsi:type="basic:PartStack" xmi:id="_ySQ9gIptEeKk6qS4muScMQ" elementId="org.lunifera.examples.vaaclipse.demo1.e4.partstack.3" containerData="50">
+              <children xsi:type="advanced:Placeholder" xmi:id="_ud1TkOsBEeGrI5NvCZeHUA" elementId="org.lunifera.examples.vaaclipse.demo1.e4.placeholder.5" ref="_GWHCMOsAEeGrI5NvCZeHUA"/>
+              <children xsi:type="advanced:Placeholder" xmi:id="_VoFYoOsaEeGrI5NvCZeHUA" elementId="org.lunifera.examples.vaaclipse.demo1.e4.placeholder.4" ref="_MjCfsOsaEeGrI5NvCZeHUA"/>
+            </children>
+          </children>
+          <children xsi:type="basic:PartSashContainer" xmi:id="_9gdQIOr_EeGrI5NvCZeHUA" elementId="org.lunifera.examples.vaaclipse.demo1.e4.partsashcontainer.1" containerData="75">
+            <children xsi:type="basic:PartSashContainer" xmi:id="_CKYooOsAEeGrI5NvCZeHUA" elementId="org.lunifera.examples.vaaclipse.demo1.e4.partsashcontainer.2" containerData="70" horizontal="true">
+              <children xsi:type="advanced:Placeholder" xmi:id="_go1vIOsAEeGrI5NvCZeHUA" elementId="org.lunifera.examples.vaaclipse.demo1.e4.placeholder.2" containerData="70" ref="_QWERMOsAEeGrI5NvCZeHUA"/>
+              <children xsi:type="basic:PartSashContainer" xmi:id="_l4UlUIptEeKk6qS4muScMQ" elementId="org.lunifera.examples.vaaclipse.demo1.e4.partsashcontainer.3" containerData="50" selectedElement="_xinpQIptEeKk6qS4muScMQ">
+                <children xsi:type="basic:PartStack" xmi:id="_xinpQIptEeKk6qS4muScMQ" elementId="org.lunifera.examples.vaaclipse.demo1.e4.partstack.1" containerData="50">
+                  <children xsi:type="advanced:Placeholder" xmi:id="_ig3AsOsAEeGrI5NvCZeHUA" elementId="org.lunifera.examples.vaaclipse.demo1.e4.placeholder.3" ref="_J7teoOr6EeGrI5NvCZeHUA"/>
+                </children>
+              </children>
+            </children>
+            <children xsi:type="basic:PartStack" xmi:id="_EIkMkOsAEeGrI5NvCZeHUA" elementId="org.lunifera.examples.vaaclipse.demo1.e4.partstack.2" containerData="30">
+              <children xsi:type="advanced:Placeholder" xmi:id="_AnL30YpyEeKsdvqLX0nqXg" elementId="org.lunifera.examples.vaaclipse.demo1.e4.placeholder.5" ref="__UYwEOr4EeGrI5NvCZeHUA"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="advanced:Perspective" xmi:id="_z7deAIpvEeKk6qS4muScMQ" elementId="org.lunifera.examples.vaaclipse.demo1.e4.perspective.1" label="Management" iconURI="platform:/plugin/org.lunifera.examples.vaaclipse.demo1.e4/img/persp_management.png" tooltip="Shows all management views">
+        <children xsi:type="basic:PartSashContainer" xmi:id="_z7deAYpvEeKk6qS4muScMQ" elementId="org.lunifera.examples.vaaclipse.demo1.e4.partsashcontainer.0" horizontal="true">
+          <children xsi:type="basic:PartSashContainer" xmi:id="_z7deBIpvEeKk6qS4muScMQ" elementId="org.lunifera.examples.vaaclipse.demo1.e4.partsashcontainer.1" containerData="75">
+            <children xsi:type="basic:PartSashContainer" xmi:id="_z7deBYpvEeKk6qS4muScMQ" elementId="org.lunifera.examples.vaaclipse.demo1.e4.partsashcontainer.2" containerData="70" horizontal="true">
+              <children xsi:type="advanced:Placeholder" xmi:id="_z7deBopvEeKk6qS4muScMQ" elementId="org.lunifera.examples.vaaclipse.demo1.e4.placeholder.2" containerData="70" ref="_QWERMOsAEeGrI5NvCZeHUA"/>
+              <children xsi:type="basic:PartSashContainer" xmi:id="_z7deB4pvEeKk6qS4muScMQ" elementId="org.lunifera.examples.vaaclipse.demo1.e4.partsashcontainer.3" containerData="50" selectedElement="_z7deCIpvEeKk6qS4muScMQ">
+                <children xsi:type="basic:PartStack" xmi:id="_z7deCIpvEeKk6qS4muScMQ" elementId="org.lunifera.examples.vaaclipse.demo1.e4.partstack.1" containerData="50">
+                  <children xsi:type="advanced:Placeholder" xmi:id="_z7deCYpvEeKk6qS4muScMQ" elementId="org.lunifera.examples.vaaclipse.demo1.e4.placeholder.3" ref="_J7teoOr6EeGrI5NvCZeHUA"/>
+                  <children xsi:type="advanced:Placeholder" xmi:id="_z7deA4pvEeKk6qS4muScMQ" elementId="org.lunifera.examples.vaaclipse.demo1.e4.placeholder.0" ref="_XsHlUIptEeKk6qS4muScMQ"/>
+                </children>
+                <children xsi:type="basic:PartStack" xmi:id="_z7deCopvEeKk6qS4muScMQ" elementId="org.lunifera.examples.vaaclipse.demo1.e4.partstack.3" containerData="50"/>
+              </children>
+            </children>
+            <children xsi:type="basic:PartStack" xmi:id="_z7deDIpvEeKk6qS4muScMQ" elementId="org.lunifera.examples.vaaclipse.demo1.e4.partstack.2" containerData="30">
+              <children xsi:type="advanced:Placeholder" xmi:id="_z7deDYpvEeKk6qS4muScMQ" elementId="org.lunifera.examples.vaaclipse.demo1.e4.placeholder.5" ref="_GWHCMOsAEeGrI5NvCZeHUA"/>
+              <children xsi:type="advanced:Placeholder" xmi:id="_z7deC4pvEeKk6qS4muScMQ" elementId="org.lunifera.examples.vaaclipse.demo1.e4.placeholder.4" ref="_MjCfsOsaEeGrI5NvCZeHUA"/>
+            </children>
+          </children>
+        </children>
+      </children>
+    </children>
+    <mainMenu xmi:id="menu:org.eclipse.ui.main.menu" elementId="menu:org.eclipse.ui.main.menu">
+      <children xsi:type="menu:Menu" xmi:id="_SeXUD-8EEd6FC9cDb6iV7g" elementId="_SeXUD-8EEd6FC9cDb6iV7g" label="File">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_SeXUEO8EEd6FC9cDb6iV7g" elementId="_SeXUEO8EEd6FC9cDb6iV7g" label="Save" iconURI="platform:/plugin/org.lunifera.examples.vaaclipse.demo1.e4/img/save.png" command="contacts.save"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_SeXUEe8EEd6FC9cDb6iV7g" elementId="_SeXUEe8EEd6FC9cDb6iV7g" label="Save All" iconURI="platform:/plugin/org.lunifera.examples.vaaclipse.demo1.e4/img/save_all.png" command="_DGvDsOsiEeGZOI_suq-2CQ"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_SeXUE-8EEd6FC9cDb6iV7g" elementId="_SeXUE-8EEd6FC9cDb6iV7g" label="Print" iconURI="platform:/plugin/org.lunifera.examples.vaaclipse.demo1.e4/img/print.png" command="_FEAosOsiEeGZOI_suq-2CQ"/>
+      </children>
+      <children xsi:type="menu:Menu" xmi:id="_7fhxAFapEeK_Rb_dwjIffA" elementId="org.lunifera.examples.vaaclipse.demo1.e4.menu.views" label="View">
+        <children xsi:type="menu:DirectMenuItem" xmi:id="_Cr5REFaqEeK_Rb_dwjIffA" elementId="org.lunifera.examples.vaaclipse.demo1.e4.directmenuitem.showView" label="Show View" tooltip="Show View" contributionURI="bundleclass://org.semanticsoft.vaaclipse.additions/org.semanticsoft.vaaclipse.additions.view.ShowViewHandler"/>
+      </children>
+      <children xsi:type="menu:Menu" xmi:id="_YEK7sFoXEeKnfsmaJ7gmMA" elementId="org.lunifera.examples.vaaclipse.demo1.e4.menu.help" label="Help">
+        <children xsi:type="menu:DirectMenuItem" xmi:id="_czNdsFoXEeKnfsmaJ7gmMA" elementId="org.lunifera.examples.vaaclipse.demo1.e4.directmenuitem.0" label="Logged Users Count" contributionURI="bundleclass://org.lunifera.examples.vaaclipse.demo1.e4/org.lunifera.examples.vaaclipse.demo1.e4.handlers.UsersCountHandler"/>
+        <children xsi:type="menu:DirectMenuItem" xmi:id="_lC8fQFoXEeKnfsmaJ7gmMA" elementId="org.lunifera.examples.vaaclipse.demo1.e4.directmenuitem.0" label="About" contributionURI="bundleclass://org.lunifera.examples.vaaclipse.demo1.e4/org.lunifera.examples.vaaclipse.demo1.e4.handlers.AboutHandler"/>
+      </children>
+    </mainMenu>
+    <sharedElements xsi:type="basic:Part" xmi:id="__UYwEOr4EeGrI5NvCZeHUA" elementId="org.lunifera.examples.vaaclipse.demo1.e4.part.process" contributionURI="bundleclass://org.lunifera.examples.vaaclipse.demo1.e4/org.lunifera.examples.vaaclipse.demo1.e4.views.ProcessView" label="Process View" iconURI="platform:/plugin/org.lunifera.examples.vaaclipse.demo1.e4/img/process.png" tooltip="Process View" closeable="true">
+      <toolbar xmi:id="_tIHZQPSCEeGdUeu8GkJyQQ" elementId="org.lunifera.examples.vaaclipse.demo1.e4.toolbar.0">
+        <children xsi:type="menu:DirectToolItem" xmi:id="_L8CcoPSHEeGeg4kVMj6Vtg" elementId="org.lunifera.examples.vaaclipse.demo1.e4.directtoolitem.collapseall" iconURI="platform:/plugin/org.lunifera.examples.vaaclipse.demo1.e4/img/collapse_all.png" tooltip="Collapse All" contributionURI="bundleclass://org.lunifera.examples.vaaclipse.demo1.e4/org.lunifera.examples.vaaclipse.demo1.e4.handlers.CollapseAll"/>
+        <children xsi:type="menu:DirectToolItem" xmi:id="_2sbBEPSCEeGdUeu8GkJyQQ" elementId="org.lunifera.examples.vaaclipse.demo1.e4.directtoolitem.linkwitheditor" iconURI="platform:/plugin/org.lunifera.examples.vaaclipse.demo1.e4/img/link_to_editor.png" tooltip="Link with Editor" type="Check" contributionURI="bundleclass://org.lunifera.examples.vaaclipse.demo1.e4/org.lunifera.examples.vaaclipse.demo1.e4.handlers.LinkWithEditor"/>
+      </toolbar>
+    </sharedElements>
+    <sharedElements xsi:type="basic:Part" xmi:id="_J7teoOr6EeGrI5NvCZeHUA" elementId="org.lunifera.examples.vaaclipse.demo1.e4.part.statistic" contributionURI="bundleclass://org.lunifera.examples.vaaclipse.demo1.e4/org.lunifera.examples.vaaclipse.demo1.e4.views.StatisticsView" label="Statistics" iconURI="platform:/plugin/org.lunifera.examples.vaaclipse.demo1.e4/img/statistics.png" tooltip="Statistics" closeable="true"/>
+    <sharedElements xsi:type="basic:Part" xmi:id="_GWHCMOsAEeGrI5NvCZeHUA" elementId="org.lunifera.examples.vaaclipse.demo1.e4.part.info" contributionURI="bundleclass://org.lunifera.examples.vaaclipse.demo1.e4/org.lunifera.examples.vaaclipse.demo1.e4.views.InfoView" label="Info" iconURI="platform:/plugin/org.lunifera.examples.vaaclipse.demo1.e4/img/information.png" tooltip="Info" closeable="true"/>
+    <sharedElements xsi:type="advanced:Area" xmi:id="_QWERMOsAEeGrI5NvCZeHUA" elementId="org.eclipse.ui.editorss" iconURI="platform:/plugin/org.lunifera.examples.vaaclipse.demo1.e4/img/editor_area.png">
+      <children xsi:type="basic:PartStack" xmi:id="_LDFJAMKLAJLAJZKZJZKAWJ" elementId="org.lunifera.examples.vaaclipse.demo1.e4.partstack.areadefaultstack"/>
+    </sharedElements>
+    <sharedElements xsi:type="basic:Part" xmi:id="_MjCfsOsaEeGrI5NvCZeHUA" elementId="org.lunifera.examples.vaaclipse.demo1.e4.part.help" contributionURI="bundleclass://org.lunifera.examples.vaaclipse.demo1.e4/org.lunifera.examples.vaaclipse.demo1.e4.views.HelpView" label="Help" iconURI="platform:/plugin/org.lunifera.examples.vaaclipse.demo1.e4/img/help.png" tooltip="Help" closeable="true"/>
+    <sharedElements xsi:type="basic:Part" xmi:id="_XsHlUIptEeKk6qS4muScMQ" elementId="org.lunifera.examples.vaaclipse.demo1.e4.part.modules" contributionURI="bundleclass://org.lunifera.examples.vaaclipse.demo1.e4/org.lunifera.examples.vaaclipse.demo1.e4.views.VirtualFilesystemView" label="Virtual Filesystem" iconURI="platform:/plugin/org.lunifera.examples.vaaclipse.demo1.e4/img/modules.png" tooltip="Virtual Filesystem" closeable="true">
+      <toolbar xmi:id="_XsHlUYptEeKk6qS4muScMQ" elementId="org.lunifera.examples.vaaclipse.demo1.e4.toolbar.0">
+        <children xsi:type="menu:DirectToolItem" xmi:id="_XsHlUoptEeKk6qS4muScMQ" elementId="org.lunifera.examples.vaaclipse.demo1.e4.directtoolitem.collapseall" iconURI="platform:/plugin/org.lunifera.examples.vaaclipse.demo1.e4/img/collapse_all.png" tooltip="Collapse All" contributionURI="bundleclass://org.lunifera.examples.vaaclipse.demo1.e4/org.lunifera.examples.vaaclipse.demo1.e4.handlers.CollapseAll"/>
+        <children xsi:type="menu:DirectToolItem" xmi:id="_XsHlU4ptEeKk6qS4muScMQ" elementId="org.lunifera.examples.vaaclipse.demo1.e4.directtoolitem.linkwitheditor" iconURI="platform:/plugin/org.lunifera.examples.vaaclipse.demo1.e4/img/link_to_editor.png" tooltip="Link with Editor" type="Check" contributionURI="bundleclass://org.lunifera.examples.vaaclipse.demo1.e4/org.lunifera.examples.vaaclipse.demo1.e4.handlers.LinkWithEditor"/>
+      </toolbar>
+    </sharedElements>
+    <trimBars xmi:id="_SeXUAu8EEd6FC9cDb6iV7g" elementId="org.semanticsoft.vaaclipsedemo.cassandra.toptrimbar">
+      <children xsi:type="menu:ToolBar" xmi:id="_YKLDFJLKJDFFDFDFFFFFFF" elementId="org.semanticsoft.vaaclipsedemo.cassandra.toolbar.main">
+        <children xsi:type="menu:HandledToolItem" xmi:id="_MBzEwOsjEeGZOI_suq-2CQ" elementId="org.semanticsoft.vaaclipsedemo.cassandra.toolbar.main.save" label="" iconURI="platform:/plugin/org.lunifera.examples.vaaclipse.demo1.e4/img/save.png" tooltip="Save" command="contacts.save"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_MaSdQOsjEeGZOI_suq-2CQ" elementId="org.semanticsoft.vaaclipsedemo.cassandra.toolbar.main.saveall" label="" iconURI="platform:/plugin/org.lunifera.examples.vaaclipse.demo1.e4/img/save_all.png" tooltip="Save all" command="_DGvDsOsiEeGZOI_suq-2CQ"/>
+      </children>
+      <children xsi:type="menu:ToolBar" xmi:id="_6RnVUE8FEeCyZoR8urPqaw" elementId="">
+        <children xsi:type="menu:HandledToolItem" xmi:id="_9UPfUBqZEeGFVucrmhucYg" elementId="org.lunifera.examples.vaaclipse.demo1.e4.handledtoolitem.2" iconURI="platform:/plugin/org.lunifera.examples.vaaclipse.demo1.e4/img/print.png" tooltip="Print" command="_FEAosOsiEeGZOI_suq-2CQ"/>
+      </children>
+    </trimBars>
+    <trimBars xmi:id="_SeXUAu8EEd6FC9FFFFFFFF" elementId="org.semanticsoft.vaaclipsedemo.cassandra.bottomtrimbar" side="Bottom"/>
+  </children>
+  <children xsi:type="basic:TrimmedWindow" xmi:id="_BKZowDHBEeKN_ZdbrEGlMA" elementId="org.lunifera.examples.vaaclipse.demo1.e4.trimmedwindow.0" toBeRendered="false" label="PopUpWindow" x="500" y="100" width="300" height="300">
+    <tags>popup</tags>
+    <mainMenu xmi:id="_Jy36cDHBEeKN_ZdbrEGlMA" elementId="org.lunifera.examples.vaaclipse.demo1.e4.menu.0">
+      <children xsi:type="menu:Menu" xmi:id="_vH7sYDHBEeKN_ZdbrEGlMA" elementId="org.lunifera.examples.vaaclipse.demo1.e4.menu.1" label="File menu">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_K5PFkDHBEeKN_ZdbrEGlMA" elementId="org.lunifera.examples.vaaclipse.demo1.e4.handledmenuitem.0" label="FilePopup"/>
+      </children>
+    </mainMenu>
+  </children>
+  <handlers xmi:id="_SeXUGO8EEd6FC9cDb6iV7g" elementId="org.lunifera.examples.vaaclipse.demo1.e4.handler.0" contributionURI="bundleclass://org.lunifera.examples.vaaclipse.demo1.e4/org.lunifera.examples.vaaclipse.demo1.e4.handlers.SaveHandler" command="contacts.save"/>
+  <handlers xmi:id="_CYbMMOsiEeGZOI_suq-2CQ" elementId="org.lunifera.examples.vaaclipse.demo1.e4.handler.1" contributionURI="bundleclass://org.lunifera.examples.vaaclipse.demo1.e4/org.lunifera.examples.vaaclipse.demo1.e4.handlers.SaveAllHandler" command="_DGvDsOsiEeGZOI_suq-2CQ"/>
+  <handlers xmi:id="_zV-EMOsiEeGZOI_suq-2CQ" elementId="org.lunifera.examples.vaaclipse.demo1.e4.handler.2" contributionURI="bundleclass://org.lunifera.examples.vaaclipse.demo1.e4/org.lunifera.examples.vaaclipse.demo1.e4.handlers.PrintHandler" command="_FEAosOsiEeGZOI_suq-2CQ"/>
+  <bindingTables xmi:id="_SeXUEO8EEd6FC9cDb6iV7x" elementId="_SeXUEO8EEd6FC9cDb6iV7x" bindingContext="_SeXUHO8EEd6FC9cDb6iV7y">
+    <bindings xmi:id="_SeXUHu8EEd6FC9cDb6iV7g" elementId="_SeXUHu8EEd6FC9cDb6iV7g" keySequence="CTRL+S" command="contacts.save"/>
+    <bindings xmi:id="_SeXUH-8EEd6FC9cDb6iV7g" elementId="_SeXUH-8EEd6FC9cDb6iV7g" keySequence="Delete"/>
+    <bindings xmi:id="_SeXUIO8EEd6FC9cDb6iV7g" elementId="_SeXUIO8EEd6FC9cDb6iV7g" keySequence="CTRL+5 X"/>
+  </bindingTables>
+  <rootContext xmi:id="_SeXUHO8EEd6FC9cDb6iV7y" elementId="org.eclipse.ui.contexts.dialogAndWindow" name="In Dialog and Windows">
+    <children xmi:id="_SeXUEO8EEd6FC9cDb6iV7w" elementId="org.eclipse.ui.contexts.window" name="In Windows"/>
+    <children xmi:id="_SeXUEO8EEd6FC9cDb6iV7x" elementId="org.eclipse.ui.contexts.dialog" name="In Dialogs"/>
+  </rootContext>
+  <descriptors xmi:id="_7msNYPk9EeGeg4kVMj6Vtg" elementId="org.lunifera.examples.vaaclipse.demo1.e4.part.statistics" label="Statistic" iconURI="platform:/plugin/org.lunifera.examples.vaaclipse.demo1.e4/img/statistics.png" tooltip="Shows the statistics" closeable="true" contributionURI="bundleclass://org.lunifera.examples.vaaclipse.demo1.e4/org.lunifera.examples.vaaclipse.demo1.e4.views.StatisticsView">
+    <tags>View</tags>
+    <tags>categoryTag:Statistics</tags>
+  </descriptors>
+  <descriptors xmi:id="_VPArYPk-EeGeg4kVMj6Vtg" elementId="org.lunifera.examples.vaaclipse.demo1.e4.part.help" label="Help" iconURI="platform:/plugin/org.lunifera.examples.vaaclipse.demo1.e4/img/help.png" tooltip="Shows help" closeable="true" contributionURI="bundleclass://org.lunifera.examples.vaaclipse.demo1.e4/org.lunifera.examples.vaaclipse.demo1.e4.views.HelpView">
+    <tags>View</tags>
+    <tags>categoryTag:General</tags>
+  </descriptors>
+  <descriptors xmi:id="_lksfjlskdjflafdlkjlsdf" elementId="org.lunifera.examples.vaaclipse.demo1.e4.part.process" label="Process" iconURI="platform:/plugin/org.lunifera.examples.vaaclipse.demo1.e4/img/process.png" tooltip="Shows the process instance" closeable="true" contributionURI="bundleclass://org.lunifera.examples.vaaclipse.demo1.e4/org.lunifera.examples.vaaclipse.demo1.e4.views.ProcessView">
+    <tags>View</tags>
+    <tags>categoryTag:General</tags>
+  </descriptors>
+  <descriptors xmi:id="_3_BwYFdGEeKUIKT1CIcS7g" elementId="org.lunifera.examples.vaaclipse.demo1.e4.part.info" label="Info" iconURI="platform:/plugin/org.lunifera.examples.vaaclipse.demo1.e4/img/information.png" tooltip="Shows info" closeable="true" contributionURI="bundleclass://org.lunifera.examples.vaaclipse.demo1.e4/org.lunifera.examples.vaaclipse.demo1.e4.views.InfoView">
+    <tags>View</tags>
+    <tags>categoryTag:General</tags>
+  </descriptors>
+  <descriptors xmi:id="_dfXAAIpREeKk6qS4muScMQ" elementId="org.lunifera.examples.vaaclipse.demo1.e4.part.tasks" label="Tasks" iconURI="platform:/plugin/org.lunifera.examples.vaaclipse.demo1.e4/img/tasks.png" tooltip="Shows all tasks" closeable="true" contributionURI="bundleclass://org.lunifera.examples.vaaclipse.demo1.e4/org.lunifera.examples.vaaclipse.demo1.e4.editors.TasksEditor">
+    <tags>View</tags>
+    <tags>categoryTag:General</tags>
+  </descriptors>
+  <descriptors xmi:id="_SGvRMIptEeKk6qS4muScMQ" elementId="org.lunifera.examples.vaaclipse.demo1.e4.part.modules" label="Virtual Filesystem" iconURI="platform:/plugin/org.lunifera.examples.vaaclipse.demo1.e4/img/modules.png" tooltip="Shows the virtual filesystem" closeable="true" contributionURI="bundleclass://org.lunifera.examples.vaaclipse.demo1.e4/org.lunifera.examples.vaaclipse.demo1.e4.views.VirtualFilesystemView">
+    <tags>View</tags>
+    <tags>categoryTag:General</tags>
+  </descriptors>
+  <toolBarContributions xmi:id="_Wn6DkBfgEeKmpbrEZ1tscA" elementId="org.lunifera.examples.vaaclipse.demo1.e4.toolbarcontribution.0" parentId="org.semanticsoft.vaaclipsedemo.cassandra.toolbar.main" positionInParent="after=org.semanticsoft.vaaclipsedemo.cassandra.toolbar.main.saveall">
+    <children xsi:type="menu:DirectToolItem" xmi:id="_YkAj4BfgEeKmpbrEZ1tscA" elementId="org.semanticsoft.e4test.handledtoolitem.0" iconURI="platform:/plugin/org.lunifera.examples.vaaclipse.demo1.e4/img/collapse_all.png" tooltip="igogo" contributionURI="bundleclass://org.lunifera.examples.vaaclipse.demo1.e4/org.lunifera.examples.vaaclipse.demo1.e4.handlers.CollapseAll"/>
+  </toolBarContributions>
+  <trimContributions xmi:id="_SLFJFLZZJZJZJAKLJAW" elementId="org.semanticsoft.vaaclipsedemo.trimcontribution.statusbar" parentId="org.semanticsoft.vaaclipsedemo.cassandra.bottomtrimbar">
+    <children xsi:type="menu:ToolControl" xmi:id="_AFLSJLKJFLAJLAJLAA" elementId="org.semanticsoft.vaaclipsedemo.toolitem.statusbar" contributionURI="bundleclass://org.lunifera.examples.vaaclipse.demo1.e4/org.lunifera.examples.vaaclipse.demo1.e4.toolitems.StatusBar"/>
+  </trimContributions>
+  <commands xmi:id="contacts.save" elementId="org.lunifera.examples.vaaclipse.demo1.e4.command.1" commandName="Save" description=""/>
+  <commands xmi:id="_DGvDsOsiEeGZOI_suq-2CQ" elementId="org.lunifera.examples.vaaclipse.demo1.e4.command.2" commandName="Save all"/>
+  <commands xmi:id="_FEAosOsiEeGZOI_suq-2CQ" elementId="org.lunifera.examples.vaaclipse.demo1.e4.command.3" commandName="Print"/>
+  <addons xmi:id="_XGB3wPZlEd-XstlTZ6nTXg" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
+  <addons xmi:id="_XGB3wPZlEd-XstlTZ6nTXh" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
+  <addons xmi:id="_LK0NgPZmEd-XstlTZ6nTXj" elementId="org.eclipse.e4.ui.workbench.commands.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.CommandProcessingAddon"/>
+  <addons xmi:id="_LK0NgPZmEd-XstlTZ6nTXk" elementId="org.eclipse.e4.ui.workbench.contexts.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.ContextProcessingAddon"/>
+  <editorDescriptors xmi:id="_CLtRcFfkEeKUIKT1CIcS7g" elementId="org.lunifera.examples.vaaclipse.demo1.e4.partdescriptor.html" label="Html Editor" iconURI="platform:/plugin/org.lunifera.examples.vaaclipse.demo1.e4/img/html.png" tooltip="Html Editor" contributionURI="bundleclass://org.lunifera.examples.vaaclipse.demo1.e4/org.lunifera.examples.vaaclipse.demo1.e4.editors.HtmlEditor" uriFilter="[^;]+\.html"/>
+  <editorDescriptors xmi:id="_FLDDHHHHAAAAAAAAAAAAAA" elementId="org.lunifera.examples.vaaclipse.demo1.e4.partdescriptor.img" label="Image Viewer" iconURI="platform:/plugin/org.lunifera.examples.vaaclipse.demo1.e4/img/img.png" tooltip="Image Viewer" closeable="true" contributionURI="bundleclass://org.lunifera.examples.vaaclipse.demo1.e4/org.lunifera.examples.vaaclipse.demo1.e4.editors.ImageView" uriFilter="[^;]+\.(?i)(jpg|png|gif|bmp)"/>
+  <editorDescriptors xmi:id="_FLDDHHHHBBBBBBBBBBBBBB" elementId="org.lunifera.examples.vaaclipse.demo1.e4.partdescriptor.html" label="Task Editor" iconURI="platform:/plugin/org.lunifera.examples.vaaclipse.demo1.e4/img/tasks.png" tooltip="Task Editor" contributionURI="bundleclass://org.lunifera.examples.vaaclipse.demo1.e4/org.lunifera.examples.vaaclipse.demo1.e4.editors.TasksEditor" uriFilter="[^;]+\.tasks"/>
+  <editorDescriptors xmi:id="_FJLDMMEMMELFLEKAHHHHHH" elementId="org.lunifera.examples.vaaclipse.demo1.e4.partdescriptor.text" label="Text Editor" iconURI="platform:/plugin/org.lunifera.examples.vaaclipse.demo1.e4/img/text.png" tooltip="Text Editor" closeable="true" contributionURI="bundleclass://org.lunifera.examples.vaaclipse.demo1.e4/org.lunifera.examples.vaaclipse.demo1.e4.editors.TextEditor" uriFilter="[^;]+"/>
+</e4modelextension:VaaclipseApplication>

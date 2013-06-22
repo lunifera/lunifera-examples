@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature id="org.lunifera.examples.vaaclipse.feature.demo1" version="0.0.0">
+      <category name="lunifera-runtime-web-vaaclipse-example-features"/>
+   </feature>
+   <feature id="org.lunifera.examples.vaaclipse.feature.demo1.source" version="0.0.0">
+      <category name="lunifera-runtime-web-vaaclipse-example-features"/>
+   </feature>
+   <category-def name="lunifera-runtime-web-vaaclipse-example-features" label="Lunifera Runtime Web Vaaclipse Example Features"/>
+</site>

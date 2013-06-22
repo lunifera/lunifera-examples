@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Widgetset
+Bundle-SymbolicName: org.lunifera.examples.vaaclipse.demo1.widgetset
+Bundle-Version: 0.0.1.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Vaadin-Resources: widgetset
+Require-Bundle: com.vaadin.server;bundle-version="7.0.0",
+ com.vaadin.client;bundle-version="7.0.0",
+ com.vaadin.shared;bundle-version="7.0.0",
+ com.vaadin.shared.deps;bundle-version="1.0.2",
+ org.semanticsoft.vaaclipse.widgets;bundle-version="0.0.1"
