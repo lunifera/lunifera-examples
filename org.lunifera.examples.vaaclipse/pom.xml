@@ -94,6 +94,7 @@
 				<module>org.lunifera.examples.vaaclipse.demo1.e4</module>
 				<module>org.lunifera.examples.vaaclipse.demo1.widgetset</module>
 				<module>org.lunifera.examples.vaaclipse.feature.demo1</module>
+				<module>org.lunifera.examples.vaaclipse.howto</module>
 			</modules>
 		</profile>
 	</profiles>
