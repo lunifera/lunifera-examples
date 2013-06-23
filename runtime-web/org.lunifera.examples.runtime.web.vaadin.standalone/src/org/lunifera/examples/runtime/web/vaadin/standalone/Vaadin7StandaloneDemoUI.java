@@ -12,18 +12,12 @@
  *******************************************************************************/
 package org.lunifera.examples.runtime.web.vaadin.standalone;
 
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.lunifera.runtime.web.vaadin.osgi.common.OSGiUI;
+import org.vaadin.artur.icepush.ICEPush;
 
 import com.vaadin.annotations.Theme;
-import com.vaadin.event.ShortcutListener;
 import com.vaadin.server.VaadinRequest;
-import com.vaadin.shared.ui.label.ContentMode;
-import com.vaadin.ui.JavaScript;
-import com.vaadin.ui.JavaScriptFunction;
 import com.vaadin.ui.Label;
-import com.vaadin.ui.TextField;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.themes.Reindeer;
 
@@ -33,54 +27,21 @@ import com.vaadin.ui.themes.Reindeer;
 @Theme(Reindeer.THEME_NAME)
 public class Vaadin7StandaloneDemoUI extends OSGiUI {
 
-	private static final String MSG = "Vaadin is running in an OSGi environment now!";
 	private static final long serialVersionUID = 1L;
-	private Label label;
+
+	private ICEPush push;
 
 	@Override
 	public void init(VaadinRequest request) {
 
-		JavaScript.getCurrent().addFunction("com.example.view.open",
-				new JavaScriptFunction() {
-					@Override
-					public void call(JSONArray arguments) throws JSONException {
-						String application = arguments.getString(0);
-					}
-				});
+		push = new ICEPush();
+		push.extend(this);
 
-		JavaScript.getCurrent().addFunction("com.example.signoff",
-				new JavaScriptFunction() {
-					@Override
-					public void call(JSONArray arguments) throws JSONException {
-						// do signoff
-					}
-				});
-
-		label = new Label(MSG);
-		label.setValue("Click this <a href='javascript:com.example.view.open(\"org.example.view.help\");'>Link</a> to open view. <br>"
-				+ "Or that <a href='javascript:com.example.signoff();'>Link</a> to signoff.");
-		label.setContentMode(ContentMode.HTML);
-
-		TextField text = new TextField();
-		VerticalLayout layout = new VerticalLayout(label);
-		layout.addComponent(text);
+		VerticalLayout layout = new VerticalLayout(new Label(
+				"Hi - that's the amazing vaadin 7 demo UI!"));
 		layout.setStyleName(Reindeer.LAYOUT_BLUE);
 		layout.setSizeFull();
 		layout.setMargin(true);
 		setContent(layout);
-
-		layout.addShortcutListener(new ShortcutListener("E^xit") {
-			@Override
-			public void handleAction(Object sender, Object target) {
-				System.out.println(target);
-			}
-		});
-
-		text.addShortcutListener(new ShortcutListener("E^xit") {
-			@Override
-			public void handleAction(Object sender, Object target) {
-				System.out.println(target);
-			}
-		});
 	}
 }

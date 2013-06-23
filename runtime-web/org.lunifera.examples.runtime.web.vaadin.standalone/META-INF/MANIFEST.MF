@@ -7,15 +7,11 @@ Service-Component: OSGI-INF/*.xml
 Import-Package: org.osgi.service.component;version="1.2.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Require-Bundle: javax.servlet;bundle-version="3.0.0",
- com.vaadin.shared;bundle-version="7.1.0",
- com.vaadin.server;bundle-version="7.1.0",
+ com.vaadin.shared;bundle-version="7.0.0",
+ com.vaadin.server;bundle-version="7.0.0",
  org.json;bundle-version="1.0.0",
+ org.lunifera.dependencies.bundle.vaadin.addon.icepush;bundle-version="0.5.5",
  org.lunifera.runtime.web.vaadin.osgi;bundle-version="0.0.1",
- org.lunifera.runtime.common;bundle-version="0.0.1",
- org.lunifera.runtime.component.configuration.manager;bundle-version="0.0.1",
- org.eclipse.equinox.http.jetty;bundle-version="3.0.100";resolution:=optional,
- org.eclipse.equinox.ds;bundle-version="1.4.100";resolution:=optional,
- org.eclipse.equinox.http.servlet;resolution:=optional,
- org.eclipse.equinox.cm;bundle-version="1.0.400"
+ org.lunifera.runtime.common;bundle-version="0.0.1"
 Bundle-ActivationPolicy: lazy
-Lunifera-Config: config 
+Lunifera-Config: config

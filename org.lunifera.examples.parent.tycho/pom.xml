@@ -47,6 +47,11 @@
 			</snapshots>
 		</repository>
 		<repository>
+			<id>orbit.p2</id>
+			<url>http://download.eclipse.org/tools/orbit/downloads/drops/R20120526062928/repository/</url>
+			<layout>p2</layout>
+		</repository>
+		<repository>
 			<id>eclipse.p2</id>
 			<url>${lunifera.build.eclipse.platform.p2.url}</url>
 			<layout>p2</layout>

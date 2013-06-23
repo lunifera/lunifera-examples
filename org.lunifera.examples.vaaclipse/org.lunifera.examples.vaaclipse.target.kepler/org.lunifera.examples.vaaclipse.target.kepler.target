@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target includeMode="feature" name="org.lunifera.p2.target.juno" sequenceNumber="85">
+<?pde version="3.8"?><target includeMode="feature" name="org.lunifera.p2.target.juno" sequenceNumber="89">
 <locations>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
 <unit id="org.hamcrest" version="1.1.0.v20090501071000"/>
@@ -40,21 +40,28 @@
 <repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20120526062928/repository"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.semanticsoft.vaaclipse.feature.runtime.core.source.feature.group" version="0.0.1.201304262010"/>
-<unit id="org.semanticsoft.vaaclipse.feature.runtime.core.feature.group" version="0.0.1.201304262010"/>
-<repository location="http://lun.lunifera.org/downloads/p2/vaaclipse/nightly/"/>
-</location>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
 <unit id="org.lunifera.dependencies.feature.equinox.source.feature.group" version="3.9.0.201306102153"/>
 <unit id="org.lunifera.runtime.feature.common.source.feature.group" version="0.0.1.201306102156"/>
-<unit id="org.lunifera.dependencies.feature.equinox.feature.group" version="3.9.0.201306102153"/>
-<unit id="org.lunifera.dependencies.feature.vaadin.feature.group" version="7.1.0.201306102153"/>
 <unit id="org.lunifera.runtime.feature.configuration.manager.feature.group" version="0.0.1.201306102156"/>
-<unit id="org.lunifera.runtime.feature.configuration.manager.source.feature.group" version="0.0.1.201306102156"/>
-<unit id="org.lunifera.runtime.feature.logging.equinox.over.slf4j.feature.group" version="0.0.1.201306102156"/>
 <unit id="org.lunifera.runtime.feature.common.feature.group" version="0.0.1.201306102156"/>
 <unit id="org.lunifera.runtime.feature.logging.equinox.over.slf4j.source.feature.group" version="0.0.1.201306102156"/>
+<unit id="org.lunifera.dependencies.feature.vaadin.feature.group" version="7.1.0.201306102153"/>
+<unit id="org.lunifera.dependencies.feature.equinox.feature.group" version="3.9.0.201306102153"/>
+<unit id="org.lunifera.runtime.feature.configuration.manager.source.feature.group" version="0.0.1.201306102156"/>
+<unit id="org.lunifera.runtime.feature.logging.equinox.over.slf4j.feature.group" version="0.0.1.201306102156"/>
 <repository location="http://lun.lunifera.org/downloads/p2/lunifera/kepler/latest/"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<unit id="org.objenesis.source" version="1.0.0.v201105211943"/>
+<unit id="org.objenesis" version="1.0.0.v201105211943"/>
+<unit id="javax.annotation.source" version="1.1.0.v201108011116"/>
+<unit id="javax.annotation" version="1.1.0.v201108011116"/>
+<repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20120526062928/repository"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<unit id="org.semanticsoft.vaaclipse.feature.runtime.core.source.feature.group" version="0.0.1.201306231455"/>
+<unit id="org.semanticsoft.vaaclipse.feature.runtime.core.feature.group" version="0.0.1.201306231455"/>
+<repository location="http://lun.lunifera.org/downloads/p2/vaaclipse/nightly/"/>
 </location>
 </locations>
 </target>

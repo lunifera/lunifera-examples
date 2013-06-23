@@ -44,7 +44,7 @@
 		</repository>
 		<repository>
 			<id>Lunifera</id>
-			<url>http://lun.lunifera.org/downloads/p2/lunifera/kepler/latest/</url>
+			<url>http://lunifera.github.com/p2/kepler/latest</url>
 			<layout>p2</layout>
 		</repository>
 	</repositories>
