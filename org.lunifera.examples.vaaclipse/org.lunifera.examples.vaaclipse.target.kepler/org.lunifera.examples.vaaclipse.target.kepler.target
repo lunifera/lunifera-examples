@@ -59,8 +59,8 @@
 <repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20120526062928/repository"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.semanticsoft.vaaclipse.feature.runtime.core.source.feature.group" version="0.0.1.201306231455"/>
-<unit id="org.semanticsoft.vaaclipse.feature.runtime.core.feature.group" version="0.0.1.201306231455"/>
+<unit id="org.semanticsoft.vaaclipse.feature.runtime.core.source.feature.group" version="0.0.1.201306232002"/>
+<unit id="org.semanticsoft.vaaclipse.feature.runtime.core.feature.group" version="0.0.1.201306232002"/>
 <repository location="http://lun.lunifera.org/downloads/p2/vaaclipse/nightly/"/>
 </location>
 </locations>

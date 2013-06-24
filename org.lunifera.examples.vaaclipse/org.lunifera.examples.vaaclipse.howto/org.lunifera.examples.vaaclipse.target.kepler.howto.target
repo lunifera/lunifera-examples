@@ -2,8 +2,8 @@
 <?pde version="3.8"?><target includeMode="feature" name="org.lunifera.p2.target.juno" sequenceNumber="95">
 <locations>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.lunifera.examples.vaaclipse.feature.demo1.source.feature.group" version="0.0.1.201306231652"/>
-<unit id="org.lunifera.examples.vaaclipse.feature.demo1.feature.group" version="0.0.1.201306231652"/>
+<unit id="org.lunifera.examples.vaaclipse.feature.demo1.source.feature.group" version="0.0.1.201306240824"/>
+<unit id="org.lunifera.examples.vaaclipse.feature.demo1.feature.group" version="0.0.1.201306240824"/>
 <repository location="http://lun.lunifera.org/downloads/p2/lunifera/kepler/latest/"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
