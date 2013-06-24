@@ -2,9 +2,9 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.lunifera.examples</groupId>
-    <artifactId>org.lunifera.examples</artifactId>
+    <artifactId>org.lunifera.examples.runtime.web</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <relativePath>../../</relativePath>
+    <relativePath>../</relativePath>
   </parent>
   <artifactId>org.lunifera.examples.runtime.web.vaadin.databinding</artifactId>
   <packaging>eclipse-plugin</packaging>

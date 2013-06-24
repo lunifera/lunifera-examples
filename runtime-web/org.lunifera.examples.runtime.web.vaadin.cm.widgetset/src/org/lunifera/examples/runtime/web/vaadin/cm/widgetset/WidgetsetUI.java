@@ -1,4 +1,4 @@
-package org.lunifera.examples.runtime.web.vaadin.standalone.widgetset;
+package org.lunifera.examples.runtime.web.vaadin.cm.widgetset;
 
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.ui.Label;
