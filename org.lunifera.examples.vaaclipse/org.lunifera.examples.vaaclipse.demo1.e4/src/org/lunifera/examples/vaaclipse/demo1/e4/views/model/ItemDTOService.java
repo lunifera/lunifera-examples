@@ -19,7 +19,9 @@ public class ItemDTOService {
 	}
 
 	public void save(ItemDTO item) {
-		result.add(item);
+		if (!result.contains(item)) {
+			result.add(item);
+		}
 	}
 
 	public Collection<? extends ItemDTO> getAll() {

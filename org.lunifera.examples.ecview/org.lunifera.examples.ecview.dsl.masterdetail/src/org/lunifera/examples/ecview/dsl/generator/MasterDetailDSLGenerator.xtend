@@ -17,6 +17,8 @@ import org.lunifera.examples.ecview.dsl.masterDetailDSL.UiTable
 import org.lunifera.examples.ecview.dsl.masterDetailDSL.UiTextAlignment
 import org.lunifera.examples.ecview.dsl.masterDetailDSL.UiTextField
 import org.lunifera.examples.ecview.dsl.masterdetail.rs.ECViewRSActivator
+import org.eclipse.emf.ecp.ecview.common.model.binding.YBinding
+import org.eclipse.emf.ecp.ecview.common.model.binding.BindingFactory
 
 /**
  * Generates code from your model files on save.
@@ -31,130 +33,138 @@ class MasterDetailDSLGenerator implements IGenerator {
 		val YView yView = createView(resource)
 		System::out.println(yView)
 
-				ECViewRSActivator::instance.setModel(yView)
-		}
+		ECViewRSActivator::instance.setModel(yView)
+	}
 
-		def YView createView(Resource resource) {
+	def YView createView(Resource resource) {
 
-			val YView yView = modelFactory.createView
-			val YGridLayout yContent = modelFactory.createGridLayout();
-			yView.setContent(yContent);
+		val YView yView = modelFactory.createView
+		val YGridLayout yContent = modelFactory.createGridLayout();
+		yView.setContent(yContent);
 
-			val UiModel model = resource.contents.get(0) as UiModel
-			val tiles = model.tiles
-			if (tiles != null) {
-				applyLayout(yContent, tiles.layout == UiLayoutType::HORIZONTAL);
+		val UiModel model = resource.contents.get(0) as UiModel
+		val tiles = model.tiles
+		if (tiles != null) {
+			applyLayout(yContent, tiles.layout == UiLayoutType::HORIZONTAL);
 
-				// prepare master
-				//
-				val masterPart = tiles.master
-				val yMasterLayout = modelFactory.createGridLayout();
-				yMasterLayout.columns = 1
-				yMasterLayout.spacing = true
-				yMasterLayout.fillHorizontal = false
-				yMasterLayout.fillVertical = false
-				yContent.elements += yMasterLayout
+			// prepare master
+			//
+			val masterPart = tiles.master
+			val yMasterLayout = modelFactory.createGridLayout();
+			yMasterLayout.columns = 1
+			yMasterLayout.spacing = true
+			yMasterLayout.fillHorizontal = false
+			yMasterLayout.fillVertical = false
+			yContent.elements += yMasterLayout
 
-				val masterCellstyle = yContent.addGridLayoutCellStyle(yMasterLayout)
-				masterCellstyle.alignment = YAlignment::FILL_FILL
+			val masterCellstyle = yContent.addGridLayoutCellStyle(yMasterLayout)
+			masterCellstyle.alignment = YAlignment::FILL_FILL
 
-				if (tiles.layout == UiLayoutType::HORIZONTAL) {
-					masterCellstyle.addSpanInfo(0, 0, 2, 3)
-				} else {
-					masterCellstyle.addSpanInfo(0, 0, 2, 2)
+			if (tiles.layout == UiLayoutType::HORIZONTAL) {
+				masterCellstyle.addSpanInfo(0, 0, 2, 3)
+			} else {
+				masterCellstyle.addSpanInfo(0, 0, 2, 2)
+			}
+
+			if (masterPart != null) {
+				val content = masterPart.content
+				if (content instanceof UiTable) {
+					val yTable = modelFactory.createTable
+					yTable.setId("mastertable")
+					yMasterLayout.elements += yTable
+
+					// style
+					val yTableCellstyle = modelFactory.createGridLayoutCellStyle
+					yTableCellstyle.target = yTable
+					yTableCellstyle.alignment = YAlignment::FILL_FILL
+					yMasterLayout.cellStyles += yTableCellstyle
 				}
+			}
 
-				if (masterPart != null) {
-					val content = masterPart.content
-					if (content instanceof UiTable) {
-						val yTable = modelFactory.createTable
-						yTable.setId("mastertable")
-						yMasterLayout.elements += yTable
+			// prepare detail
+			//
+			val detailPart = tiles.detail
+			val yDetailLayout = modelFactory.createGridLayout();
+			yDetailLayout.setCssClass("detailPart");
+			yDetailLayout.columns = 1
+			yDetailLayout.margin = true
+			yDetailLayout.spacing = true
+			yDetailLayout.fillHorizontal = true
+			yDetailLayout.fillVertical = false
+			yContent.elements += yDetailLayout
 
+			val detailCellstyle = yContent.addGridLayoutCellStyle(yDetailLayout)
+			detailCellstyle.alignment = YAlignment::FILL_FILL
+
+			if (tiles.layout == UiLayoutType::HORIZONTAL) {
+				detailCellstyle.addSpanInfo(4, 3, 4, 3)
+			} else {
+				if (detailPart.layout == UiDetailSize::SMALL) {
+					detailCellstyle.addSpanInfo(0, 3, 0, 4)
+				} else {
+					detailCellstyle.addSpanInfo(0, 3, 1, 5)
+				}
+			}
+
+			if (detailPart != null) {
+				for (field : detailPart.content) {
+					if (field instanceof UiTextField) {
+
+						// datadescription
+						val uiTextField = field as UiTextField
+						val yDatadesc = modelFactory.createDatadescription
+						yDatadesc.label = uiTextField.caption
+
+						// field
+						val yTextField = modelFactory.createTextField
+						yDetailLayout.elements += yTextField
+						yTextField.datadescription = yDatadesc
+						yTextField.id = uiTextField.bindsTo.name
+//						// create binding
+//						val YBinding binding = BindingFactory::eINSTANCE.createYBinding
+//						val uiEP = yTextField.createValueEndpoint
+//						val mdEP = modelFactory.createContextBindingEndpoint
+//						mdEP.urlString = "view://bean/master#value." + uiTextField.bindsTo.name
+//						binding.modelValue = mdEP
+//						binding.targetValue=uiEP
+//						yView.orCreateBindingSet.addBinding(binding)
+						
 						// style
-						val yTableCellstyle = modelFactory.createGridLayoutCellStyle
-						yTableCellstyle.target = yTable
-						yTableCellstyle.alignment = YAlignment::FILL_FILL
-						yMasterLayout.cellStyles += yTableCellstyle
-					}
-				}
-
-				// prepare detail
-				//
-				val detailPart = tiles.detail
-				val yDetailLayout = modelFactory.createGridLayout();
-				yDetailLayout.setCssClass("detailPart");
-				yDetailLayout.columns = 1
-				yDetailLayout.margin = true
-				yDetailLayout.spacing = true
-				yDetailLayout.fillHorizontal = true
-				yDetailLayout.fillVertical = false
-				yContent.elements += yDetailLayout
-
-				val detailCellstyle = yContent.addGridLayoutCellStyle(yDetailLayout)
-				detailCellstyle.alignment = YAlignment::FILL_FILL
-
-				if (tiles.layout == UiLayoutType::HORIZONTAL) {
-					detailCellstyle.addSpanInfo(4, 3, 4, 3)
-				} else {
-					if (detailPart.layout == UiDetailSize::SMALL) {
-						detailCellstyle.addSpanInfo(0, 3, 0, 4)
-					} else {
-						detailCellstyle.addSpanInfo(0, 3, 1, 5)
-					}
-				}
-
-				if (detailPart != null) {
-					for (field : detailPart.content) {
-						if (field instanceof UiTextField) {
-
-							// datadescription
-							val uiTextField = field as UiTextField
-							val yDatadesc = modelFactory.createDatadescription
-							yDatadesc.label = uiTextField.caption
-
-							// field
-							val yTextField = modelFactory.createTextField
-							yDetailLayout.elements += yTextField
-							yTextField.datadescription = yDatadesc
-
-							// style
-							val textCellstyle = yDetailLayout.addGridLayoutCellStyle(yTextField)
-							switch (detailPart.textAlign) {
-								case UiTextAlignment::LEFT:
-									textCellstyle.alignment = YAlignment::TOP_LEFT
-								case UiTextAlignment::CENTER:
-									textCellstyle.alignment = YAlignment::TOP_CENTER
-								case UiTextAlignment::RIGHT:
-									textCellstyle.alignment = YAlignment::TOP_RIGHT
-								case UiTextAlignment::FILL:
-									textCellstyle.alignment = YAlignment::TOP_FILL
-							}
+						val textCellstyle = yDetailLayout.addGridLayoutCellStyle(yTextField)
+						switch (detailPart.textAlign) {
+							case UiTextAlignment::LEFT:
+								textCellstyle.alignment = YAlignment::TOP_LEFT
+							case UiTextAlignment::CENTER:
+								textCellstyle.alignment = YAlignment::TOP_CENTER
+							case UiTextAlignment::RIGHT:
+								textCellstyle.alignment = YAlignment::TOP_RIGHT
+							case UiTextAlignment::FILL:
+								textCellstyle.alignment = YAlignment::TOP_FILL
 						}
 					}
 				}
 			}
-			return yView
 		}
+		return yView
+	}
 
-		def YView createDefaultView() {
-			val YView yView = modelFactory.createView();
+	def YView createDefaultView() {
+		val YView yView = modelFactory.createView();
 
-			return yView;
-		}
+		return yView;
+	}
 
-		/**
+	/**
 	 * Applies the layout settings. Horizontal or vertical.
 	 * 
 	 * @param ymainLayout
 	 * @param horizontal
 	 */
-		def void applyLayout(YGridLayout ymainLayout, boolean horizontal) {
-			ymainLayout.setColumns(5);
-			ymainLayout.setSpacing(true);
-			ymainLayout.setFillHorizontal(true);
-			ymainLayout.setFillVertical(true);
-		}
-
+	def void applyLayout(YGridLayout ymainLayout, boolean horizontal) {
+		ymainLayout.setColumns(5);
+		ymainLayout.setSpacing(true);
+		ymainLayout.setFillHorizontal(true);
+		ymainLayout.setFillVertical(true);
 	}
-	
+
+}

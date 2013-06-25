@@ -49,7 +49,7 @@ UiTextField:
 	'TextField' name=ID_ESC caption=STRING ('binds to' bindsTo=BindsToProperty)?;
 
 enum BindsToProperty:
-	CODE='code' | DESC='description' | PRICE='price';
+	NONE='none' | CODE='code' | DESC='description' | PRICE='price';
 
 enum BindsToEntity:
 	ITEM='Item';

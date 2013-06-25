@@ -22,21 +22,6 @@
 		<!-- <version>0.0.1-SNAPSHOT</version> -->
 		<!-- </dependency> -->
 		<dependency>
-			<groupId>org.vaadin.addons</groupId>
-			<artifactId>icepush</artifactId>
-			<version>${vaadin-icepush-version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.icefaces</groupId>
-			<artifactId>icepush</artifactId>
-			<version>${icepush-version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.icefaces</groupId>
-			<artifactId>icepush.gwt</artifactId>
-			<version>${icepush-gwt-version}</version>
-		</dependency>
-		<dependency>
 			<groupId>com.vaadin.addon</groupId>
 			<artifactId>vaadin-charts</artifactId>
 			<version>1.0.0</version>

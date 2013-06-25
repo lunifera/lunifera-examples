@@ -10,7 +10,6 @@ import javax.inject.Inject;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.core.services.events.IEventBroker;
 import org.eclipse.e4.ui.model.application.MApplication;
-import org.eclipse.emf.ecp.ecview.common.beans.ISlot;
 import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
 import org.eclipse.emf.ecp.ecview.common.context.ViewContext;
 import org.eclipse.emf.ecp.ecview.common.editpart.DelegatingEditPartManager;
@@ -37,8 +36,9 @@ import org.lunifera.runtime.web.vaadin.databinding.VaadinObservables;
 import org.osgi.service.event.Event;
 import org.osgi.service.event.EventHandler;
 import org.semanticsoft.vaaclipse.publicapi.resources.ResourceHelper;
-import org.vaadin.artur.icepush.ICEPush;
 
+import com.vaadin.data.Property;
+import com.vaadin.data.Property.ValueChangeEvent;
 import com.vaadin.data.util.BeanItemContainer;
 import com.vaadin.event.ItemClickEvent;
 import com.vaadin.event.MouseEvents;
@@ -50,7 +50,7 @@ import com.vaadin.ui.Embedded;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.Table;
-import com.vaadin.ui.UI;
+import com.vaadin.ui.TextField;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.themes.Reindeer;
 
@@ -76,8 +76,6 @@ public class ItemView implements ItemClickEvent.ItemClickListener,
 
 	private ItemDTOService service = new ItemDTOService();
 
-	private ICEPush push = new ICEPush();
-
 	private IEventBroker eventBroker;
 	private Label label;
 
@@ -85,6 +83,12 @@ public class ItemView implements ItemClickEvent.ItemClickListener,
 		public void handleEvent(Event event) {
 		}
 	};
+
+	private TextField codeField;
+
+	private TextField priceField;
+
+	private TextField descField;
 
 	@PostConstruct
 	void registerHandler() {
@@ -108,8 +112,6 @@ public class ItemView implements ItemClickEvent.ItemClickListener,
 
 	@SuppressWarnings("serial")
 	public void init(VerticalLayout content) {
-
-		push.extend(UI.getCurrent());
 
 		// create ui
 		content.addStyleName(Reindeer.LAYOUT_BLUE);
@@ -145,7 +147,9 @@ public class ItemView implements ItemClickEvent.ItemClickListener,
 		load.addClickListener(new MouseEvents.ClickListener() {
 			@Override
 			public void click(ClickEvent event) {
-				masterTable.setContainerDataSource(createContainer());
+				if (masterTable != null) {
+					masterTable.setContainerDataSource(createContainer());
+				}
 			}
 		});
 
@@ -159,10 +163,14 @@ public class ItemView implements ItemClickEvent.ItemClickListener,
 			@Override
 			public void click(ClickEvent event) {
 				if (context != null && service != null) {
-					ItemDTO person = (ItemDTO) context.getBean("master");
-					service.save(person);
-					masterTable.setContainerDataSource(createContainer());
-					masterTable.setValue(person);
+					if (itemId != null) {
+						service.save(itemId);
+						if (masterTable != null) {
+							masterTable
+									.setContainerDataSource(createContainer());
+						}
+						masterTable.select(itemId);
+					}
 				}
 			}
 		});
@@ -178,8 +186,11 @@ public class ItemView implements ItemClickEvent.ItemClickListener,
 			public void click(ClickEvent event) {
 				if (context != null && service != null) {
 					ItemDTO newEntity = service.createNew();
-					ISlot bean = context.getBeanSlot("master");
-					bean.setValue(newEntity);
+					if (masterTable != null) {
+						masterTable.getContainerDataSource().addItem(newEntity);
+						masterTable.select(newEntity);
+						masterTable.markAsDirty();
+					}
 				}
 			}
 		});
@@ -232,8 +243,6 @@ public class ItemView implements ItemClickEvent.ItemClickListener,
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-		push.push();
 	}
 
 	/**
@@ -248,6 +257,7 @@ public class ItemView implements ItemClickEvent.ItemClickListener,
 			masterTable.removeItemClickListener(this);
 		}
 
+		presentations.clear();
 		buildMap(((YView) context.getViewEditpart().getModel()).getContent());
 
 		// bind new
@@ -258,17 +268,73 @@ public class ItemView implements ItemClickEvent.ItemClickListener,
 			if (masterTable != null) {
 				masterTable.setSelectable(true);
 				masterTable.addItemClickListener(this);
+				masterTable
+						.addValueChangeListener(new Property.ValueChangeListener() {
+							@Override
+							public void valueChange(ValueChangeEvent event) {
+								itemId = (ItemDTO) event.getProperty()
+										.getValue();
+								refreshValues();
+							}
+						});
 				BeanItemContainer<ItemDTO> personContainer = createContainer();
 				masterTable.setContainerDataSource(personContainer);
 
-				context.setBean("master", service.getAll());
 			}
+		}
+		IWidgetPresentation<CssLayout> codePresentation = (IWidgetPresentation<CssLayout>) findPresentation("CODE");
+		if (codePresentation != null) {
+			codeField = (TextField) codePresentation.getWidget()
+					.getComponent(0);
+			codeField.setNullRepresentation("");
+			codeField
+					.addValueChangeListener(new Property.ValueChangeListener() {
+						@Override
+						public void valueChange(Property.ValueChangeEvent event) {
+							itemId.setCode((String) event.getProperty()
+									.getValue());
+							masterTable.setValue(itemId);
+							masterTable.select(itemId);
+						}
+					});
+		}
+
+		IWidgetPresentation<CssLayout> pricePresentation = (IWidgetPresentation<CssLayout>) findPresentation("PRICE");
+		if (pricePresentation != null) {
+			priceField = (TextField) pricePresentation.getWidget()
+					.getComponent(0);
+			priceField.setNullRepresentation("0.00");
+			priceField
+					.addValueChangeListener(new Property.ValueChangeListener() {
+						@Override
+						public void valueChange(Property.ValueChangeEvent event) {
+							itemId.setPrice((Double.valueOf((String) event
+									.getProperty().getValue())));
+							masterTable.select(itemId);
+							masterTable.setValue(itemId);
+						}
+					});
+		}
+
+		IWidgetPresentation<CssLayout> descPresentation = (IWidgetPresentation<CssLayout>) findPresentation("DESC");
+		if (descPresentation != null) {
+			descField = (TextField) descPresentation.getWidget()
+					.getComponent(0);
+			descField.setNullRepresentation("");
+			descField
+					.addValueChangeListener(new Property.ValueChangeListener() {
+						@Override
+						public void valueChange(Property.ValueChangeEvent event) {
+							itemId.setDescription((String) event.getProperty()
+									.getValue());
+							masterTable.select(itemId);
+						}
+					});
 		}
 
 		if (itemId != null) {
-			ISlot slot = context.getBeanSlot("master");
 			masterTable.setValue(itemId);
-			slot.setValue(itemId);
+			masterTable.select(itemId);
 		}
 	}
 
@@ -364,9 +430,23 @@ public class ItemView implements ItemClickEvent.ItemClickListener,
 	@Override
 	public void itemClick(ItemClickEvent event) {
 		itemId = (ItemDTO) event.getItemId();
-		if (context != null) {
-			ISlot slot = context.getBeanSlot("master");
-			slot.setValue(itemId);
+
+		refreshValues();
+	}
+
+	private void refreshValues() {
+		if (itemId == null) {
+			return;
+		}
+
+		if (codeField != null) {
+			codeField.setValue(itemId.getCode());
+		}
+		if (descField != null) {
+			descField.setValue(itemId.getDescription());
+		}
+		if (priceField != null) {
+			priceField.setValue(Double.toString(itemId.getPrice()));
 		}
 	}
 }
