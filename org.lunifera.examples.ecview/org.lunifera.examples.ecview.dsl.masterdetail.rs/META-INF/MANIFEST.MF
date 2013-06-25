@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Remote Service Consumer Bridge
+Bundle-SymbolicName: org.lunifera.examples.ecview.dsl.masterdetail.rs
+Bundle-Version: 0.0.1.qualifier
+Bundle-Activator: org.lunifera.examples.ecview.dsl.masterdetail.rs.ECViewRSActivator
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.ecf;bundle-version="3.2.0",
+ org.eclipse.ecf.remoteservice;bundle-version="8.0.0",
+ org.lunifera.examples.ecview.api;bundle-version="0.0.1",
+ org.eclipse.emf.ecp.ecview.common.model;bundle-version="0.0.1",
+ org.eclipse.emf.ecore.xmi;bundle-version="2.9.0",
+ org.eclipse.emf.ecp.ecview.extension.model;bundle-version="0.0.1"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Export-Package: org.lunifera.examples.ecview.dsl.masterdetail.rs

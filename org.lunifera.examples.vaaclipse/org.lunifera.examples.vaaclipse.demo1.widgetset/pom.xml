@@ -9,12 +9,33 @@
 	</parent>
 	<artifactId>org.lunifera.examples.vaaclipse.demo1.widgetset</artifactId>
 
+	<properties>
+		<vaadin-icepush-version>0.5.4</vaadin-icepush-version>
+		<icepush-version>3.0.1</icepush-version>
+		<icepush-gwt-version>1.0.0</icepush-gwt-version>
+	</properties>
+
 	<dependencies>
 		<!-- <dependency> -->
 		<!-- <groupId>org.semanticsoft</groupId> -->
 		<!-- <artifactId>org.semanticsoft.vaaclipse.widgets</artifactId> -->
 		<!-- <version>0.0.1-SNAPSHOT</version> -->
 		<!-- </dependency> -->
+		<dependency>
+			<groupId>org.vaadin.addons</groupId>
+			<artifactId>icepush</artifactId>
+			<version>${vaadin-icepush-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.icefaces</groupId>
+			<artifactId>icepush</artifactId>
+			<version>${icepush-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.icefaces</groupId>
+			<artifactId>icepush.gwt</artifactId>
+			<version>${icepush-gwt-version}</version>
+		</dependency>
 		<dependency>
 			<groupId>com.vaadin.addon</groupId>
 			<artifactId>vaadin-charts</artifactId>

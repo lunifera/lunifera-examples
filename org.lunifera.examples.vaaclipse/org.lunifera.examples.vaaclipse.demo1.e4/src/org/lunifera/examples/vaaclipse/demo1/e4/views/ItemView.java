@@ -11,7 +11,6 @@ import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.core.services.events.IEventBroker;
 import org.eclipse.e4.ui.model.application.MApplication;
 import org.eclipse.emf.ecp.ecview.common.beans.ISlot;
-import org.eclipse.emf.ecp.ecview.common.context.ContextException;
 import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
 import org.eclipse.emf.ecp.ecview.common.context.ViewContext;
 import org.eclipse.emf.ecp.ecview.common.editpart.DelegatingEditPartManager;
@@ -38,6 +37,7 @@ import org.lunifera.runtime.web.vaadin.databinding.VaadinObservables;
 import org.osgi.service.event.Event;
 import org.osgi.service.event.EventHandler;
 import org.semanticsoft.vaaclipse.publicapi.resources.ResourceHelper;
+import org.vaadin.artur.icepush.ICEPush;
 
 import com.vaadin.data.util.BeanItemContainer;
 import com.vaadin.event.ItemClickEvent;
@@ -50,6 +50,7 @@ import com.vaadin.ui.Embedded;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.Table;
+import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.themes.Reindeer;
 
@@ -74,6 +75,8 @@ public class ItemView implements ItemClickEvent.ItemClickListener,
 	private ItemDTO itemId;
 
 	private ItemDTOService service = new ItemDTOService();
+
+	private ICEPush push = new ICEPush();
 
 	private IEventBroker eventBroker;
 	private Label label;
@@ -105,6 +108,8 @@ public class ItemView implements ItemClickEvent.ItemClickListener,
 
 	@SuppressWarnings("serial")
 	public void init(VerticalLayout content) {
+
+		push.extend(UI.getCurrent());
 
 		// create ui
 		content.addStyleName(Reindeer.LAYOUT_BLUE);
@@ -211,11 +216,6 @@ public class ItemView implements ItemClickEvent.ItemClickListener,
 			return;
 		}
 
-		// if (context != null) {
-		// context.dispose();
-		// context = null;
-		// }
-
 		mainLayout.removeAllComponents();
 
 		VaadinObservables.activateRealm(mainLayout.getUI());
@@ -227,12 +227,13 @@ public class ItemView implements ItemClickEvent.ItemClickListener,
 			context = new ViewContext(viewEditpart);
 			context.render(VaadinRenderer.UI_KIT_URI, mainLayout, null);
 
-		} catch (ContextException e) {
+			bind(context);
+
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		bind(context);
-
+		push.push();
 	}
 
 	/**

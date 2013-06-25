@@ -1,0 +1,40 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.lunifera.examples.ecview.dsl.masterdetail
+Bundle-Vendor: My Company
+Bundle-Version: 0.0.1.qualifier
+Bundle-SymbolicName: org.lunifera.examples.ecview.dsl.masterdetail; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext;visibility:=reexport,
+ org.eclipse.xtext.xbase;resolution:=optional;visibility:=reexport,
+ org.eclipse.xtext.generator;resolution:=optional,
+ org.apache.commons.logging;bundle-version="1.0.4";resolution:=optional,
+ org.eclipse.emf.codegen.ecore;resolution:=optional,
+ org.eclipse.emf.mwe.utils;resolution:=optional,
+ org.eclipse.emf.mwe2.launch;resolution:=optional,
+ org.eclipse.xtext.util,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.common,
+ org.antlr.runtime,
+ org.eclipse.xtext.common.types,
+ org.eclipse.emf.ecp.ecview.common.model;bundle-version="0.0.1",
+ org.eclipse.emf.ecp.ecview.extension.model;bundle-version="0.0.1",
+ org.lunifera.examples.ecview.api;bundle-version="0.0.1",
+ org.lunifera.examples.ecview.dsl.masterdetail.rs;bundle-version="0.0.1"
+Import-Package: org.apache.log4j,
+ org.eclipse.xtext.xbase.lib,
+ org.osgi.framework
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Export-Package: org.lunifera.examples.ecview.dsl,
+ org.lunifera.examples.ecview.dsl.services,
+ org.lunifera.examples.ecview.dsl.masterDetailDSL,
+ org.lunifera.examples.ecview.dsl.masterDetailDSL.impl,
+ org.lunifera.examples.ecview.dsl.masterDetailDSL.util,
+ org.lunifera.examples.ecview.dsl.parser.antlr,
+ org.lunifera.examples.ecview.dsl.parser.antlr.internal,
+ org.lunifera.examples.ecview.dsl.validation,
+ org.lunifera.examples.ecview.dsl.scoping,
+ org.lunifera.examples.ecview.dsl.generator,
+ org.lunifera.examples.ecview.dsl.formatting,
+ org.lunifera.examples.ecview.dsl.serializer
+

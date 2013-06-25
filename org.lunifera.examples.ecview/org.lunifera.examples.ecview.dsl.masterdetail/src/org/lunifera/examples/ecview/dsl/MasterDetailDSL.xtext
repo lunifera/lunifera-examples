@@ -1,0 +1,71 @@
+grammar org.lunifera.examples.ecview.dsl.MasterDetailDSL with org.eclipse.xtext.common.Terminals
+
+generate masterDetailDSL "http://www.lunifera.org/examples/ecview/dsl/MasterDetailDSL"
+
+UiModel:
+	tiles=UiMasterDetailTiles;
+
+UiMasterDetailTiles:
+	{UiMasterDetailTiles}
+	'MasterDetailTiles' name=ID '{'
+	('layout' '=' layout=UiLayoutType)?
+	((master=UiMasterPart)? &
+	(detail=UiDetailPart)?)
+	'}';
+
+UiPart:
+	UiMasterPart | UiDetailPart;
+
+UiMasterPart:
+	{UiMasterPart}
+	'Master' '{'
+	(content=UiSelectable)?
+	'}';
+
+UiDetailPart:
+	{UiDetailPart}
+	'Detail' '{'
+	(('size' '=' layout=UiDetailSize)? &
+	 ('text align' '=' textAlign = UiTextAlignment)?)
+	(content+=UiSimpleField)*
+	'}';
+
+UiElement:
+	UiVisuals;
+
+UiVisuals:
+	UiSelectable | UiSimpleField;
+
+UiSelectable:
+	UiTable;
+
+UiSimpleField:
+	UiTextField;
+
+UiTable:
+	'Table' name=ID_ESC caption=STRING ('binds to' bindsTo=BindsToEntity)?;
+
+UiTextField:
+	'TextField' name=ID_ESC caption=STRING ('binds to' bindsTo=BindsToProperty)?;
+
+enum BindsToProperty:
+	CODE='code' | DESC='description' | PRICE='price';
+
+enum BindsToEntity:
+	ITEM='Item';
+
+ID_ESC:
+	ID | 'code' | 'description' | 'price';
+
+LFQN:
+	ID ('.' ID)*;
+
+enum UiLayoutType:
+	HORIZONTAL='horizontal' | VERTICAL='vertical';
+
+enum UiDetailSize:
+	BIG='big' | SMALL='small';
+	
+enum UiTextAlignment:
+	FILL = "fill" | LEFT = "left" | CENTER = "center" | RIGHT = "right"
+;

@@ -18,14 +18,15 @@ public class ECViewModelRemoteService implements IECViewModelService {
 
 	@Override
 	public void setModel(String viewModel) {
-		ResourceSet rs = new ResourceSetImpl();
-		Resource resource = rs.createResource(URI.createFileURI("test"));
 		try {
-			resource.load(new ByteArrayInputStream(viewModel.getBytes()), null);
-			YView view = (YView) resource.getContents().get(0);
-
 			for (IECViewModelService service : delegates
 					.toArray(new IECViewModelService[delegates.size()])) {
+				ResourceSet rs = new ResourceSetImpl();
+				Resource resource = rs
+						.createResource(URI.createFileURI("test"));
+				resource.load(new ByteArrayInputStream(viewModel.getBytes()),
+						null);
+				YView view = (YView) resource.getContents().get(0);
 				service.delegateSetModel(view);
 			}
 		} catch (IOException e) {

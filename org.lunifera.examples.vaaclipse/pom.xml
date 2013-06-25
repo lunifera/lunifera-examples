@@ -91,6 +91,7 @@
 			</activation>
 			<modules>
 				<module>org.lunifera.examples.vaaclipse.target.kepler</module>
+				<module>org.lunifera.examples.vaaclipse.enabled</module>
 				<module>org.lunifera.examples.vaaclipse.demo1.e4</module>
 				<module>org.lunifera.examples.vaaclipse.demo1.widgetset</module>
 				<module>org.lunifera.examples.vaaclipse.feature.demo1</module>

@@ -6,5 +6,12 @@
    <feature id="org.lunifera.examples.vaaclipse.feature.demo1.source" version="0.0.0">
       <category name="lunifera-runtime-web-example-features"/>
    </feature>
+   <feature url="features/org.lunifera.examples.ecview.feature_0.0.1.qualifier.jar" id="org.lunifera.examples.ecview.feature" version="0.0.1.qualifier">
+      <category name="lunifera-runtime-web-example-features"/>
+   </feature>
+   <feature url="features/org.lunifera.examples.ecview.feature.ide_0.0.1.qualifier.jar" id="org.lunifera.examples.ecview.feature.ide" version="0.0.1.qualifier">
+      <category name="lunifera-runtime-web-example-IDE-features"/>
+   </feature>
    <category-def name="lunifera-runtime-web-example-features" label="Examples - Runtime Web"/>
+   <category-def name="lunifera-runtime-web-example-IDE-features" label="Examples - Runtime Web for IDE"/>
 </site>
