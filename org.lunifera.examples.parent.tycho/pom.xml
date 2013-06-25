@@ -66,6 +66,11 @@
 			<url>http://lun.lunifera.org/downloads/p2/vaaclipse/nightly</url>
 			<layout>p2</layout>
 		</repository>
+		<repository>
+			<id>ECView</id>
+			<url>http://lun.lunifera.org/downloads/p2/ecview/nightly</url>
+			<layout>p2</layout>
+		</repository>
 	</repositories>
 
 	<pluginRepositories>

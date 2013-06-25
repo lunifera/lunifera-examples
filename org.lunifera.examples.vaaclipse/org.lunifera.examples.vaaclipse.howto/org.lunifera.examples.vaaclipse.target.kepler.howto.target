@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target includeMode="feature" name="org.lunifera.p2.target.juno" sequenceNumber="95">
+<?pde version="3.8"?><target includeMode="feature" name="org.lunifera.p2.target.juno" sequenceNumber="103">
 <locations>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.lunifera.examples.vaaclipse.feature.demo1.source.feature.group" version="0.0.1.201306240824"/>
-<unit id="org.lunifera.examples.vaaclipse.feature.demo1.feature.group" version="0.0.1.201306240824"/>
-<repository location="http://lun.lunifera.org/downloads/p2/lunifera/kepler/latest/"/>
-</location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
 <unit id="org.semanticsoft.vaaclipse.feature.runtime.core.source.feature.group" version="0.0.1.201306232002"/>
 <unit id="org.semanticsoft.vaaclipse.feature.runtime.core.feature.group" version="0.0.1.201306232002"/>
@@ -25,9 +20,30 @@
 <repository location="http://lun.lunifera.org/downloads/p2/lunifera/kepler/latest/"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.emf.ecore.feature.group" version="2.9.0.v20130528-0742"/>
+<unit id="org.eclipse.emf.ecp.ecview.feature.core.feature.group" version="0.0.1.201305042005"/>
+<unit id="org.eclipse.emf.ecp.ecview.feature.core.source.feature.group" version="0.0.1.201305042005"/>
+<repository location="http://lun.lunifera.org/downloads/p2/ecview/nightly/"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<unit id="org.lunifera.examples.vaaclipse.feature.demo1.source.feature.group" version="0.0.1.201306241312"/>
+<unit id="org.lunifera.examples.vaaclipse.feature.demo1.feature.group" version="0.0.1.201306241312"/>
+<repository location="http://lun.lunifera.org/downloads/p2/lunifera/kepler/latest/"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.platform.sdk" version="4.3.0.I20130530-1430"/>
+<unit id="org.eclipse.emf.ecore.feature.group" version="2.9.0.v20130528-0742"/>
 <repository location="http://download.eclipse.org/releases/kepler"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<unit id="org.lunifera.runtime.web.feature.ecview.presentation.vaadin.source.feature.group" version="0.0.1.201306241311"/>
+<unit id="org.lunifera.runtime.web.feature.vaadin.databinding.feature.group" version="0.0.1.201306241311"/>
+<unit id="org.lunifera.dependencies.feature.ecf.feature.group" version="3.6.1"/>
+<unit id="org.lunifera.runtime.web.feature.vaadin.components.source.feature.group" version="0.0.1.201306241311"/>
+<unit id="org.lunifera.runtime.web.feature.ecview.presentation.vaadin.feature.group" version="0.0.1.201306241311"/>
+<unit id="org.lunifera.runtime.web.feature.vaadin.components.feature.group" version="0.0.1.201306241311"/>
+<unit id="org.lunifera.dependencies.feature.ecf.source.feature.group" version="3.6.1"/>
+<unit id="org.lunifera.runtime.web.feature.vaadin.databinding.source.feature.group" version="0.0.1.201306241311"/>
+<repository location="http://lun.lunifera.org/downloads/p2/lunifera/kepler/latest/"/>
 </location>
 </locations>
 </target>

@@ -11,26 +11,32 @@
 
 package org.lunifera.examples.vaaclipse.demo1.e4;
 
-import java.util.UUID;
-
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.Date;
+import java.util.UUID;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipException;
 import java.util.zip.ZipInputStream;
+
 import org.apache.commons.io.FileUtils;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.ecf.core.ContainerCreateException;
+import org.eclipse.ecf.core.IContainer;
+import org.eclipse.ecf.core.IContainerManager;
+import org.eclipse.ecf.remoteservice.IRemoteServiceContainerAdapter;
+import org.eclipse.ecf.remoteservice.IRemoteServiceRegistration;
+import org.lunifera.examples.ecview.api.service.IECViewModelService;
 import org.lunifera.examples.vaaclipse.demo1.e4.user.UserCounter;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
+import org.osgi.util.tracker.ServiceTracker;
 
 public class Demo1Activator implements BundleActivator {
 	private static Demo1Activator instance;
@@ -42,14 +48,53 @@ public class Demo1Activator implements BundleActivator {
 	private UserCounter userCounter;
 	private Date startTime;
 
+	private ServiceTracker containerManagerServiceTracker;
+	private IContainer container;
+	private IRemoteServiceRegistration serviceRegistration;
+
+	private ECViewModelRemoteService ecViewModelService;
+
 	public void start(BundleContext context) throws Exception {
 		instance = this;
-		this.context = context;
+		Demo1Activator.context = context;
 
 		upackProjects();
 
 		this.userCounter = new UserCounter();
 		this.startTime = new Date();
+
+		registerRemoteService();
+	}
+
+	/**
+	 * Registers the remote service.
+	 * 
+	 * @throws ContainerCreateException
+	 */
+	private void registerRemoteService() throws ContainerCreateException {
+		// Create R-OSGi Container
+		IContainerManager containerManager = getContainerManagerService();
+		container = containerManager.getContainerFactory().createContainer(
+				"ecf.r_osgi.peer");
+		// Get remote service container adapter
+		IRemoteServiceContainerAdapter containerAdapter = (IRemoteServiceContainerAdapter) container
+				.getAdapter(IRemoteServiceContainerAdapter.class);
+		// Register remote service
+
+		ecViewModelService = new ECViewModelRemoteService();
+		serviceRegistration = containerAdapter.registerRemoteService(
+				new String[] { IECViewModelService.class.getName() },
+				ecViewModelService, null);
+		System.out.println("IECViewModel RemoteService registered");
+	}
+
+	/**
+	 * Delegate may register.
+	 * 
+	 * @param delegate
+	 */
+	public void register(IECViewModelService delegate) {
+		ecViewModelService.addDelegate(delegate);
 	}
 
 	private void upackProjects() throws Exception {
@@ -134,7 +179,8 @@ public class Demo1Activator implements BundleActivator {
 		URL url = context.getBundle().getEntry("img/" + image);
 		InputStream inputStream = null;
 		try {
-			File result = new File(FileUtils.getUserDirectoryPath() + "/" + UUID.randomUUID().toString());
+			File result = new File(FileUtils.getUserDirectoryPath() + "/"
+					+ UUID.randomUUID().toString());
 			inputStream = url.openConnection().getInputStream();
 			FileOutputStream out = new FileOutputStream(result);
 			while (true) {
@@ -159,6 +205,29 @@ public class Demo1Activator implements BundleActivator {
 	public void stop(BundleContext context) throws Exception {
 		this.context = null;
 		instance = null;
+
+		if (container != null) {
+			container.disconnect();
+			container = null;
+		}
+		if (containerManagerServiceTracker != null) {
+			containerManagerServiceTracker.close();
+			containerManagerServiceTracker = null;
+		}
+
+		if (serviceRegistration != null) {
+			serviceRegistration.unregister();
+		}
+		this.context = null;
+	}
+
+	private IContainerManager getContainerManagerService() {
+		if (containerManagerServiceTracker == null) {
+			containerManagerServiceTracker = new ServiceTracker(context,
+					IContainerManager.class.getName(), null);
+			containerManagerServiceTracker.open();
+		}
+		return (IContainerManager) containerManagerServiceTracker.getService();
 	}
 
 	public static Demo1Activator getInstance() {

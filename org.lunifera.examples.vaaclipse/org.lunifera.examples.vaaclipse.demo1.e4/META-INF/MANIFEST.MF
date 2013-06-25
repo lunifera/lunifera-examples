@@ -30,14 +30,22 @@ Require-Bundle: org.eclipse.core.runtime,
  com.vaadin.server;bundle-version="7.0.0",
  com.vaadin.shared;bundle-version="7.0.0",
  com.vaadin.shared.deps;bundle-version="1.0.2",
- javax.inject;bundle-version="1.0.0"
-Import-Package: javax.annotation;version="1.0.0", javax.inject;version="1.0.0"
-Bundle-ActivationPolicy: lazy
+ javax.inject;bundle-version="1.0.0",
+ org.eclipse.emf.ecp.ecview.common;bundle-version="0.0.1",
+ org.eclipse.emf.ecp.ecview.common.model;bundle-version="0.0.1",
+ org.eclipse.emf.ecp.ecview.extension.model;bundle-version="0.0.1",
+ org.lunifera.runtime.web.ecview.presentation.vaadin;bundle-version="0.0.1",
+ org.eclipse.ecf.remoteservice,
+ org.eclipse.ecf,
+ org.lunifera.runtime.web.vaadin.databinding;bundle-version="0.0.1"
+Import-Package: javax.annotation;version="1.0.0",
+ javax.inject;version="1.0.0",
+ org.eclipse.equinox.concurrent.future;version="1.1.0",
+ org.lunifera.examples.ecview.api.service
 Bundle-Activator: org.lunifera.examples.vaaclipse.demo1.e4.Demo1Activator
 Bundle-Localization: plugin
 Export-Package: css,
  img
-Bundle-ClassPath: .,
- lib/gson-2.2.jar,
- lib/vaadin-charts-1.0.0.jar
+Bundle-ClassPath: .,lib/gson-2.2.jar,lib/vaadin-charts-1.0.0.jar
 Vaadin-Resources: img/bpm
+Bundle-ActivationPolicy: lazy
