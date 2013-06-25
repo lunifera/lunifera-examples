@@ -61,6 +61,12 @@
 								<include>**</include>
 							</includes>
 						</fileset>
+						<fileset>
+							<directory>../${project.artifactId}.tests/src-gen</directory>
+							<includes>
+								<include>**</include>
+							</includes>
+						</fileset>
 					</filesets>
 				</configuration>
 			</plugin>
@@ -76,7 +82,7 @@
 						</goals>
 						<configuration>
 							<workflowEngine>mwe2</workflowEngine>
-							<workflowDescriptor>org.lunifera.examples.ecview.dsl.GenerateMasterDetailDSL</workflowDescriptor>
+							<workflowDescriptor>src/org/lunifera/examples/ecview/dsl/GenerateMasterDetailDSL.mwe2</workflowDescriptor>
 							<timestampFileName>xtext-generator.timestamp</timestampFileName>
 							<jvmSettings>
 								<fork>true</fork>
