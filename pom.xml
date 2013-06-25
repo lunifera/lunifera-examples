@@ -84,6 +84,7 @@
 			<modules>
 				<module>org.lunifera.examples.parent.tycho</module>
 				<module>org.lunifera.examples.p2</module>
+				<module>org.lunifera.examples.ecview</module>
 				<module>org.lunifera.examples.vaaclipse</module>
 			</modules>
 		</profile>
@@ -205,8 +206,8 @@
 		</pluginManagement>
 	</build>
 	<modules>
-		<module>org.lunifera.examples.vaaclipse</module>
 		<module>org.lunifera.examples.ecview</module>
+		<module>org.lunifera.examples.vaaclipse</module>
 		<module>org.lunifera.examples.p2</module>
 		<module>org.lunifera.examples.parent.tycho</module>
 	</modules>
