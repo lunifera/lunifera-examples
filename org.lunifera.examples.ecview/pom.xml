@@ -57,7 +57,7 @@
 	</build>
 	<profiles>
 		<profile>
-			<id>lunifera.build.ide.p2</id>
+			<id>lunifera.build.p2</id>
 			<activation>
 				<activeByDefault>false</activeByDefault>
 			</activation>
@@ -68,6 +68,9 @@
 				<module>org.lunifera.examples.ecview.dsl.masterdetail.rs</module>
 				<module>org.lunifera.examples.ecview.feature</module>
 				<module>org.lunifera.examples.ecview.feature.ide</module>
+				<module>org.lunifera.dsl.entity.semantic</module>
+				<module>org.lunifera.dsl.entity.xtext</module>
+				<module>org.lunifera.dsl.entity.xtext.ui</module>
 			</modules>
 		</profile>
 	</profiles>
