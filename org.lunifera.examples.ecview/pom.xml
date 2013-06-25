@@ -63,14 +63,14 @@
 			</activation>
 			<modules>
 				<module>org.lunifera.examples.ecview.api</module>
+				<module>org.lunifera.dsl.entity.xtext</module>
+				<module>org.lunifera.dsl.entity.xtext.ui</module>
 				<module>org.lunifera.examples.ecview.dsl.masterdetail</module>
 				<module>org.lunifera.examples.ecview.dsl.masterdetail.ui</module>
 				<module>org.lunifera.examples.ecview.dsl.masterdetail.rs</module>
 				<module>org.lunifera.examples.ecview.feature</module>
 				<module>org.lunifera.examples.ecview.feature.ide</module>
 				<module>org.lunifera.dsl.entity.semantic</module>
-				<module>org.lunifera.dsl.entity.xtext</module>
-				<module>org.lunifera.dsl.entity.xtext.ui</module>
 			</modules>
 		</profile>
 	</profiles>
