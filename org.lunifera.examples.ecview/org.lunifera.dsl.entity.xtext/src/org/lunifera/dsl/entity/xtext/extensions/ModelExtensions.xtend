@@ -81,7 +81,7 @@ class ModelExtensions {
 
 	def typeIsBoolean(LProperty prop) {
 		val typeRef = prop.toTypeReference
-		return typeRef != null && !typeRef.eIsProxy() && !typeRef.getType().eIsProxy() && typeRef.getType() != null &&
+		return typeRef != null && !typeRef.eIsProxy() &&typeRef.getType() != null && !typeRef.getType().eIsProxy()&&
 			"boolean".equals(typeRef.getType().getIdentifier())
 	}
 

@@ -134,7 +134,7 @@ public class ItemView implements ItemClickEvent.ItemClickListener,
 		// icePush = new ICEPush();
 		// addComponent(icePush);
 
-		Label heading = new Label("Designstudy - Master-Detail-Tiles");
+		Label heading = new Label("Lunifera.org - Master-Detail-Tiles");
 		heading.setWidth("100%");
 		heading.addStyleName(Reindeer.LABEL_H1);
 		content.addComponent(heading);

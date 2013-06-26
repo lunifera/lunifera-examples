@@ -41,9 +41,9 @@
 <repository location="http://lun.lunifera.org/downloads/p2/vaaclipse/nightly/"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.lunifera.examples.vaaclipse.feature.demo1.feature.group" version="0.0.1.201306252209"/>
-<unit id="org.lunifera.examples.vaaclipse.feature.demo1.source.feature.group" version="0.0.1.201306252209"/>
-<unit id="org.lunifera.examples.ecview.feature.feature.group" version="0.0.1.201306252209"/>
+<unit id="org.lunifera.examples.vaaclipse.feature.demo1.feature.group" version="0.0.1.201306261141"/>
+<unit id="org.lunifera.examples.vaaclipse.feature.demo1.source.feature.group" version="0.0.1.201306261141"/>
+<unit id="org.lunifera.examples.ecview.feature.feature.group" version="0.0.1.201306261141"/>
 <repository location="http://lun.lunifera.org/downloads/p2/lunifera-experiments/nightly/"/>
 </location>
 </locations>
