@@ -19,6 +19,7 @@ import org.lunifera.examples.ecview.dsl.masterDetailDSL.UiTextField
 import org.lunifera.examples.ecview.dsl.masterdetail.rs.ECViewRSActivator
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBinding
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingFactory
+import org.lunifera.examples.ecview.dsl.masterDetailDSL.BindsToProperty
 
 /**
  * Generates code from your model files on save.
@@ -115,32 +116,55 @@ class MasterDetailDSLGenerator implements IGenerator {
 						val yDatadesc = modelFactory.createDatadescription
 						yDatadesc.label = uiTextField.caption
 
-						// field
-						val yTextField = modelFactory.createTextField
-						yDetailLayout.elements += yTextField
-						yTextField.datadescription = yDatadesc
-						yTextField.id = uiTextField.bindsTo.name
-//						// create binding
-//						val YBinding binding = BindingFactory::eINSTANCE.createYBinding
-//						val uiEP = yTextField.createValueEndpoint
-//						val mdEP = modelFactory.createContextBindingEndpoint
-//						mdEP.urlString = "view://bean/master#value." + uiTextField.bindsTo.name
-//						binding.modelValue = mdEP
-//						binding.targetValue=uiEP
-//						yView.orCreateBindingSet.addBinding(binding)
-						
-						// style
-						val textCellstyle = yDetailLayout.addGridLayoutCellStyle(yTextField)
-						switch (detailPart.textAlign) {
-							case UiTextAlignment::LEFT:
-								textCellstyle.alignment = YAlignment::TOP_LEFT
-							case UiTextAlignment::CENTER:
-								textCellstyle.alignment = YAlignment::TOP_CENTER
-							case UiTextAlignment::RIGHT:
-								textCellstyle.alignment = YAlignment::TOP_RIGHT
-							case UiTextAlignment::FILL:
-								textCellstyle.alignment = YAlignment::TOP_FILL
+						if (uiTextField.bindsTo == BindsToProperty::IMAGE) {
+							// field
+							val yImageField = modelFactory.createGridLayout
+							yImageField.columns = 1
+							yDetailLayout.elements += yImageField
+							
+							if(tiles.layout == UiLayoutType::HORIZONTAL){
+								yImageField.id = "image_wrapper_h"
+							}else{
+								yImageField.id = "image_wrapper_v"	
+							}
+							
+//							val cellstyle = yDetailLayout.addGridLayoutCellStyle(yImageField)
+//							cellstyle.alignment =  YAlignment::TOP_FILL
+							
+							// style
+							val textCellstyle = yDetailLayout.addGridLayoutCellStyle(yImageField)
+							switch (detailPart.textAlign) {
+								case UiTextAlignment::LEFT:
+									textCellstyle.alignment = YAlignment::TOP_LEFT
+								case UiTextAlignment::CENTER:
+									textCellstyle.alignment = YAlignment::TOP_CENTER
+								case UiTextAlignment::RIGHT:
+									textCellstyle.alignment = YAlignment::TOP_RIGHT
+								case UiTextAlignment::FILL:
+									textCellstyle.alignment = YAlignment::TOP_FILL
+							}
+						} else {
+
+							// field
+							val yTextField = modelFactory.createTextField
+							yDetailLayout.elements += yTextField
+							yTextField.datadescription = yDatadesc
+							yTextField.id = uiTextField.bindsTo.name
+
+							// style
+							val textCellstyle = yDetailLayout.addGridLayoutCellStyle(yTextField)
+							switch (detailPart.textAlign) {
+								case UiTextAlignment::LEFT:
+									textCellstyle.alignment = YAlignment::TOP_LEFT
+								case UiTextAlignment::CENTER:
+									textCellstyle.alignment = YAlignment::TOP_CENTER
+								case UiTextAlignment::RIGHT:
+									textCellstyle.alignment = YAlignment::TOP_RIGHT
+								case UiTextAlignment::FILL:
+									textCellstyle.alignment = YAlignment::TOP_FILL
+							}
 						}
+
 					}
 				}
 			}

@@ -43,14 +43,18 @@ import com.vaadin.data.util.BeanItemContainer;
 import com.vaadin.event.ItemClickEvent;
 import com.vaadin.event.MouseEvents;
 import com.vaadin.event.MouseEvents.ClickEvent;
+import com.vaadin.server.ClassResource;
 import com.vaadin.shared.ui.MarginInfo;
 import com.vaadin.ui.Alignment;
+import com.vaadin.ui.ComponentContainer;
 import com.vaadin.ui.CssLayout;
 import com.vaadin.ui.Embedded;
+import com.vaadin.ui.GridLayout;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.Table;
 import com.vaadin.ui.TextField;
+import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.themes.Reindeer;
 
@@ -84,11 +88,17 @@ public class ItemView implements ItemClickEvent.ItemClickListener,
 		}
 	};
 
-	private TextField codeField;
+	private TextField numberField;
 
 	private TextField priceField;
 
-	private TextField descField;
+	private TextField nameField;
+
+	private TextField weightField;
+
+	private GridLayout imageWrapper;
+
+	private Embedded imageField;
 
 	@PostConstruct
 	void registerHandler() {
@@ -149,6 +159,8 @@ public class ItemView implements ItemClickEvent.ItemClickListener,
 			public void click(ClickEvent event) {
 				if (masterTable != null) {
 					masterTable.setContainerDataSource(createContainer());
+					masterTable.setVisibleColumns(new String[] { "number",
+							"name", "price", "weight" });
 				}
 			}
 		});
@@ -168,6 +180,8 @@ public class ItemView implements ItemClickEvent.ItemClickListener,
 						if (masterTable != null) {
 							masterTable
 									.setContainerDataSource(createContainer());
+							masterTable.setVisibleColumns(new String[] {
+									"number", "name", "price", "weight" });
 						}
 						masterTable.select(itemId);
 					}
@@ -207,8 +221,8 @@ public class ItemView implements ItemClickEvent.ItemClickListener,
 		spanner.setSizeFull();
 		content.addComponent(spanner);
 
-		content.setExpandRatio(mainLayout, 0.5f);
-		content.setExpandRatio(spanner, 0.5f);
+		content.setExpandRatio(mainLayout, 0.9f);
+		content.setExpandRatio(spanner, 0.1f);
 
 	}
 
@@ -227,21 +241,26 @@ public class ItemView implements ItemClickEvent.ItemClickListener,
 			return;
 		}
 
-		mainLayout.removeAllComponents();
-
-		VaadinObservables.activateRealm(mainLayout.getUI());
-		// render the view again
-		context = null;
+		UI oldUi = UI.getCurrent();
+		UI.setCurrent(mainLayout.getUI());
 		try {
-			IViewEditpart viewEditpart = DelegatingEditPartManager
-					.getInstance().getEditpart(yView);
-			context = new ViewContext(viewEditpart);
-			context.render(VaadinRenderer.UI_KIT_URI, mainLayout, null);
+			mainLayout.removeAllComponents();
+			VaadinObservables.activateRealm(UI.getCurrent());
+			// render the view again
+			context = null;
+			try {
+				IViewEditpart viewEditpart = DelegatingEditPartManager
+						.getInstance().getEditpart(yView);
+				context = new ViewContext(viewEditpart);
+				context.render(VaadinRenderer.UI_KIT_URI, mainLayout, null);
 
-			bind(context);
+				bind(context);
 
-		} catch (Exception e) {
-			e.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} finally {
+			UI.setCurrent(oldUi);
 		}
 	}
 
@@ -280,18 +299,20 @@ public class ItemView implements ItemClickEvent.ItemClickListener,
 				BeanItemContainer<ItemDTO> personContainer = createContainer();
 				masterTable.setContainerDataSource(personContainer);
 
+				masterTable.setVisibleColumns(new String[] { "number", "name",
+						"price", "weight" });
 			}
 		}
-		IWidgetPresentation<CssLayout> codePresentation = (IWidgetPresentation<CssLayout>) findPresentation("CODE");
+		IWidgetPresentation<CssLayout> codePresentation = (IWidgetPresentation<CssLayout>) findPresentation("NUMBER");
 		if (codePresentation != null) {
-			codeField = (TextField) codePresentation.getWidget()
+			numberField = (TextField) codePresentation.getWidget()
 					.getComponent(0);
-			codeField.setNullRepresentation("");
-			codeField
+			numberField.setNullRepresentation("");
+			numberField
 					.addValueChangeListener(new Property.ValueChangeListener() {
 						@Override
 						public void valueChange(Property.ValueChangeEvent event) {
-							itemId.setCode((String) event.getProperty()
+							itemId.setNumber((String) event.getProperty()
 									.getValue());
 							masterTable.setValue(itemId);
 							masterTable.select(itemId);
@@ -316,26 +337,66 @@ public class ItemView implements ItemClickEvent.ItemClickListener,
 					});
 		}
 
-		IWidgetPresentation<CssLayout> descPresentation = (IWidgetPresentation<CssLayout>) findPresentation("DESC");
-		if (descPresentation != null) {
-			descField = (TextField) descPresentation.getWidget()
+		IWidgetPresentation<CssLayout> weightPresentation = (IWidgetPresentation<CssLayout>) findPresentation("WEIGHT");
+		if (weightPresentation != null) {
+			weightField = (TextField) weightPresentation.getWidget()
 					.getComponent(0);
-			descField.setNullRepresentation("");
-			descField
+			weightField.setNullRepresentation("0.00");
+			weightField
 					.addValueChangeListener(new Property.ValueChangeListener() {
 						@Override
 						public void valueChange(Property.ValueChangeEvent event) {
-							itemId.setDescription((String) event.getProperty()
+							itemId.setWeight((Double.valueOf((String) event
+									.getProperty().getValue())));
+							masterTable.select(itemId);
+							masterTable.setValue(itemId);
+						}
+					});
+		}
+
+		IWidgetPresentation<CssLayout> descPresentation = (IWidgetPresentation<CssLayout>) findPresentation("NAME");
+		if (descPresentation != null) {
+			nameField = (TextField) descPresentation.getWidget()
+					.getComponent(0);
+			nameField.setNullRepresentation("");
+			nameField
+					.addValueChangeListener(new Property.ValueChangeListener() {
+						@Override
+						public void valueChange(Property.ValueChangeEvent event) {
+							itemId.setName((String) event.getProperty()
 									.getValue());
 							masterTable.select(itemId);
 						}
 					});
 		}
 
+		IWidgetPresentation<CssLayout> imagePresentation = (IWidgetPresentation<CssLayout>) findPresentation("image_wrapper_v");
+		if (imagePresentation != null) {
+			imageWrapper = (GridLayout) imagePresentation.getWidget()
+					.getComponent(0);
+			ComponentContainer parent = (ComponentContainer) imageWrapper
+					.getParent();
+			imageField = new Embedded();
+			parent.replaceComponent(imageWrapper, imageField);
+			imageField.setHeight("200px");
+		}
+
+		imagePresentation = (IWidgetPresentation<CssLayout>) findPresentation("image_wrapper_h");
+		if (imagePresentation != null) {
+			imageWrapper = (GridLayout) imagePresentation.getWidget()
+					.getComponent(0);
+			ComponentContainer parent = (ComponentContainer) imageWrapper
+					.getParent();
+			imageField = new Embedded();
+			parent.replaceComponent(imageWrapper, imageField);
+			imageField.setWidth("250px");
+		}
+
 		if (itemId != null) {
 			masterTable.setValue(itemId);
 			masterTable.select(itemId);
 		}
+
 	}
 
 	private IWidgetPresentation<?> findPresentation(String id) {
@@ -439,14 +500,27 @@ public class ItemView implements ItemClickEvent.ItemClickListener,
 			return;
 		}
 
-		if (codeField != null) {
-			codeField.setValue(itemId.getCode());
+		if (numberField != null) {
+			numberField.setValue(itemId.getNumber());
 		}
-		if (descField != null) {
-			descField.setValue(itemId.getDescription());
+		if (nameField != null) {
+			nameField.setValue(itemId.getName());
 		}
 		if (priceField != null) {
 			priceField.setValue(Double.toString(itemId.getPrice()));
+		}
+		if (weightField != null) {
+			weightField.setValue(Double.toString(itemId.getWeight()));
+		}
+		if (imageField != null) {
+			imageField.setVisible(true);
+			if (itemId.getImageIndex() < 0) {
+				imageField.setVisible(false);
+			} else {
+				imageField.setSource(new ClassResource(ItemView.class, String
+						.format("Image_%s.jpg",
+								Integer.toString(itemId.getImageIndex()))));
+			}
 		}
 	}
 }

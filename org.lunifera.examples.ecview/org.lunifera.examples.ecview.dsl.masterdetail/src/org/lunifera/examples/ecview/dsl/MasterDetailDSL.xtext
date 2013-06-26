@@ -46,10 +46,10 @@ UiTable:
 	'Table' name=ID_ESC caption=STRING ('binds to' bindsTo=BindsToEntity)?;
 
 UiTextField:
-	'TextField' name=ID_ESC caption=STRING ('binds to' bindsTo=BindsToProperty)?;
+	'Field' name=ID_ESC caption=STRING ('binds to' bindsTo=BindsToProperty)?;
 
 enum BindsToProperty:
-	NONE='none' | CODE='code' | DESC='description' | PRICE='price';
+	NONE='none' | NUMBER='number' | NAME='name' | PRICE='price' | WEIGHT='weight' | IMAGE='image';
 
 enum BindsToEntity:
 	ITEM='Item';

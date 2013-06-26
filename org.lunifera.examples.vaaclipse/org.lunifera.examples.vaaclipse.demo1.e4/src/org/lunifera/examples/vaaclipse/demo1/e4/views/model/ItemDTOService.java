@@ -9,13 +9,13 @@ public class ItemDTOService {
 	private List<ItemDTO> result = new ArrayList<ItemDTO>();
 
 	public ItemDTOService() {
-		result.add(new ItemDTO("112233", "Food", 10.23));
-		result.add(new ItemDTO("99875", "Drinks", 3.77));
-		result.add(new ItemDTO("36547", "Steel", 100.00));
+		result.add(new ItemDTO("112233", "Food", 10.23, 100, 1));
+		result.add(new ItemDTO("99875", "Drinks", 3.77, 15, 2));
+		result.add(new ItemDTO("36547", "Steel", 100.00, 917, 3));
 	}
 
 	public ItemDTO createNew() {
-		return new ItemDTO("", "", 0.0);
+		return new ItemDTO("", "", 0.0, 0.0, -1);
 	}
 
 	public void save(ItemDTO item) {
