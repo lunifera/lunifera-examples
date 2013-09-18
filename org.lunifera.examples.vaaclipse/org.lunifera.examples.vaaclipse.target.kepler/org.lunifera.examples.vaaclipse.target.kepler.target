@@ -1,67 +1,252 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target includeMode="feature" name="org.lunifera.p2.target.juno" sequenceNumber="89">
+<?pde version="3.8"?><target includeMode="feature" name="org.lunifera.examples.vaaclipse.target.kepler" sequenceNumber="98">
 <locations>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.hamcrest" version="1.1.0.v20090501071000"/>
-<unit id="org.slf4j.api" version="1.6.4.v20120130-2120"/>
-<unit id="org.hamcrest.library" version="1.1.0.v20090501071000"/>
-<unit id="org.junit" version="4.10.0.v4_10_0_v20120426-0900"/>
-<unit id="org.hamcrest.integration" version="1.1.0.v20090501071000"/>
-<unit id="org.hamcrest.text" version="1.1.0.v20090501071000"/>
-<unit id="org.hamcrest.core" version="1.1.0.v20090501071000"/>
-<unit id="org.apache.derby" version="10.5.1.1_v201108232300"/>
-<repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20120526062928/repository"/>
-</location>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.equinox.sdk.feature.group" version="3.9.0.v20130529-1710"/>
-<repository location="http://download.eclipse.org/releases/kepler"/>
-</location>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.rcp.feature.group" version="4.3.0.v20130605-2000"/>
-<unit id="org.eclipse.rcp.source.feature.group" version="4.3.0.v20130605-2000"/>
-<repository location="http://download.eclipse.org/eclipse/updates/4.3-I-builds"/>
-</location>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.apache.commons.logging" version="1.1.1.v201101211721"/>
-<unit id="org.apache.commons.logging.source" version="1.1.1.v201101211721"/>
-<repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20120526062928/repository"/>
-</location>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.emf.sdk.feature.group" version="2.9.0.v20130603-0742"/>
-<repository location="http://download.eclipse.org/releases/kepler"/>
-</location>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.xtext.sdk.feature.group" version="2.4.2.v201306040922"/>
-<unit id="org.eclipse.platform.sdk" version="4.3.0.I20130530-1430"/>
-<repository location="http://download.eclipse.org/releases/kepler"/>
-</location>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.json" version="1.0.0.v201011060100"/>
-<repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20120526062928/repository"/>
-</location>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.lunifera.dependencies.feature.equinox.source.feature.group" version="3.9.0.201306102153"/>
-<unit id="org.lunifera.runtime.feature.common.source.feature.group" version="0.0.1.201306102156"/>
-<unit id="org.lunifera.runtime.feature.configuration.manager.feature.group" version="0.0.1.201306102156"/>
-<unit id="org.lunifera.runtime.feature.common.feature.group" version="0.0.1.201306102156"/>
-<unit id="org.lunifera.runtime.feature.logging.equinox.over.slf4j.source.feature.group" version="0.0.1.201306102156"/>
-<unit id="org.lunifera.dependencies.feature.vaadin.feature.group" version="7.1.0.201306102153"/>
-<unit id="org.lunifera.dependencies.feature.equinox.feature.group" version="3.9.0.201306102153"/>
-<unit id="org.lunifera.runtime.feature.configuration.manager.source.feature.group" version="0.0.1.201306102156"/>
-<unit id="org.lunifera.runtime.feature.logging.equinox.over.slf4j.feature.group" version="0.0.1.201306102156"/>
+<unit id="org.lunifera.runtime.feature.configuration.manager.source.feature.group" version="0.0.1.201309150501"/>
+<unit id="org.lunifera.dependencies.feature.vaadin.feature.group" version="7.1.0.201309150458"/>
+<unit id="org.lunifera.dependencies.feature.logback.feature.group" version="1.0.13"/>
+<unit id="org.lunifera.container.equinox.kepler.server.feature.feature.group" version="3.9.0"/>
+<unit id="org.lunifera.runtime.feature.configuration.manager.feature.group" version="0.0.1.201309150501"/>
+<unit id="org.lunifera.dependencies.feature.security.shiro.feature.group" version="1.2.2"/>
+<unit id="org.lunifera.dependencies.feature.atmosphere.feature.group" version="1.0.14.201309150458"/>
+<unit id="org.lunifera.dependencies.feature.assert-utilities.feature.group" version="1.2.2"/>
+<unit id="org.lunifera.runtime.feature.common.source.feature.group" version="0.0.1.201309150501"/>
+<unit id="org.lunifera.runtime.feature.common.feature.group" version="0.0.1.201309150501"/>
+<unit id="org.lunifera.runtime.feature.logging.equinox.over.slf4j.feature.group" version="0.0.1.201309150501"/>
 <repository location="http://lun.lunifera.org/downloads/p2/lunifera/kepler/latest/"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.objenesis.source" version="1.0.0.v201105211943"/>
-<unit id="org.objenesis" version="1.0.0.v201105211943"/>
-<unit id="javax.annotation.source" version="1.1.0.v201108011116"/>
-<unit id="javax.annotation" version="1.1.0.v201108011116"/>
-<repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20120526062928/repository"/>
+<unit id="org.eclipse.emf.ecore.feature.group" version="2.9.0.v20130528-0742"/>
+<unit id="org.eclipse.platform.feature.group" version="4.3.0.v20130605-2000"/>
+<repository location="http://download.eclipse.org/releases/kepler"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.semanticsoft.vaaclipse.feature.runtime.core.source.feature.group" version="0.0.1.201306232002"/>
-<unit id="org.semanticsoft.vaaclipse.feature.runtime.core.feature.group" version="0.0.1.201306232002"/>
+<unit id="org.semanticsoft.vaaclipse.feature.runtime.core.source.feature.group" version="1.0.0.201309142024"/>
+<unit id="org.semanticsoft.vaaclipse.feature.runtime.core.feature.group" version="1.0.0.201309142024"/>
 <repository location="http://lun.lunifera.org/downloads/p2/vaaclipse/nightly/"/>
 </location>
 </locations>
+<includeBundles>
+<plugin id="org.eclipse.core.filebuffers.source"/>
+<plugin id="org.apache.felix.gogo.runtime.source"/>
+<plugin id="org.eclipse.e4.ui.css.core.source"/>
+<plugin id="org.eclipse.e4.core.di.source"/>
+<plugin id="org.eclipse.text.source"/>
+<plugin id="org.eclipse.e4.ui.workbench.addons.swt.source"/>
+<plugin id="org.eclipse.equinox.security.source"/>
+<plugin id="org.eclipse.equinox.p2.console.source"/>
+<plugin id="org.eclipse.equinox.p2.ui.importexport.source"/>
+<plugin id="org.apache.mina.core.source"/>
+<plugin id="org.eclipse.jface.databinding.source"/>
+<plugin id="org.w3c.css.sac.source"/>
+<plugin id="org.eclipse.ui.ide.application.source"/>
+<plugin id="org.eclipse.equinox.console.source"/>
+<plugin id="org.eclipse.equinox.p2.garbagecollector.source"/>
+<feature id="org.eclipse.help"/>
+<plugin id="org.eclipse.ui.intro.universal.source"/>
+<plugin id="org.eclipse.equinox.metatype.source"/>
+<plugin id="org.eclipse.ui.console.source"/>
+<plugin id="org.eclipse.equinox.p2.touchpoint.natives.source"/>
+<plugin id="org.eclipse.osgi.source"/>
+<plugin id="org.eclipse.e4.ui.css.swt.source"/>
+<plugin id="javax.servlet.jsp.source"/>
+<plugin id="org.eclipse.equinox.p2.reconciler.dropins.source"/>
+<plugin id="org.eclipse.e4.ui.bindings.source"/>
+<plugin id="org.eclipse.equinox.device.source"/>
+<plugin id="org.eclipse.emf.ecore.change.source"/>
+<feature id="org.lunifera.dependencies.feature.logback"/>
+<plugin id="org.eclipse.equinox.event.source"/>
+<plugin id="org.eclipse.core.variables.source"/>
+<plugin id="org.apache.felix.gogo.shell.source"/>
+<plugin id="org.eclipse.equinox.p2.repository.source"/>
+<plugin id="org.eclipse.ui.externaltools.source"/>
+<feature id="org.semanticsoft.vaaclipse.feature.runtime.core"/>
+<plugin id="org.apache.batik.util.gui.source"/>
+<plugin id="org.eclipse.compare.core.source"/>
+<plugin id="org.eclipse.e4.ui.workbench.swt.source"/>
+<plugin id="org.eclipse.core.databinding.property.source"/>
+<plugin id="org.eclipse.ecf.provider.filetransfer.ssl.source"/>
+<plugin id="org.eclipse.ui.source"/>
+<plugin id="org.eclipse.e4.ui.services.source"/>
+<plugin id="org.eclipse.jface.source"/>
+<plugin id="org.eclipse.e4.ui.widgets.source"/>
+<plugin id="org.eclipse.jetty.util.source"/>
+<feature id="org.eclipse.equinox.p2.core.feature"/>
+<feature id="org.lunifera.runtime.feature.logging.equinox.over.slf4j"/>
+<plugin id="org.eclipse.jsch.ui.source"/>
+<plugin id="org.eclipse.ui.workbench.texteditor.source"/>
+<plugin id="javax.servlet.source"/>
+<plugin id="org.eclipse.equinox.p2.director.source"/>
+<plugin id="org.eclipse.equinox.wireadmin.source"/>
+<plugin id="org.eclipse.emf.databinding.source"/>
+<plugin id="org.eclipse.team.ui.source"/>
+<plugin id="org.eclipse.ui.ide.source"/>
+<plugin id="org.eclipse.equinox.p2.ql.source"/>
+<plugin id="org.eclipse.ui.forms.source"/>
+<plugin id="org.eclipse.core.net.source"/>
+<plugin id="org.eclipse.emf.ecore.xmi.source"/>
+<plugin id="org.eclipse.equinox.p2.artifact.repository.source"/>
+<plugin id="org.eclipse.equinox.p2.publisher.eclipse.source"/>
+<plugin id="org.eclipse.equinox.launcher.source"/>
+<plugin id="org.eclipse.jetty.security.source"/>
+<plugin id="org.eclipse.equinox.http.registry.source"/>
+<plugin id="org.eclipse.core.databinding.source"/>
+<plugin id="org.eclipse.core.expressions.source"/>
+<plugin id="org.eclipse.ltk.core.refactoring.source"/>
+<plugin id="org.apache.lucene.core.source"/>
+<feature id="org.eclipse.platform"/>
+<plugin id="org.eclipse.equinox.cm.source"/>
+<plugin id="com.ibm.icu.source"/>
+<plugin id="org.eclipse.ui.navigator.resources.source"/>
+<plugin id="org.eclipse.equinox.jsp.jasper.source"/>
+<plugin id="org.eclipse.core.runtime.compatibility.registry.source"/>
+<plugin id="org.eclipse.debug.ui.source"/>
+<plugin id="org.eclipse.equinox.jsp.jasper.registry.source"/>
+<plugin id="org.eclipse.equinox.util.source"/>
+<plugin id="org.eclipse.jface.text.source"/>
+<plugin id="org.eclipse.e4.ui.model.workbench.source"/>
+<plugin id="com.google.inject.source"/>
+<plugin id="org.hamcrest.library"/>
+<plugin id="org.eclipse.equinox.security.ui.source"/>
+<plugin id="org.w3c.dom.svg.source"/>
+<plugin id="org.eclipse.equinox.security.macosx.source"/>
+<plugin id="org.eclipse.equinox.p2.directorywatcher.source"/>
+<plugin id="org.eclipse.equinox.console.ssh.source"/>
+<plugin id="org.eclipse.equinox.p2.metadata.repository.source"/>
+<plugin id="org.eclipse.e4.ui.workbench3.source"/>
+<plugin id="org.hamcrest.integration"/>
+<plugin id="org.eclipse.equinox.common.source"/>
+<plugin id="org.apache.commons.cli.source"/>
+<plugin id="org.eclipse.equinox.p2.director.app.source"/>
+<plugin id="org.eclipse.emf.ecore.source"/>
+<feature id="org.eclipse.equinox.p2.extras.feature"/>
+<plugin id="org.eclipse.equinox.bidi.source"/>
+<plugin id="org.hamcrest.core"/>
+<plugin id="org.eclipse.equinox.coordinator.source"/>
+<plugin id="org.eclipse.ui.intro.source"/>
+<plugin id="org.eclipse.ui.navigator.source"/>
+<plugin id="org.eclipse.equinox.simpleconfigurator.source"/>
+<plugin id="org.eclipse.ecf.filetransfer.source"/>
+<plugin id="org.eclipse.osgi.util.source"/>
+<plugin id="org.eclipse.e4.ui.workbench.renderers.swt.source"/>
+<feature id="org.semanticsoft.vaaclipse.feature.runtime.core.source"/>
+<plugin id="org.apache.jasper.glassfish.source"/>
+<plugin id="org.apache.lucene.analysis.source"/>
+<plugin id="org.eclipse.equinox.p2.updatechecker.source"/>
+<plugin id="org.eclipse.e4.ui.css.swt.theme.source"/>
+<plugin id="org.eclipse.equinox.p2.updatesite.source"/>
+<plugin id="org.eclipse.search.source"/>
+<plugin id="org.eclipse.help.ui.source"/>
+<feature id="org.eclipse.e4.rcp"/>
+<feature id="org.lunifera.runtime.feature.common.source"/>
+<plugin id="org.eclipse.help.webapp.source"/>
+<plugin id="org.eclipse.ecf.ssl.source"/>
+<plugin id="org.eclipse.core.contenttype.source"/>
+<plugin id="org.eclipse.emf.common.source"/>
+<plugin id="org.eclipse.equinox.region.source"/>
+<plugin id="org.eclipse.equinox.simpleconfigurator.manipulator.source"/>
+<plugin id="org.apache.felix.gogo.command.source"/>
+<plugin id="org.eclipse.ecf.provider.filetransfer.httpclient4.source"/>
+<plugin id="org.eclipse.swt.cocoa.macosx.x86_64.source"/>
+<plugin id="org.eclipse.equinox.app.source"/>
+<plugin id="org.eclipse.ecf.provider.filetransfer.source"/>
+<plugin id="org.eclipse.equinox.p2.ui.sdk.scheduler.source"/>
+<feature id="org.lunifera.dependencies.feature.security.shiro"/>
+<feature id="org.lunifera.runtime.feature.configuration.manager"/>
+<plugin id="org.eclipse.equinox.registry.source"/>
+<plugin id="org.apache.ant.source"/>
+<plugin id="javax.inject.source"/>
+<plugin id="org.eclipse.core.databinding.beans.source"/>
+<plugin id="org.eclipse.equinox.p2.ui.source"/>
+<feature id="org.eclipse.equinox.p2.user.ui"/>
+<plugin id="org.eclipse.equinox.p2.extensionlocation.source"/>
+<feature id="org.lunifera.runtime.feature.configuration.manager.source"/>
+<plugin id="org.eclipse.core.runtime.source"/>
+<plugin id="org.eclipse.core.commands.source"/>
+<plugin id="org.eclipse.equinox.p2.touchpoint.eclipse.source"/>
+<plugin id="org.eclipse.equinox.p2.engine.source"/>
+<plugin id="org.eclipse.equinox.frameworkadmin.equinox.source"/>
+<plugin id="org.eclipse.core.jobs.source"/>
+<plugin id="org.hamcrest.core.source"/>
+<plugin id="org.eclipse.debug.core.source"/>
+<feature id="org.lunifera.dependencies.feature.atmosphere"/>
+<feature id="org.lunifera.container.equinox.kepler.server.feature"/>
+<plugin id="org.eclipse.equinox.http.servlet.source"/>
+<feature id="org.eclipse.equinox.p2.rcp.feature"/>
+<plugin id="org.eclipse.equinox.preferences.source"/>
+<plugin id="org.eclipse.ant.core.source"/>
+<plugin id="org.eclipse.equinox.supplement.source"/>
+<plugin id="org.eclipse.ltk.ui.refactoring.source"/>
+<plugin id="org.eclipse.ecf.source"/>
+<plugin id="org.quartz.source"/>
+<plugin id="org.eclipse.equinox.http.jetty.source"/>
+<plugin id="javax.xml.bind.source"/>
+<plugin id="org.eclipse.equinox.io.source"/>
+<plugin id="org.eclipse.equinox.ds.source"/>
+<plugin id="org.eclipse.e4.core.services.source"/>
+<plugin id="org.eclipse.core.databinding.observable.source"/>
+<plugin id="org.eclipse.equinox.p2.ui.sdk.source"/>
+<plugin id="org.eclipse.jetty.server.source"/>
+<plugin id="org.eclipse.equinox.p2.operations.source"/>
+<plugin id="org.eclipse.jetty.servlet.source"/>
+<plugin id="org.eclipse.equinox.p2.transport.ecf.source"/>
+<plugin id="org.eclipse.ui.editors.source"/>
+<plugin id="org.apache.commons.lang.source"/>
+<plugin id="org.eclipse.equinox.p2.jarprocessor.source"/>
+<plugin id="org.apache.httpcomponents.httpclient.source"/>
+<plugin id="org.eclipse.jetty.continuation.source"/>
+<plugin id="org.eclipse.e4.core.commands.source"/>
+<plugin id="org.eclipse.jsch.core.source"/>
+<plugin id="org.eclipse.equinox.concurrent.source"/>
+<plugin id="org.eclipse.help.source"/>
+<plugin id="org.eclipse.ui.net.source"/>
+<plugin id="org.eclipse.platform.source"/>
+<plugin id="org.junit.source"/>
+<feature id="org.lunifera.dependencies.feature.vaadin"/>
+<plugin id="org.eclipse.ecf.identity.source"/>
+<plugin id="org.lunifera.runtime.component.logging.equinox.over.slf4j.source"/>
+<plugin id="org.eclipse.e4.ui.di.source"/>
+<feature id="org.lunifera.dependencies.feature.assert-utilities"/>
+<plugin id="org.eclipse.equinox.p2.repository.tools.source"/>
+<plugin id="org.eclipse.e4.core.contexts.source"/>
+<plugin id="org.apache.sshd.core.source"/>
+<plugin id="org.eclipse.core.externaltools.source"/>
+<feature id="org.eclipse.emf.ecore"/>
+<plugin id="javax.el.source"/>
+<plugin id="org.apache.commons.codec.source"/>
+<plugin id="com.jcraft.jsch.source"/>
+<plugin id="org.eclipse.equinox.p2.publisher.source"/>
+<plugin id="org.eclipse.ui.views.source"/>
+<plugin id="org.eclipse.equinox.frameworkadmin.source"/>
+<plugin id="org.eclipse.ui.workbench.source"/>
+<plugin id="org.eclipse.core.resources.source"/>
+<plugin id="org.eclipse.update.configurator.source"/>
+<plugin id="org.eclipse.team.core.source"/>
+<plugin id="org.eclipse.ui.views.properties.tabbed.source"/>
+<plugin id="org.eclipse.compare.source"/>
+<plugin id="org.apache.batik.css.source"/>
+<plugin id="org.eclipse.help.base.source"/>
+<plugin id="org.apache.httpcomponents.httpcore.source"/>
+<plugin id="org.eclipse.ui.browser.source"/>
+<plugin id="org.eclipse.core.filesystem.source"/>
+<plugin id="org.eclipse.osgi.services.source"/>
+<plugin id="org.w3c.dom.smil.source"/>
+<plugin id="org.eclipse.e4.ui.workbench.source"/>
+<plugin id="org.eclipse.jetty.http.source"/>
+<plugin id="org.eclipse.ecf.provider.filetransfer.httpclient4.ssl.source"/>
+<plugin id="org.eclipse.core.runtime.compatibility.source"/>
+<plugin id="org.eclipse.e4.core.di.extensions.source"/>
+<plugin id="org.eclipse.ui.cheatsheets.source"/>
+<plugin id="org.apache.commons.logging.source"/>
+<plugin id="org.eclipse.equinox.p2.metadata.source"/>
+<plugin id="com.sun.el.source"/>
+<plugin id="org.eclipse.equinox.p2.core.source"/>
+<plugin id="org.eclipse.e4.ui.workbench.renderers.swt.cocoa.source"/>
+<plugin id="org.eclipse.jetty.io.source"/>
+<plugin id="org.apache.commons.beanutils.source"/>
+<plugin id="org.eclipse.equinox.ip.source"/>
+<plugin id="org.apache.batik.util.source"/>
+<feature id="org.eclipse.rcp"/>
+<feature id="org.lunifera.runtime.feature.common"/>
+</includeBundles>
 </target>
