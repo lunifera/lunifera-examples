@@ -5,10 +5,10 @@
 	<prerequisites>
 		<maven>3.0</maven>
 	</prerequisites>
-
+	
 	<parent>
-		<groupId>org.lunifera.releng</groupId>
-		<artifactId>org.lunifera.releng.parent.tycho.p2</artifactId>
+		<groupId>org.lunifera.releng.maven</groupId>
+		<artifactId>org.lunifera.releng.maven.parent.tycho.aggregator</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
@@ -25,7 +25,7 @@
 		<vaadin-version>7.1-SNAPSHOT</vaadin-version>
 		<shiro-version>1.2.1</shiro-version>
 		<lunifera.build.p2.project.name>org.lunifera.examples.p2</lunifera.build.p2.project.name>
-	</properties>
+	</properties> 
 
 	<organization>
 		<name>Lunifera.org</name>

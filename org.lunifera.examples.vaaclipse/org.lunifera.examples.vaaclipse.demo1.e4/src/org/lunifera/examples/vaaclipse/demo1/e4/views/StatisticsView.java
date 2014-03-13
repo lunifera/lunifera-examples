@@ -36,7 +36,6 @@ import org.lunifera.examples.vaaclipse.demo1.e4.editors.TaskEvents;
 import org.osgi.service.event.Event;
 import org.osgi.service.event.EventHandler;
 
-@SuppressWarnings("restriction")
 public class StatisticsView {
 
 	@Inject

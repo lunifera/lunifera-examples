@@ -117,6 +117,7 @@
   <descriptors xmi:id="_7msNYPk9EeGeg4kVMj6Vtg" elementId="org.lunifera.examples.vaaclipse.demo1.e4.part.statistics" label="Statistic" iconURI="platform:/plugin/org.lunifera.examples.vaaclipse.demo1.e4/img/statistics.png" tooltip="Shows the statistics" closeable="true" contributionURI="bundleclass://org.lunifera.examples.vaaclipse.demo1.e4/org.lunifera.examples.vaaclipse.demo1.e4.views.StatisticsView">
     <tags>View</tags>
     <tags>categoryTag:Statistics</tags>
+    <toolbar xmi:id="_mntCwKqiEeOWqpeV_qz3sQ" elementId="org.lunifera.examples.vaaclipse.demo1.e4.toolbar.0"/>
   </descriptors>
   <descriptors xmi:id="_VPArYPk-EeGeg4kVMj6Vtg" elementId="org.lunifera.examples.vaaclipse.demo1.e4.part.help" label="Help" iconURI="platform:/plugin/org.lunifera.examples.vaaclipse.demo1.e4/img/help.png" tooltip="Shows help" closeable="true" contributionURI="bundleclass://org.lunifera.examples.vaaclipse.demo1.e4/org.lunifera.examples.vaaclipse.demo1.e4.views.HelpView">
     <tags>View</tags>
