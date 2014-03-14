@@ -8,5 +8,4 @@
 	<inherits
 		name="org.semanticsoft.vaaclipse.widgets.Org_semanticsoft_vaaclipse_widgetsWidgetset" />
 	<inherits name="com.vaadin.addon.charts.Widgetset" />
-	<inherits name="com.vaadin.addon.timeline.gwt.TimelineWidgetSet" />
 </module>
