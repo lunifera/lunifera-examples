@@ -26,3 +26,4 @@ Import-Package: javax.annotation;version="1.0.0",
 Bundle-ActivationPolicy: lazy
 Bundle-Activator: org.lunifera.examples.ecview.vaadinui.Activator
 Lun-RuntimeBuilder-BundleSpace: 
+Lun-ECView-I18nProvider: 

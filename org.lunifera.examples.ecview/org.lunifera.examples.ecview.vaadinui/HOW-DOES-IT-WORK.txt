@@ -3,7 +3,11 @@ This example demonstrates, how .uimodel-files can be used in runtime to render a
 The class PersonUI implements all required logic to find the UIModel, to render the Vaadin UI and to interact
 with the view.
 
-How to get the UIModel?
+--------------------------------------------------
+--------------------------------------------------
+ 			How to get the UIModel
+--------------------------------------------------
+--------------------------------------------------
 The UIModel is located in a different bundle org.lunifera.examples.ecview.exposed.uimodels.
 
 On startup of the system, an OSGi service called IMetadataBuilderService starts working and scans all bundles
@@ -32,7 +36,12 @@ public interface IECViewAddonsMetadataService {
 The implementation of IECViewAddonsMetadataService delegates its call to the cache of the IMetadataBuilderService which 
 returns an instance of the view model.
 
-Get ViewModel:
+--------------------------------------------------
+--------------------------------------------------
+		Get UI model in Person UI
+--------------------------------------------------
+--------------------------------------------------
+
 PersonUI uses that service to get a copy of the view model.
 See PersonUI#findViewModel(String uiName)
 	
@@ -44,7 +53,11 @@ See PersonUI#findViewModel(String uiName)
 			return;
 		}
 
-Render UI:
+--------------------------------------------------
+--------------------------------------------------
+				Render UI
+--------------------------------------------------
+--------------------------------------------------
 If the PersonUI could find the view model, it will render the model to a Vaadin UI.
 		
 		VaadinRenderer renderer = new VaadinRenderer();
@@ -67,7 +80,12 @@ become bound to the UI elements.
 
 The String values of the #setBean call is the name of the datasources in the uiModel.
 
-Ui-Callbacks:
+
+--------------------------------------------------
+--------------------------------------------------
+				Ui-Callbacks
+--------------------------------------------------
+--------------------------------------------------
 The passed button callbacks let you interact with the view. The buttons in the uimodel are bound against this datasource.
 
 			datasource buttonCallback:ButtonCallback
@@ -91,7 +109,35 @@ To enable or disable the button in the UI, the method isHasNext and isHasPreviou
 Since the properties are bound to the button-enabled-states, buttons can be enabled and disabled by setting the proper boolean
 value to the button callback DTO.
 
-Note:
+--------------------------------------------------
+--------------------------------------------------
+					Note
+--------------------------------------------------
+--------------------------------------------------
 The classes from org.lunifera.examples.ecview.vaadinui need to be available in runtime. So it's MANIFEST.MF specifies the 
 bundle header "Lun-RuntimeBuilder-BundleSpace". This ensures, that the bundle is added to the BundleSpace 
 by the IMetadataBuilderService.
+
+--------------------------------------------------
+--------------------------------------------------
+				Translations I18n
+--------------------------------------------------
+--------------------------------------------------
+
+The translations for the ECView rendering engine are beeing provided by the org.lunifera.ecview.core.common.context.II18nService.
+Therefore a builder participant that collects all the translations was implemented. See org.lunifera.ecview.xtext.builder.participant.i18n.
+
+I18nBuilderParticipant collects all I18n-entries and exposes the II18nService. ECView rendering engine accesses the OSGi-service-
+registry and gets the service from there.
+
+If a bundle should provide its I18n records to the I18nBuilderParticipant, it needs to
+	1) Provide the Lun-ECView-I18nProvider bundle header in the MANIFEST.MF
+	2) Put its translations in a file with extension .properties in a i18n-folder or under OSGI-INF/l10n
+	3) Locales are calculated by the filename. myTranslations_de_AT.properties means the locale de-AT.
+
+
+	
+
+
+
+
