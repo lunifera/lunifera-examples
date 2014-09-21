@@ -1,0 +1,97 @@
+This example demonstrates, how .uimodel-files can be used in runtime to render a Vaading UI based on it.
+
+The class PersonUI implements all required logic to find the UIModel, to render the Vaadin UI and to interact
+with the view.
+
+How to get the UIModel?
+The UIModel is located in a different bundle org.lunifera.examples.ecview.exposed.uimodels.
+
+On startup of the system, an OSGi service called IMetadataBuilderService starts working and scans all bundles
+for valueable model files.
+
+The builder uses so called IBuilderParticipants to extend it's own functionality and to get the capability
+in loading different model files.
+The participant responsible for loading and processing uimodels is located in the bundle org.lunifera.ecview.xtext.builder.participant.
+LuniferaDslsBuilderParticipant is the implementation and configures the required Xtext parts and loads the uimodel-files 
+from the scanned bundles.
+
+If all bundles became scanned, each participant may register their own OSGi-services. LuniferaDslsBuilderParticipant
+registers IECViewAddonsMetadataService as an OSGi service.
+This service offers methods to find UIModels for their fully qualified name:
+
+public interface IECViewAddonsMetadataService {
+
+	/**
+	 * Returns the YView for the given model name.
+	 * 
+	 * @param modelName
+	 * @return
+	 */
+	YView getViewMetadata(String modelName);
+	
+The implementation of IECViewAddonsMetadataService delegates its call to the cache of the IMetadataBuilderService which 
+returns an instance of the view model.
+
+Get ViewModel:
+PersonUI uses that service to get a copy of the view model.
+See PersonUI#findViewModel(String uiName)
+	
+		// Person UI gets a uimodel for the fully qualified name
+		YView yView = findViewModel("org.lunifera.examples.ecview.uimodels.PersonView");
+		if (yView == null) {
+			Notification.show("PersonView could not be found!",
+					Type.ERROR_MESSAGE);
+			return;
+		}
+
+Render UI:
+If the PersonUI could find the view model, it will render the model to a Vaadin UI.
+		
+		VaadinRenderer renderer = new VaadinRenderer();
+		try {
+			viewContext = renderer.render(layout, yView, null);
+
+This call will render the Vaadin UI based on the given ui model.
+
+Registering data:
+At a last step, data objects need to be registered at the created view context. Data contained in these objects
+become bound to the UI elements.
+
+			viewContext.setBean("countryService", countryService);
+			viewContext.setBean("ds", currentPerson);
+			viewContext.setBean("buttonCallback", buttonCallback);
+
+		} catch (ContextException e) {
+			e.printStackTrace();
+		}
+
+The String values of the #setBean call is the name of the datasources in the uiModel.
+
+Ui-Callbacks:
+The passed button callbacks let you interact with the view. The buttons in the uimodel are bound against this datasource.
+
+			datasource buttonCallback:ButtonCallback
+
+			bind [this.next].click --> buttonCallback.nextPerson
+			bind [this.previous].click --> buttonCallback.previousPerson
+			bind buttonCallback.hasNext --> [this.next].enabled
+			bind buttonCallback.hasPrevious --> [this.previous].enabled
+			
+If the next button is clicked, then the setNextPerson of the button callback is called. The UI reacts about it sets
+the next instance to the view context.
+				
+				currentPerson = persons.get(++index);
+				viewContext.setBean("ds", currentPerson);
+				
+To enable or disable the button in the UI, the method isHasNext and isHasPrevious from the button callbacks is used.
+			
+			bind buttonCallback.hasNext --> [this.next].enabled
+			bind buttonCallback.hasPrevious --> [this.previous].enabled
+			
+Since the properties are bound to the button-enabled-states, buttons can be enabled and disabled by setting the proper boolean
+value to the button callback DTO.
+
+Note:
+The classes from org.lunifera.examples.ecview.vaadinui need to be available in runtime. So it's MANIFEST.MF specifies the 
+bundle header "Lun-RuntimeBuilder-BundleSpace". This ensures, that the bundle is added to the BundleSpace 
+by the IMetadataBuilderService.

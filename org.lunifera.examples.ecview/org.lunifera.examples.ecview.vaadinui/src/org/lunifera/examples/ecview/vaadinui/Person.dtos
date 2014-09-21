@@ -1,0 +1,79 @@
+package org.lunifera.examples.ecview {
+
+	dto Person {
+		var String firstname;
+		var String lastname;
+		ref Address homeAddress;
+		ref Address companyAddress;
+
+		def void ecviewInitialize() {
+			
+			firstname = "Florian"
+			lastname = "Pirchner"
+			
+			val Address homeAddress = new Address 
+			homeAddress.street = "Stephansplace 1" 
+			homeAddress.city = "Vienna" 
+			homeAddress.postalcode = "1010" 
+			this.homeAddress = homeAddress 
+			
+			val Address companyAddress = new Address
+			companyAddress.street = "Prater" 
+			companyAddress.city = "Vienna" 
+			companyAddress.postalcode = "1220"
+			this.companyAddress = companyAddress
+		}
+	}
+ 
+	dto Address {
+		var String street;
+		var String city;
+		var String postalcode;
+		ref Country country;
+	}
+
+	dto CountryService {
+		ref Country[*] countries opposite parent;
+
+		def void ecviewInitialize() {
+			val Country germany = new Country() 
+			germany.name = "Germany" 
+			germany.isoCode = "DE" 
+			germany.imagePath = "icons/flags/de.gif" 
+			addToCountries(germany)  
+			
+			val Country austria = new Country 
+			austria.name = "Austria"
+			austria.isoCode = "AT" 
+			austria.imagePath = "icons/flags/at.gif" 
+			addToCountries(austria)
+		}
+		
+		def void initService() {
+			val Country germany = new Country() 
+			germany.name = "Germany" 
+			germany.isoCode = "DE" 
+			germany.imagePath = "icons/flags/de.gif" 
+			addToCountries(germany)  
+			
+			val Country austria = new Country 
+			austria.name = "Austria"
+			austria.isoCode = "AT" 
+			austria.imagePath = "icons/flags/at.gif" 
+			addToCountries(austria)
+			
+			val Country brazil = new Country 
+			brazil.name = "Brazli"
+			brazil.isoCode = "BR" 
+			brazil.imagePath = "icons/flags/br.gif" 
+			addToCountries(brazil)
+		}
+	}
+
+	dto Country {
+		ref CountryService parent opposite countries;
+		var String isoCode;
+		var String name;
+		var String imagePath;
+	}
+}

@@ -1,0 +1,10 @@
+package org.lunifera.examples.ecview {
+
+	dto ButtonCallback {
+		var long previousPerson;
+		var long nextPerson;
+		 
+		var boolean hasNext;
+		var boolean hasPrevious;
+	}
+}

@@ -1,0 +1,71 @@
+package org.lunifera.examples.ecview.uimodels
+
+import org.lunifera.examples.ecview.*;
+
+ideview PersonView {
+
+	datasource ds:Person
+	datasource countryService:CountryService 
+	datasource buttonCallback:ButtonCallback
+	dataAlias ds.homeAddress as homeAddress
+	dataAlias ds.companyAddress as companyAddress
+  
+	verticalLayout {
+		form {
+			textfield firstname
+			textfield lastname
+
+			bind ds.firstname <--> [this.firstname].value
+			bind ds.lastname <--> [this.lastname].value
+		}
+   
+		horizontalLayout {
+			panel HomeAddress {
+				content form {
+					textfield street
+					textfield city
+		 			numericField postalcode
+					combo country {
+						type Country
+						imageField imagePath
+						captionField name
+					}
+					bind homeAddress.street <--> [this.street].value
+					bind homeAddress.city <--> [this.city].value
+					bind homeAddress.postalcode <--> [this.postalcode].value
+					bind list countryService.countries --> [this.country].collection
+					bind homeAddress.country <--> [this.country].selection
+				}
+			}
+			
+			panel CompanyAddress {
+				content form {
+					textfield street
+					textfield city
+					numericField postalcode
+					combo country {
+						type Country
+						imageField imagePath
+						captionField name
+					}
+ 
+					bind companyAddress.street <--> [this.street].value
+					bind companyAddress.city <--> [this.city].value
+					bind companyAddress.postalcode <--> [this.postalcode].value
+					bind list countryService.countries --> [this.country].collection
+					bind companyAddress.country <--> [this.country].selection
+				}
+			}
+		}
+
+		horizontalLayout {
+			button previous
+			button next
+			 
+			bind [this.next].click --> buttonCallback.nextPerson
+			bind [this.previous].click --> buttonCallback.previousPerson
+			bind buttonCallback.hasNext --> [this.next].enabled
+			bind buttonCallback.hasPrevious --> [this.previous].enabled
+		}
+	}
+}
