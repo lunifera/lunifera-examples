@@ -135,9 +135,12 @@ If a bundle should provide its I18n records to the I18nBuilderParticipant, it ne
 	2) Put its translations in a file with extension .properties in a i18n-folder or under OSGI-INF/l10n
 	3) Locales are calculated by the filename. myTranslations_de_AT.properties means the locale de-AT.
 
-
-	
-
+--------------------------------------------------
+--------------------------------------------------
+				Launching
+--------------------------------------------------
+--------------------------------------------------
+To launch the example, a launchconfig is attached in the folder launch.
 
 
 
