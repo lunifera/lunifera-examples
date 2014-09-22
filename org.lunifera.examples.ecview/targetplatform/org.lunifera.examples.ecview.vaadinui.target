@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde version="3.8"?><target includeMode="feature" name="org.lunifera.examples.ecview.vaadinui" sequenceNumber="89">
+<locations>
+<location path="${eclipse_home}" type="Profile"/>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<unit id="org.lunifera.xtext.builder.feature.ui.access.feature.group" version="0.8.3.201409212119"/>
+<unit id="org.lunifera.xtext.builder.feature.runtime.feature.group" version="0.8.3.201409212119"/>
+<unit id="org.lunifera.dependencies.feature.atmosphere.feature.group" version="2.1.2.vaadin3"/>
+<unit id="org.lunifera.ecview.feature.runtimeonly.source.feature.group" version="0.7.3.201409212201"/>
+<unit id="org.lunifera.dsl.feature.common.headless.feature.group" version="0.7.3.201409211910"/>
+<unit id="org.lunifera.dependencies.feature.vaadin.feature.group" version="7.2.5"/>
+<unit id="org.lunifera.ecview.feature.runtime.source.feature.group" version="0.7.3.201409212201"/>
+<unit id="org.lunifera.dsl.feature.metadata.builder.participant.feature.group" version="0.7.3.201409211910"/>
+<unit id="org.lunifera.mobile.vaadin.feature.touchkit.source.feature.group" version="0.7.3.201409212318"/>
+<unit id="org.lunifera.xtext.builder.feature.ui.access.source.feature.group" version="0.8.3.201409212119"/>
+<unit id="org.lunifera.xtext.builder.feature.service.xbase.feature.group" version="0.8.3.201409212119"/>
+<unit id="org.lunifera.ecview.feature.runtimeonly.feature.group" version="0.7.3.201409212201"/>
+<unit id="org.lunifera.runtime.web.feature.vaadin.components.feature.group" version="0.7.3.201409212142"/>
+<unit id="org.lunifera.xtext.builder.feature.service.jvmtypes.feature.group" version="0.8.3.201409212119"/>
+<unit id="org.lunifera.xtext.builder.feature.types.source.feature.group" version="0.8.3.201409212119"/>
+<unit id="org.lunifera.runtime.web.feature.vaadin.common.source.feature.group" version="0.7.3.201409212142"/>
+<unit id="org.lunifera.ecview.feature.runtime.feature.group" version="0.7.3.201409212201"/>
+<unit id="org.lunifera.xtext.builder.feature.service.xbase.source.feature.group" version="0.8.3.201409212119"/>
+<unit id="org.lunifera.xtext.builder.feature.types.feature.group" version="0.8.3.201409212119"/>
+<unit id="org.lunifera.runtime.web.feature.ecview.presentation.vaadin.source.feature.group" version="0.7.3.201409212142"/>
+<unit id="org.lunifera.dependencies.feature.jetty.websockets.feature.group" version="8.1.15"/>
+<unit id="org.lunifera.mobile.vaadin.feature.ecview.feature.group" version="0.7.3.201409212318"/>
+<unit id="org.lunifera.dsl.feature.entities.headless.feature.group" version="0.7.3.201409211910"/>
+<unit id="org.lunifera.runtime.web.feature.vaadin.databinding.feature.group" version="0.7.3.201409212142"/>
+<unit id="org.lunifera.runtime.web.feature.vaadin.common.feature.group" version="0.7.3.201409212142"/>
+<unit id="org.lunifera.runtime.web.feature.vaadin.databinding.source.feature.group" version="0.7.3.201409212142"/>
+<unit id="org.lunifera.dsl.feature.metadata.builder.participant.source.feature.group" version="0.7.3.201409211910"/>
+<unit id="org.lunifera.mobile.vaadin.feature.ecview.source.feature.group" version="0.7.3.201409212318"/>
+<unit id="org.lunifera.runtime.web.feature.vaadin.components.source.feature.group" version="0.7.3.201409212142"/>
+<unit id="org.lunifera.runtime.web.feature.ecview.presentation.vaadin.feature.group" version="0.7.3.201409212142"/>
+<unit id="org.lunifera.dsl.feature.dto.headless.feature.group" version="0.7.3.201409211910"/>
+<unit id="org.lunifera.xtext.builder.feature.service.jvmtypes.source.feature.group" version="0.8.3.201409212119"/>
+<unit id="org.lunifera.runtime.feature.common.source.feature.group" version="0.7.1.201407011710"/>
+<unit id="org.lunifera.xtext.builder.feature.runtime.source.feature.group" version="0.8.3.201409212119"/>
+<unit id="org.lunifera.mobile.vaadin.feature.touchkit.feature.group" version="0.7.3.201409212318"/>
+<unit id="org.lunifera.dsl.feature.dto.headless.source.feature.group" version="0.7.3.201409211910"/>
+<unit id="org.lunifera.dsl.feature.common.headless.source.feature.group" version="0.7.3.201409211910"/>
+<unit id="org.lunifera.runtime.feature.common.feature.group" version="0.7.1.201407011710"/>
+<unit id="org.lunifera.dsl.feature.entities.headless.source.feature.group" version="0.7.3.201409211910"/>
+<repository location="http://lun.lunifera.org/downloads/p2/lunifera/luna/latest/"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<unit id="org.apache.commons.io.source" version="2.2.0.v201405211200"/>
+<unit id="javax.servlet" version="3.1.0.v20140303-1611"/>
+<unit id="org.apache.commons.lang3.source" version="3.1.0.v201403281430"/>
+<unit id="javax.activation.source" version="1.1.0.v201211130549"/>
+<unit id="org.apache.commons.lang3" version="3.1.0.v201403281430"/>
+<unit id="org.apache.commons.collections.source" version="3.2.0.v2013030210310"/>
+<unit id="javax.servlet.source" version="3.1.0.v20140303-1611"/>
+<unit id="javax.activation" version="1.1.0.v201211130549"/>
+<unit id="javax.transaction.source" version="1.1.1.v201105210645"/>
+<unit id="org.apache.commons.collections" version="3.2.0.v2013030210310"/>
+<unit id="org.apache.commons.io" version="2.2.0.v201405211200"/>
+<unit id="javax.transaction" version="1.1.1.v201105210645"/>
+<repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20140525021250/repository/"/>
+</location>
+</locations>
+</target>
