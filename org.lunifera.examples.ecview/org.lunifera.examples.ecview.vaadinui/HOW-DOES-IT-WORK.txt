@@ -1,4 +1,4 @@
-This example demonstrates, how .uimodel-files can be used in runtime to render a Vaading UI based on it.
+This example demonstrates how .uimodel-files can be used in runtime to render a Vaading UI based on them.
 
 The class PersonUI implements all required logic to find the UIModel, to render the Vaadin UI and to interact
 with the view.
@@ -8,18 +8,19 @@ with the view.
  			How to get the UIModel
 --------------------------------------------------
 --------------------------------------------------
-The UIModel is located in a different bundle org.lunifera.examples.ecview.exposed.uimodels.
+
+The UIModel is located in a different bundle (org.lunifera.examples.ecview.exposed.uimodels).
 
 On startup of the system, an OSGi service called IMetadataBuilderService starts working and scans all bundles
-for valueable model files.
+for suitable model files.
 
-The builder uses so called IBuilderParticipants to extend it's own functionality and to get the capability
-in loading different model files.
+The builder uses so called IBuilderParticipants to extend its own functionality and to get the capability
+to load different model files.
 The participant responsible for loading and processing uimodels is located in the bundle org.lunifera.ecview.xtext.builder.participant.
-LuniferaDslsBuilderParticipant is the implementation and configures the required Xtext parts and loads the uimodel-files 
+LuniferaDslsBuilderParticipant is the implementation and configures the required Xtext parts and loads the .uimodel-files 
 from the scanned bundles.
 
-If all bundles became scanned, each participant may register their own OSGi-services. LuniferaDslsBuilderParticipant
+After all bundles have been scanned, each participant may register their own OSGi-services. LuniferaDslsBuilderParticipant
 registers IECViewAddonsMetadataService as an OSGi service.
 This service offers methods to find UIModels for their fully qualified name:
 
@@ -58,6 +59,7 @@ See PersonUI#findViewModel(String uiName)
 				Render UI
 --------------------------------------------------
 --------------------------------------------------
+
 If the PersonUI could find the view model, it will render the model to a Vaadin UI.
 		
 		VaadinRenderer renderer = new VaadinRenderer();
@@ -67,8 +69,8 @@ If the PersonUI could find the view model, it will render the model to a Vaadin 
 This call will render the Vaadin UI based on the given ui model.
 
 Registering data:
-At a last step, data objects need to be registered at the created view context. Data contained in these objects
-become bound to the UI elements.
+As a last step, data objects need to be registered with the created view context. Data contained in these objects
+are bound to the UI elements.
 
 			viewContext.setBean("countryService", countryService);
 			viewContext.setBean("ds", currentPerson);
@@ -83,10 +85,11 @@ The String values of the #setBean call is the name of the datasources in the uiM
 
 --------------------------------------------------
 --------------------------------------------------
-				Ui-Callbacks
+				Ui Callbacks
 --------------------------------------------------
 --------------------------------------------------
-The passed button callbacks let you interact with the view. The buttons in the uimodel are bound against this datasource.
+
+Passing button callbacks lets you interact with the view. The buttons in the uimodel are bound against this datasource.
 
 			datasource buttonCallback:ButtonCallback
 
@@ -95,7 +98,7 @@ The passed button callbacks let you interact with the view. The buttons in the u
 			bind buttonCallback.hasNext --> [this.next].enabled
 			bind buttonCallback.hasPrevious --> [this.previous].enabled
 			
-If the next button is clicked, then the setNextPerson of the button callback is called. The UI reacts about it sets
+If the "next" button is clicked, then the setNextPerson of the button callback is called. The UI reacts and sets
 the next instance to the view context.
 				
 				currentPerson = persons.get(++index);
@@ -114,8 +117,9 @@ value to the button callback DTO.
 					Note
 --------------------------------------------------
 --------------------------------------------------
-The classes from org.lunifera.examples.ecview.vaadinui need to be available in runtime. So it's MANIFEST.MF specifies the 
-bundle header "Lun-RuntimeBuilder-BundleSpace". This ensures, that the bundle is added to the BundleSpace 
+
+The classes from org.lunifera.examples.ecview.vaadinui need to be available in runtime. So its MANIFEST.MF specifies the 
+bundle header "Lun-RuntimeBuilder-BundleSpace". This ensures that the bundle is added to the BundleSpace 
 by the IMetadataBuilderService.
 
 --------------------------------------------------
@@ -124,10 +128,10 @@ by the IMetadataBuilderService.
 --------------------------------------------------
 --------------------------------------------------
 
-The translations for the ECView rendering engine are beeing provided by the org.lunifera.ecview.core.common.context.II18nService.
+The translations for the ECView rendering engine are provided by the org.lunifera.ecview.core.common.context.II18nService.
 Therefore a builder participant that collects all the translations was implemented. See org.lunifera.ecview.xtext.builder.participant.i18n.
 
-I18nBuilderParticipant collects all I18n-entries and exposes the II18nService. ECView rendering engine accesses the OSGi-service-
+I18nBuilderParticipant collects all I18n-entries and exposes the II18nService. The ECView rendering engine accesses the OSGi-service-
 registry and gets the service from there.
 
 If a bundle should provide its I18n records to the I18nBuilderParticipant, it needs to
@@ -140,6 +144,7 @@ If a bundle should provide its I18n records to the I18nBuilderParticipant, it ne
 				Launching
 --------------------------------------------------
 --------------------------------------------------
+
 To launch the example, a launchconfig is attached in the folder launch.
 
 
