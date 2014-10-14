@@ -1,0 +1,46 @@
+package org.lunifera.examples.ecview.model.jpa.services
+
+ideview PersonSearchView {
+	rootType org.lunifera.examples.ecview.model.jpa.dtos.PersonDto
+
+	datasource selection:org.lunifera.examples.ecview.model.jpa.dtos.PersonDto
+
+	verticalLayout {
+		panel searchPanelx {
+			content
+			verticalLayout {
+				searchPanel searchFields {
+					type org.lunifera.examples.ecview.model.jpa.dtos.PersonDto
+					searchfield firstname
+					searchfield lastname
+					searchfield age
+					searchfield married
+				}
+				button applyFilter
+
+				bind [this.applyFilter].click --> [this.searchFields].applyFilter
+			}
+		}
+
+		table master {
+			type org.lunifera.examples.ecview.model.jpa.dtos.PersonDto
+			useBeanService
+
+			imageField imagePath
+
+			columns {
+				column firstname
+				column lastname
+				column age
+				column gender
+				column mailaddress
+				column married
+			}
+
+			bind [this].selection --> selection
+		}
+		align top-fill
+
+		bind [this.searchPanelx.searchFields].filter --> [this.master].filter
+	}
+}
