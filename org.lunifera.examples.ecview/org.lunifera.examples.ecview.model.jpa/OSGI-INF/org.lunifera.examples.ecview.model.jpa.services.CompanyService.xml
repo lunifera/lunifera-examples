@@ -12,3 +12,4 @@
        		policy="dynamic" bind="bindMapper" unbind="unbindMapper" 
        		target="(dto=org.lunifera.examples.ecview.model.jpa.dtos.CompanyDto)"/>
 </scr:component>
+ 

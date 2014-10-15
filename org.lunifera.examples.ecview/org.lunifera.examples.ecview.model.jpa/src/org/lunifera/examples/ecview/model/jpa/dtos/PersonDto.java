@@ -2,10 +2,13 @@ package org.lunifera.examples.ecview.model.jpa.dtos;
 
 import java.io.Serializable;
 import java.util.Date;
+
 import org.lunifera.examples.ecview.model.jpa.Gender;
 import org.lunifera.examples.ecview.model.jpa.dtos.AddressDto;
 import org.lunifera.examples.ecview.model.jpa.dtos.BaseDto;
 import org.lunifera.examples.ecview.model.jpa.dtos.CompanyDto;
+import org.lunifera.runtime.common.annotations.DomainEmbedded;
+import org.lunifera.runtime.common.annotations.DomainReference;
 
 @SuppressWarnings("all")
 public class PersonDto extends BaseDto implements Serializable {
@@ -21,14 +24,16 @@ public class PersonDto extends BaseDto implements Serializable {
   
   private boolean married;
   
+  @DomainEmbedded
   private AddressDto address;
   
   private Gender gender;
   
   private String imagePath;
-  
+
+  @DomainReference
   private CompanyDto employer;
-  
+
   /**
    * Checks whether the object is disposed.
    * @throws RuntimeException if the object is disposed.
