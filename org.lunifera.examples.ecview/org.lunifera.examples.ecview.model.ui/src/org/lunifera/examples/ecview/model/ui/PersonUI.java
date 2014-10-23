@@ -25,9 +25,9 @@ import org.lunifera.ecview.core.common.context.II18nService;
 import org.lunifera.ecview.core.common.context.IViewContext;
 import org.lunifera.ecview.core.common.model.core.YExposedAction;
 import org.lunifera.ecview.core.common.model.core.YView;
+import org.lunifera.ecview.core.vaadin.presentation.VaadinRenderer;
 import org.lunifera.ecview.xtext.builder.participant.IECViewAddonsMetadataService;
 import org.lunifera.examples.ecview.model.jpa.dtos.PersonDto;
-import org.lunifera.runtime.web.ecview.presentation.vaadin.VaadinRenderer;
 import org.osgi.util.tracker.ServiceTracker;
 
 import com.vaadin.annotations.Push;

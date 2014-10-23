@@ -24,10 +24,7 @@ import org.lunifera.ecview.core.common.context.ContextException;
 import org.lunifera.ecview.core.common.context.IViewContext;
 import org.lunifera.ecview.core.common.model.core.YView;
 import org.lunifera.ecview.xtext.builder.participant.IECViewAddonsMetadataService;
-import org.lunifera.examples.ecview.Address;
 import org.lunifera.examples.ecview.ButtonCallback;
-import org.lunifera.examples.ecview.CountryService;
-import org.lunifera.examples.ecview.Person;
 import org.lunifera.examples.ecview.vaadinui.Activator;
 import org.lunifera.runtime.web.ecview.presentation.vaadin.VaadinRenderer;
 import org.osgi.util.tracker.ServiceTracker;
@@ -107,10 +104,10 @@ public class PersonUI extends UI implements PropertyChangeListener {
 			} else {
 				buttonCallback.setHasPrevious(true);
 			}
-			
-			if(index < 2){
+
+			if (index < 2) {
 				buttonCallback.setHasNext(true);
-			}else{
+			} else {
 				buttonCallback.setHasNext(false);
 			}
 		} else if (evt.getPropertyName() == "nextPerson") {
@@ -123,10 +120,10 @@ public class PersonUI extends UI implements PropertyChangeListener {
 			} else {
 				buttonCallback.setHasNext(true);
 			}
-			
-			if(index > 0){
+
+			if (index > 0) {
 				buttonCallback.setHasPrevious(true);
-			}else{
+			} else {
 				buttonCallback.setHasPrevious(false);
 			}
 		}

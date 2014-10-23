@@ -4,6 +4,15 @@ import org.lunifera.examples.ecview.*;
 
 ideview PersonView {
 
+	rootType Person
+
+	exposedActions {
+		save id org.lunifera.actions.save
+		load id org.lunifera.actions.load
+		find id org.lunifera.actions.find
+		delete id org.lunifera.actions.delete
+	}
+
 	datasource ds:Person
 	datasource countryService:CountryService 
 	datasource buttonCallback:ButtonCallback

@@ -7,4 +7,4 @@ package org.lunifera.examples.ecview {
 		var boolean hasNext;
 		var boolean hasPrevious;
 	}
-}
+} 

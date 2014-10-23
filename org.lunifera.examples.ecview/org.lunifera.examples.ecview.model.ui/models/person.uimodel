@@ -2,58 +2,55 @@ package org.lunifera.examples.ecview.model.jpa.services
 
 ideview PersonView {
 	rootType org.lunifera.examples.ecview.model.jpa.dtos.PersonDto 
-	
-	exposedActions {
-		load icon "icons/load.gif" id org.lunifera.actions.load
-		save icon "icons/save.gif" id org.lunifera.actions.save
-		delete icon "icons/trash.gif" id org.lunifera.actions.delete
-		find icon "icons/search.gif" id org.lunifera.actions.find
-	}
-
-	datasource ds:org.lunifera.examples.ecview.model.jpa.dtos.PersonDto
+//	exposedActions {
+//		load icon "icons/load.gif" id org.lunifera.actions.load
+//		save icon "icons/save.gif" id org.lunifera.actions.save
+//		delete icon "icons/trash.gif" id org.lunifera.actions.delete
+//		find icon "icons/search.gif" id org.lunifera.actions.find
+//	} 
+   
+ 	datasource ds:org.lunifera.examples.ecview.model.jpa.dtos.PersonDto
 
 	verticalLayout {
 		horizontalLayout {
-			autowire source ds
-//			form {
-//				textfield firstname
-//				textfield mailaddress
-//				numericField age
-//				optionsgroup gender {
-//					type org.lunifera.examples.ecview.model.jpa.Gender
-//				}
-//				label placeholder
-//				textfield addressstreet
-//				textfield addresscity
-//				textfield addresscountry
-//
-//				bind ds.firstname <--> [this.firstname].value
-//				bind ds.mailaddress <--> [this.mailaddress].value
-//				bind ds.age <--> [this.age].value
-//				bind ds.gender <--> [this.gender].selection
-//				bind ds.address.street <--> [this.addressstreet].value
-//				bind ds.address.city <--> [this.addresscity].value
-//				bind ds.address.country <--> [this.addresscountry].value
+//			autowire source ds
+			form {
+				textfield firstname
+				textfield mailaddress
+				numericField age
+				optionsgroup gender {
+					type org.lunifera.examples.ecview.model.jpa.Gender
+				}
+				label placeholder
+				textfield addressstreet
+				textfield addresscity
+				textfield addresscountry
+
+				bind ds.firstname <--> [this.firstname].value
+				bind ds.mailaddress <--> [this.mailaddress].value
+				bind ds.age <--> [this.age].value
+				bind ds.gender <--> [this.gender].selection
+				bind ds.address.street <--> [this.addressstreet].value
+				bind ds.address.city <--> [this.addresscity].value
+				bind ds.address.country <--> [this.addresscountry].value
 				
-//			}
+			}
 			
-//			form {
-//				textfield lastname
-//				datefield birthday
-//				checkbox married
-//				label placeholder
-//
-//				referenceField company {
-//					type org.lunifera.examples.ecview.model.jpa.dtos.CompanyDto
-//				}
-//
-//				bind ds.firstname <--> [this.lastname].value
-//				bind ds.birthday <--> [this.birthday].value
-//				bind ds.married <--> [this.married].value
-//				bind ds.employer <--> [this.company].value
-//			}
+			form {
+				textfield lastname
+				datefield birthday
+				checkbox married
+				label placeholder
 
+				referenceField company {
+					type org.lunifera.examples.ecview.model.jpa.dtos.CompanyDto
+				}
 
+				bind ds.firstname <--> [this.lastname].value
+				bind ds.birthday <--> [this.birthday].value
+				bind ds.married <--> [this.married].value
+				bind ds.employer <--> [this.company].value
+			}
 		}
 	}
 }
